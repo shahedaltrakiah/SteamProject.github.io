@@ -1,12 +1,544 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Steam</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
-<body>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <div class="site-wrap" id="home-section">
+
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+
+
+        <!-- nav-bar -->
+        <header class="site-navbar site-navbar-target" role="banner">
+
+            <div class="container mb-3">
+                <div class="d-flex align-items-center">
+                    <div class="site-logo mr-auto">
+                        <a href="index.html">Stream<span class="text-primary">.</span>kiddy</a>
+                    </div>
+                    <div class="site-quick-contact d-none d-lg-flex ml-auto ">
+                        <div class="d-flex site-info align-items-center mr-5">
+                            <p> <a href="#" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto"> Login </a> </p>
+                        </div>
+                        <div class="d-flex site-info align-items-center">
+                            <p> <a href="#" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto"> Sign In</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="menu-wrap d-flex align-items-center">
+                    <span class="d-inline-block d-lg-none"><a href="#"
+                            class="text-black site-menu-toggle js-menu-toggle py-5"><span
+                                class="icon-menu h3 text-black"></span></a></span>
+
+
+
+                    <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
+                        <ul class="site-menu main-menu js-clone-nav mr-auto ">
+                            <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                            <li><a href="about.html" class="nav-link">About</a></li>
+                            <li><a href="courses.html" class="nav-link">Courses</a></li>
+                            <li><a href="events.html" class="nav-link">Events</a></li>
+                            <li><a href="#contact" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="top-social ml-auto">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- hero-section -->
+        <div class="ftco-blocks-cover-1">
+            <div class="site-section-cover overlay">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mt-5 pt-5">
+                            <span class="text-cursive h3 text-red">Welcome To Our Website</span>
+                            <h1 class="mb-3 font-weight-bold text-teal">Bring Fun Life To Your Kids</h1>
+                            <p>Amazing Playground for your kids</p>
+                            <div class="mt-5">
+                                <a href="#" class="btn btn-primary py-3 btn-custom-1 d-inline-block">Learn More</a>
+                                <a href="#" class="btn btn-primary py-3 btn-custom-1 d-inline-block ml-3">Join now</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ml-auto align-self-end">
+                            <img src="images/hero-bg.png" alt="Image" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- our-approach-section -->
+        <div class="site-section">
+            <div class="container">
+
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <span class="text-cursive h1 text-yellow d-block"> Our Approach </span>
+                    </div>
+                </div>
+
+                <!-- First Row -->
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="block-2 red p-4 text-center rounded"
+                            style="width: 100%; max-width: 300px; min-height: 250px;">
+                            <span class="wrap-icon mb-3 d-block">
+                                <span class="icon-home" style="font-size: 40px; color: #dc3545;"></span>
+                            </span>
+                            <h2>Indoor Games</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
+                                enim id culpa.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="block-2 yellow p-4 text-center rounded"
+                            style="width: 100%; max-width: 300px; min-height: 250px;">
+                            <span class="wrap-icon mb-3 d-block">
+                                <span class="icon-person" style="font-size: 40px; color: #ffc107;"></span>
+                            </span>
+                            <h2>Outdoor Games & Events</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
+                                enim id culpa.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="block-2 teal p-4 text-center rounded"
+                            style="width: 100%; max-width: 300px; min-height: 250px;">
+                            <span class="wrap-icon mb-3 d-block">
+                                <span class="icon-cog" style="font-size: 40px; color: #17a2b8;"></span>
+                            </span>
+                            <h2>Camping for Kids</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
+                                enim id culpa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row with spacing -->
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="block-2 orange p-4 text-center rounded"
+                            style="width: 100%; max-width: 300px; min-height: 250px;">
+                            <span class="wrap-icon mb-3 d-block">
+                                <span class="icon-cog" style="font-size: 40px; color: #fd7e14;"></span>
+                            </span>
+                            <h2>Creative Arts & Crafts</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
+                                enim id culpa.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-center">
+                        <div class="block-2 blue p-4 text-center rounded"
+                            style="width: 100%; max-width: 300px; min-height: 250px;">
+                            <span class="wrap-icon mb-3 d-block">
+                                <span class="icon-cog" style="font-size: 40px; color: #0d6efd;"></span>
+                            </span>
+                            <h2>Music & Dance Activities</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nesciunt, mollitia, hic
+                                enim id culpa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- About Us - section -->
+        <div class="site-section bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-5 mb-md-0">
+                        <img src="images/about-img.jpg" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-5 mx-auto pl-md-3 mt-5 ">
+                        <span class="text-cursive h1 text-red">About Us</span>
+                        <h3 class="text-black">Bring Fun Life To Your Kids</h3>
+                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et harum, magni sequi nostrum
+                                maxime enim.</span><span>Magnam id atque dicta deleniti, ipsam ipsum distinctio. Facilis
+                                praesentium voluptatem accusamus, earum veritatis, laudantium.</span></p>
+                        <p class="mt-4"><a href="#" class="btn btn-warning py-3 btn-custom-1">More About Us</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Counter-section -->
+        <div class=" milestones" style="background-image:url(images/counter-bg.jpg)">
+            <div class="container">
+                <div class="row justify-content-center align-items-center text-center milestone-header">
+                    <h2><span class="text-blue"> 20 Years </span> of Experience</h2>
+                </div>
+            </div>
+            <div class="milestones_container">
+                <div class="milestones_background"></div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 milestone_col">
+                            <div class="milestone text-center">
+                                <div class="milestone_icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <div class="milestone_counter" data-end-value="750">0</div>
+                                <div class="milestone_text">Current Students</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 milestone_col">
+                            <div class="milestone text-center">
+                                <div class="milestone_icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                                <div class="milestone_counter" data-end-value="120">0</div>
+                                <div class="milestone_text">Certified Teachers</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 milestone_col">
+                            <div class="milestone text-center">
+                                <div class="milestone_icon"><i class="fa-solid fa-book"></i></div>
+                                <div class="milestone_counter" data-end-value="39">0</div>
+                                <div class="milestone_text">Approved Courses</div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 milestone_col">
+                            <div class="milestone text-center">
+                                <div class="milestone_icon"><i class="fa-solid fa-user-graduate"></i></div>
+                                <div class="milestone_counter" data-end-value="3500" data-sign-before="+">0</div>
+                                <div class="milestone_text">Graduate Students</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Courses - section -->
+        <section class=" section courses" id="courses">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-lg-12 text-center">
+                        <span class="text-cursive h1 text-orange d-block">Our Courses</span>
+                    </div>
+                </div>
+                <ul class="event_filter">
+                    <li>
+                        <a class="is_active" href="#!" data-filter="*">Show All</a>
+                    </li>
+                    <li>
+                        <a href="#!" data-filter=".design">Webdesign</a>
+                    </li>
+                    <li>
+                        <a href="#!" data-filter=".development">Development</a>
+                    </li>
+                    <li>
+                        <a href="#!" data-filter=".wordpress">Wordpress</a>
+                    </li>
+                </ul>
+                <div class="row event_box">
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <a href="#"><img src="assets/images/course-01.jpg" alt=""></a>
+                                <span class="category">Webdesign</span>
+                                <span class="price">
+                                    <h6><em>$</em>160</h6>
+                                </span>
+                            </div>
+                            <div class="down-content">
+                                <span class="author">Stella Blair</span>
+                                <h4>Learn Web Design</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6  development">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <a href="#"><img src="assets/images/course-02.jpg" alt=""></a>
+                                <span class="category">Development</span>
+                                <span class="price">
+                                    <h6><em>$</em>340</h6>
+                                </span>
+                            </div>
+                            <div class="down-content">
+                                <span class="author">Cindy Walker</span>
+                                <h4>Web Development Tips</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design wordpress">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <a href="#"><img src="assets/images/course-03.jpg" alt=""></a>
+                                <span class="category">Wordpress</span>
+                                <span class="price">
+                                    <h6><em>$</em>640</h6>
+                                </span>
+                            </div>
+                            <div class="down-content">
+                                <span class="author">David Hutson</span>
+                                <h4>Latest Web Trends</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 development">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
+                                <span class="category">Development</span>
+                                <span class="price">
+                                    <h6><em>$</em>450</h6>
+                                </span>
+                            </div>
+                            <div class="down-content">
+                                <span class="author">Stella Blair</span>
+                                <h4>Online Learning Steps</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress development">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <a href="#"><img src="assets/images/course-05.jpg" alt=""></a>
+                                <span class="category">Wordpress</span>
+                                <span class="price">
+                                    <h6><em>$</em>320</h6>
+                                </span>
+                            </div>
+                            <div class="down-content">
+                                <span class="author">Sophia Rose</span>
+                                <h4>Be a WordPress Master</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress design">
+                        <div class="events_item">
+                            <div class="thumb">
+                                <a href="#"><img src="assets/images/course-06.jpg" alt=""></a>
+                                <span class="category">Webdesign</span>
+                                <span class="price">
+                                    <h6><em>$</em>240</h6>
+                                </span>
+                            </div>
+                            <div class="down-content">
+                                <span class="author">David Hutson</span>
+                                <h4>Full Stack Developer</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Events - section -->
+        <div class=" site-section section events" id="events">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <span class="text-cursive h1 text-teal d-block">Events</span>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-6">
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="image">
+                                    <img id="eventImg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-lg-9">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <h4 id="eventName"></h4>
+                                    </li>
+                                    <li>
+                                        <span>Date:</span>
+                                        <h6 id="eventDate"></h6>
+                                    </li>
+                                    <li>
+                                        <span>Duration:</span>
+                                        <h6 id="eventDuration"></h6>
+                                    </li>
+                                </ul>
+                                <a href="#" class="event-link"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Testimonial - section -->
+        <div class="site-section bg-light" id="testimonial">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <span class="text-cursive h1 text-red d-block">Testimonial</span>
+                        <h3 class="text-black">What Our Client Says About Us</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="testimonial-3-wrap">
+                            <div class="owl-carousel nonloop-block-13">
+                                <div class="testimonial-3 d-flex">
+                                    <div class="vcard-wrap mr-5">
+                                        <img id="userImg" alt="Image" class="vcard img-fluid">
+                                    </div>
+                                    <div class="text">
+                                        <h3 id="userName"></h3>
+                                        <p id="userFeedback"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner - section -->
+
+        <div class="partners-section py-5">
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <span class="text-cursive h1 text-red d-block">Our Partners</span>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-2 mb-4 d-flex justify-content-center">
+                        <img src="images/Orange_logo.svg.png" alt="Partner Logo 1" class="img-fluid">
+                    </div>
+                    <div class="col-2 mb-4 d-flex justify-content-center">
+                        <img src="images/logo_simplon.webp" alt="Partner Logo 2" class="img-fluid">
+                    </div>
+                    <div class="col-2 mb-4 d-flex justify-content-center">
+                        <img src="images/modee_logo.jpg" alt="Partner Logo 3" class="img-fluid">
+                    </div>
+                    <div class="col-2 mb-4 d-flex justify-content-center">
+                        <img src="images/PSUT_Logo.png" alt="Partner Logo 4" class="img-fluid">
+                    </div>
+                    <div class="col-2 mb-4 d-flex justify-content-center">
+                        <img src="images/amideast_logo.png" alt="Partner Logo 5" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Get Started - section -->
+
+        <div class="site-section py-5 bg-warning finalSection">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 d-flex">
+                        <h2 class="text-white m-0">Bring Fun Life To Your Kids</h2>
+                        <a href="#" class="btn btn-primary btn-custom-1 py-3 px-5 ml-auto">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer - section -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Navigation Links -->
+                    <div class="col-lg-3">
+                        <h2 class="footer-heading mb-4">Quick Link</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="pages/about.html"> About Us</a></li>
+                            <li><a href="#testimonial"> Testimonials</a></li>
+                            <li><a href="pages/contact.html"> Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Contact Information -->
+                    <div class="col-lg-4">
+                        <h2 class="footer-heading mb-4">Contact</h2>
+                        <ul class="list-unstyled contact-info">
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Street, New York, USA</li>
+                            <li><i class="fas fa-phone-alt"></i> +012 345 67890</li>
+                            <li><i class="fas fa-envelope"></i> info@example.com</li>
+                        </ul>
+                    </div>
+                    <!-- Social Media Icons -->
+                    <div class="col-lg-3">
+                        <h2 class="footer-heading mb-4">Follow Us</h2>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <!-- Logo Section -->
+                    <div class="col-lg-2 text-center">
+                        <img src="path-to-your-logo.png" alt="Logo" class="footer-logo img-fluid mb-3">
+                    </div>
+                </div>
+                <!-- Copyright Section -->
+                <div class="row pt-3 mt-4 text-center">
+                    <div class="col-md-12">
+                        <div class="border-top pt-5">
+                            <h6>
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | Stream
+                                <i class="icon-heart text-danger" aria-hidden="true"></i>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
     <script src="js/main.js"></script>
 </body>
+
 </html>
