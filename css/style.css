@@ -2796,6 +2796,7 @@ h5,
     font-weight: 500;
     color: #000000;
     margin-top: 3px;
+    font-weight: bold;
 }
 
 /* Enhanced Footer Styling */
@@ -3002,51 +3003,49 @@ Courses Style
 
 .courses {
     margin-top: 60px;
-  }
-  
-  .event_filter {
+}
+
+.event_filter {
     text-align: center;
-  }
-  
-  .event_filter {
+}
+
+.event_filter {
     background-color: #f88b6d4f;
     border-radius: 50px;
     padding: 15px 40px;
     list-style: none;
     margin: 0 auto 70px;
     max-width: max-content;
-  }
-  
-  .event_filter li {
+}
+
+.event_filter li {
     display: inline-block;
     margin: 0px 20px;
-  }
-  
-  .event_filter li a {
+}
+
+.event_filter li a {
     font-size: 14px;
     font-weight: 500;
     color: #1e1e1e;
     transition: all .3s;
-  }
-  
-  .event_filter li
-  
-  .event_filter li a.is_active,
-  .event_filter li a:hover {
+}
+
+.event_filter li .event_filter li a.is_active,
+.event_filter li a:hover {
     color: #F88C6D;
-  }
-  
-  .events_item .thumb {
+}
+
+.events_item .thumb {
     position: relative;
     border-radius: 25px;
     overflow: hidden;
-  }
-  
-  .events_item .thumb img {
+}
+
+.events_item .thumb img {
     margin-bottom: -5px;
-  }
-  
-  .events_item .thumb span.category {
+}
+
+.events_item .thumb span.category {
     position: absolute;
     left: 30px;
     top: 30px;
@@ -3058,9 +3057,9 @@ Courses Style
     border-radius: 25px;
     font-weight: 500;
     display: inline-block;
-  }
-  
-  .events_item .thumb span.price {
+}
+
+.events_item .thumb span.price {
     position: absolute;
     right: -30px;
     top: -50px;
@@ -3070,55 +3069,54 @@ Courses Style
     border-radius: 50%;
     display: inline-block;
     transition: all .3s;
-  }
-  
-  .events_item .thumb span.price h6 {
+}
+
+.events_item .thumb span.price h6 {
     margin-top: 72px;
     margin-left: 22px;
     font-size: 28px;
     text-transform: uppercase;
     color: #733625;
     font-weight: 700;
-  }
-  
-  .events_item .thumb span.price em {
+}
+
+.events_item .thumb span.price em {
     font-size: 18px;
     font-weight: 500;
     font-style: normal;
     vertical-align: top;
-  }
-  
-  .events_item {
+}
+
+.events_item {
     background-color: #f88b6d3a;
     border-radius: 25px;
     margin-bottom: 30px;
     position: relative;
     justify-content: center;
     align-items: center;
-  } 
-  
-  .events_item .down-content {
+}
+
+.events_item .down-content {
     padding: 20px 30px 25px 30px;
-  }
-  
-  .events_item .down-content span.author {
+}
+
+.events_item .down-content span.author {
     color: #F88C6D;
     font-size: 15px;
     display: inline-block;
     margin-bottom: 6px;
-  }
-  
-  .events_item .down-content h4 {
+}
+
+.events_item .down-content h4 {
     font-size: 22px;
     font-weight: 600;
     transition: all .3s;
-  }
-  
-  .events_item:hover .down-content h4 {
+}
+
+.events_item:hover .down-content h4 {
     color: #F88C6D;
-  }
-  
-  .events_item:hover .thumb span.price {
+}
+
+.events_item:hover .thumb span.price {
     transform: scale(1.2);
-  }
-  
+}
