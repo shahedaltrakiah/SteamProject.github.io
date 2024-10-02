@@ -59,7 +59,7 @@
                         </div>
                         <div class="d-flex site-info align-items-center">
                             <p class="block-icon mr-3">
-                                <a href="#" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto mt-3"> Sign In</a>
+                                <a href="#" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto mt-3"> Sign Up</a>
                             </p>
                         </div>
                     </div>
@@ -78,8 +78,8 @@
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-                            <li><a href="about.html" class="nav-link">About</a></li>
-                            <li><a href="courses.html" class="nav-link">Courses</a></li>
+                            <li><a href="pages/about.html" class="nav-link">About</a></li>
+                            <li><a href="pages/courses.html" class="nav-link">Courses</a></li>
                             <li><a href="#events" class="nav-link">Events</a></li>
                             <li><a href="#contact" class="nav-link">Contact</a></li>
                         </ul>
@@ -217,7 +217,8 @@
                                 every child. We are dedicated to creating a learning environment where curiosity
                                 thrives, and young minds are empowered to explore the world through a multi-disciplinary
                                 approach.</span></p>
-                        <p class="mt-4"><a href="pages/about.html" class="btn btn-warning py-3 btn-custom-1">More About Us</a></p>
+                        <p class="mt-4"><a href="pages/about.html" class="btn btn-warning py-3 btn-custom-1">More About
+                                Us</a></p>
                     </div>
                 </div>
             </div>
@@ -274,7 +275,7 @@
 
 
         <!-- Courses - section -->
-        <section class=" section courses" id="courses">
+        <section class="section courses" id="courses">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-lg-12 text-center">
@@ -286,103 +287,88 @@
                         <a class="is_active" href="#!" data-filter="*">Show All</a>
                     </li>
                     <li>
-                        <a href="#!" data-filter=".design">Webdesign</a>
+                        <a class="science" href="#!" data-filter=".science">Science</a>
                     </li>
                     <li>
-                        <a href="#!" data-filter=".development">Development</a>
+                        <a class="technology" href="#!" data-filter=".technology">Technology</a>
                     </li>
                     <li>
-                        <a href="#!" data-filter=".wordpress">Wordpress</a>
+                        <a class="engineering" href="#!" data-filter=".engineering">Engineering</a>
+                    </li>
+                    <li>
+                        <a class="arts"  href="#!" data-filter=".arts">Arts</a>
+                    </li>
+                    <li>
+                        <a class="math" href="#!" data-filter=".math">Math</a>
                     </li>
                 </ul>
                 <div class="row event_box">
-                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design">
-                        <div class="events_item">
+                    <!-- Science (S) -->
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer science">
+                        <div class="events_item science-card">
                             <div class="thumb">
-                                <a href="#"><img src="assets/images/course-01.jpg" alt=""></a>
-                                <span class="category">Webdesign</span>
-                                <span class="price">
-                                    <h6><em>$</em>160</h6>
-                                </span>
+                                <a href="#" ><img class="coursePic" alt=""></a>
                             </div>
                             <div class="down-content">
-                                <span class="author">Stella Blair</span>
-                                <h4>Learn Web Design</h4>
+                                <span class="categoryName"></span>
+                                <h4 class="courseName"></h4>
+                                <span class="courseAge"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6  development">
-                        <div class="events_item">
+
+                    <!-- Technology (T) -->
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer technology">
+                        <div class="events_item technology-card">
                             <div class="thumb">
-                                <a href="#"><img src="assets/images/course-02.jpg" alt=""></a>
-                                <span class="category">Development</span>
-                                <span class="price">
-                                    <h6><em>$</em>340</h6>
-                                </span>
+                                <a href="#" ><img class="coursePic" alt=""></a>
                             </div>
                             <div class="down-content">
-                                <span class="author">Cindy Walker</span>
-                                <h4>Web Development Tips</h4>
+                                <span class="categoryName"></span>
+                                <h4 class="courseName"> </h4>
+                                <span class="courseAge"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design wordpress">
-                        <div class="events_item">
+
+                    <!-- Engineering (E) -->
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer engineering">
+                        <div class="events_item engineering-card">
                             <div class="thumb">
-                                <a href="#"><img src="images/course-03.jpg" alt=""></a>
-                                <span class="category">Wordpress</span>
-                                <span class="price">
-                                    <h6><em>$</em>640</h6>
-                                </span>
+                                <a href="#" ><img class="coursePic" alt=""></a>
                             </div>
                             <div class="down-content">
-                                <span class="author">David Hutson</span>
-                                <h4>Latest Web Trends</h4>
+                                <span class="categoryName"></span>
+                                <h4 class="courseName"> </h4>
+                                <span class="courseAge"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 development">
-                        <div class="events_item">
+
+                    <!-- Arts (A) -->
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer arts">
+                        <div class="events_item arts-card">
                             <div class="thumb">
-                                <a href="#"><img src="assets/images/course-04.jpg" alt=""></a>
-                                <span class="category">Development</span>
-                                <span class="price">
-                                    <h6><em>$</em>450</h6>
-                                </span>
+                                <a href="#" ><img class="coursePic" alt=""></a>
                             </div>
                             <div class="down-content">
-                                <span class="author">Stella Blair</span>
-                                <h4>Online Learning Steps</h4>
+                                <span class="categoryName"></span>
+                                <h4 class="courseName"> </h4>
+                                <span class="courseAge"> </span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress development">
-                        <div class="events_item">
+
+                    <!-- Math (M) -->
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer math">
+                        <div class="events_item math-card">
                             <div class="thumb">
-                                <a href="#"><img src="assets/images/course-05.jpg" alt=""></a>
-                                <span class="category">Wordpress</span>
-                                <span class="price">
-                                    <h6><em>$</em>320</h6>
-                                </span>
+                                <a href="#" ><img class="coursePic" alt=""></a>
                             </div>
                             <div class="down-content">
-                                <span class="author">Sophia Rose</span>
-                                <h4>Be a WordPress Master</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress design">
-                        <div class="events_item">
-                            <div class="thumb">
-                                <a href="#"><img src="assets/images/course-06.jpg" alt=""></a>
-                                <span class="category">Webdesign</span>
-                                <span class="price">
-                                    <h6><em>$</em>240</h6>
-                                </span>
-                            </div>
-                            <div class="down-content">
-                                <span class="author">David Hutson</span>
-                                <h4>Full Stack Developer</h4>
+                                <span class="categoryName"></span>
+                                <h4 class="courseName"> </h4>
+                                <span class="courseAge"> </span>
                             </div>
                         </div>
                     </div>
@@ -442,7 +428,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="testimonial-3-wrap">
-                            <div class="owl-carousel nonloop-block-13" id = 'testimonial-carousel'>
+                            <div class="owl-carousel nonloop-block-13" id='testimonial-carousel'>
                                 <div class="testimonial-3 d-flex">
                                     <div class="vcard-wrap mr-5">
                                         <img id="userImg" alt="Image" class="vcard img-fluid">
