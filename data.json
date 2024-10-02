@@ -1,0 +1,333 @@
+{
+    "courses": [
+      {
+        "name": "Discovering the World of Dinosaurs",
+        "description": "Take an exciting journey to learn about the different types of dinosaurs and their history.",
+        "image": "images/dinosaurs.jpg",
+        "course_video": "https://youtu.be/dktnOPfE7Dc?si=gzAwmEdFj2dHREGb",
+        "target_age": "5-7",
+        "rate": 4.9,
+        "type": "science",
+        "comments": [
+          {
+            "user": "Jessica Green",
+            "comment": "A fun and educational course, perfect for my dinosaur-obsessed kid."
+          },
+          {
+            "user": "Tommy Lee",
+            "comment": "Great visuals and easy to understand for young children!"
+          }
+        ]
+      },
+      {
+        "name": "Exploring the Solar System",
+        "description": "Learn about the planets, stars, and the wonders of space through exciting visuals and simple lessons.",
+        "image": "images/solarSystem.jfif",
+        "course_video": "https://youtu.be/ErUZVWUP0c4?si=j_PDWMEqlEPv50e0",
+        "target_age": "7-10",
+        "rate": 4.8,
+        "type": "science",
+        "comments": [
+          {
+            "user": "Lucas Thompson",
+            "comment": "My son loved learning about space, the visuals were great!"
+          },
+          {
+            "user": "Isabella Harris",
+            "comment": "The content was perfectly suited for my daughter’s age and very engaging."
+          }
+        ]
+      },
+      {
+        "name": "Animal Habitats Exploration",
+        "description": "Discover different animal habitats and learn how animals adapt to their environments.",
+        "image": "images/AnimalHabitats.webp",
+        "course_video": "https://youtu.be/Xj1ASC-TlsI?si=qNRXK-IJgk1J87fT",
+        "target_age": "6-8",
+        "rate": 4.7,
+        "type": "science",
+        "comments": [
+          {
+            "user": "Olivia James",
+            "comment": "My daughter enjoyed learning about animals and their homes."
+          },
+          {
+            "user": "David Moore",
+            "comment": "A great educational experience with beautiful visuals!"
+          }
+        ]
+      },
+      {
+        "name": "Introduction to Coding with Scratch",
+        "description": "Learn basic coding concepts using Scratch, a visual programming language designed for kids.",
+        "image": "images/scratch.jpg",
+        "course_video": "https://youtu.be/_cTyVq1KHME?si=2Y0PG742i3H8XlQT",
+        "target_age": "8-12",
+        "rate": 4.8,
+        "type": "technology",
+        "comments": [
+          {
+            "user": "Jennifer Brown",
+            "comment": "This course was a great way to introduce my son to coding in a fun way."
+          },
+          {
+            "user": "David Clark",
+            "comment": "Scratch is a fantastic tool for teaching kids how to code, highly recommend!"
+          }
+        ]
+      },
+      {
+        "name": "Building a Simple Website",
+        "description": "Teach kids how to create a basic website using HTML and simple web development concepts.",
+        "image": "images/introCoding.avif",
+        "course_video": "https://youtu.be/_j4Lj-BT00g?si=lssdEu8YmX_41MHh",
+        "target_age": "9-12",
+        "rate": 4.6,
+        "type": "technology",
+        "comments": [
+          {
+            "user": "Sophie Adams",
+            "comment": "My son loved building his first website, and it was very easy to follow!"
+          },
+          {
+            "user": "Jake Wilson",
+            "comment": "Great introduction to web development for kids."
+          }
+        ]
+      },
+      {
+        "name": "Robots and Programming Basics",
+        "description": "Learn how to control simple robots and program basic commands through block-based programming.",
+        "image": "images/robotsKids.webp",
+        "course_video": "https://youtu.be/uNfUAJBuZ0s?si=anKDo-LeP8nzaXk5",
+        "target_age": "7-10",
+        "rate": 4.7,
+        "type": "technology",
+        "comments": [
+          {
+            "user": "Alex Turner",
+            "comment": "My son had so much fun learning to program robots!"
+          },
+          {
+            "user": "Mia Sanchez",
+            "comment": "A really engaging way to introduce kids to robotics and programming."
+          }
+        ]
+      },
+      {
+        "name": "Building Simple Machines",
+        "description": "Introduce young learners to the basics of engineering by building simple machines using everyday objects.",
+        "image": "images/simpleMachines.jpg",
+        "course_video": "https://youtu.be/dM6AtIy60gQ?si=tsYWTPb1YiINTKGE",
+        "target_age": "6-8",
+        "rate": 4.9,
+        "type": "engineering",
+        "comments": [
+          {
+            "user": "Anna Lewis",
+            "comment": "A great introduction to engineering concepts! My son loved the hands-on activities."
+          },
+          {
+            "user": "Mike Roberts",
+            "comment": "Perfect for young kids who are curious about how things work."
+          }
+        ]
+      },
+      {
+        "name": "Lego Engineering Challenges",
+        "description": "Develop engineering skills through fun Lego challenges designed for young builders.",
+        "image": "images/LegoChallenges.jpg",
+        "course_video": "https://youtu.be/pwQVKkZtS6k?si=CwsDBPGUeUZLmY-G",
+        "target_age": "7-9",
+        "rate": 4.8,
+        "type": "engineering",
+        "comments": [
+          {
+            "user": "George Hall",
+            "comment": "My kids loved the Lego challenges and learned so much about building!"
+          },
+          {
+            "user": "Carla Evans",
+            "comment": "Fun and educational, perfect for my son."
+          }
+        ]
+      },
+      {
+        "name": "Design and Build Your Own Bridge",
+        "description": "Learn the basics of structural engineering by designing and building a small bridge using household materials.",
+        "image": "images/DesignYourOwnBridge.avif",
+        "course_video": "https://youtu.be/lYVjbHJ1Jbc?si=GnIEcNa7oaKK9uyJ",
+        "target_age": "8-12",
+        "rate": 4.7,
+        "type": "engineering",
+        "comments": [
+          {
+            "user": "Lily Martin",
+            "comment": "A great way for kids to learn problem-solving through hands-on activities."
+          },
+          {
+            "user": "Henry Scott",
+            "comment": "My daughter had so much fun building her bridge and learning about engineering!"
+          }
+        ]
+      },
+      {
+        "name": "Creative Arts and Crafts",
+        "description": "Explore different art forms using simple materials, perfect for kids to unleash their creativity.",
+        "image": "images/creative-art.jpg",
+        "course_video": "https://youtu.be/xSsdnC896pU?si=iehhF5xavu6UjWWo",
+        "target_age": "4-7",
+        "rate": 4.7,
+        "type": "art",
+        "comments": [
+          {
+            "user": "Sarah Peterson",
+            "comment": "My daughter had so much fun creating her own little art projects."
+          },
+          {
+            "user": "Tom Willis",
+            "comment": "Great for helping kids develop their creativity while having fun!"
+          }
+        ]
+      },
+      {
+        "name": "Learning Through Music",
+        "description": "Develop listening skills and rhythm through fun musical games and songs.",
+        "image": "images/musicLesson.webp",
+        "course_video": "https://youtu.be/dUXk8Nc5qQ8?si=SGl9zlyP4cxHD3OZ",
+        "target_age": "4-6",
+        "rate": 4.7,
+        "type": "art",
+        "comments": [
+          {
+            "user": "Chris Foster",
+            "comment": "My little one had so much fun with this course and now loves music!"
+          },
+          {
+            "user": "Amy Grant",
+            "comment": "Great way to introduce music to young kids!"
+          }
+        ]
+      },
+      {
+        "name": "Storytelling and Illustration",
+        "description": "Help kids develop their creativity by writing stories and illustrating them through fun drawing activities.",
+        "image": "images/storyTelling.jpg",
+        "course_video": "https://youtu.be/TOnuVm4OrCc?si=ub6c5sBIKW5Rt9b-",
+        "target_age": "6-9",
+        "rate": 4.8,
+        "type": "art",
+        "comments": [
+          {
+            "user": "Emma Taylor",
+            "comment": "My daughter loved creating her own stories and illustrating them!"
+          },
+          {
+            "user": "Oliver Brown",
+            "comment": "A perfect combination of creative writing and drawing for kids."
+          }
+        ]
+      },
+      {
+        "name": "Basic Math with Fun Puzzles",
+        "description": "Develop math skills through fun and interactive puzzles designed for young learners.",
+        "image": "images/basicMath.avif",
+        "course_video": "https://youtu.be/igcoDFokKzU?si=Y72PW_EZUZxlxzju",
+        "target_age": "6-9",
+        "rate": 4.6,
+        "type": "math",
+        "comments": [
+          {
+            "user": "Emily White",
+            "comment": "My daughter enjoyed the math puzzles and learned a lot while playing."
+          },
+          {
+            "user": "Steve Young",
+            "comment": "Fun way to teach basic math concepts to kids!"
+          }
+        ]
+      },
+      {
+        "name": "Introduction to Geometry Shapes",
+        "description": "Learn the basics of geometry through fun activities, like identifying and drawing shapes.",
+        "image": "images/introShapes.jpg",
+        "course_video": "https://youtu.be/NDMPwZL47JY?si=6WmcTtLafm62wBUJ",
+        "target_age": "7-10",
+        "rate": 4.7,
+        "type": "math",
+        "comments": [
+          {
+            "user": "Sophia Brooks",
+            "comment": "My son loved learning about shapes, and it helped him in school."
+          },
+          {
+            "user": "Benjamin King",
+            "comment": "Great way to introduce geometry in a fun and easy way."
+          }
+        ]
+      },
+      {
+        "name": "Counting and Number Games",
+        "description": "Help young children develop counting skills and number recognition through fun games.",
+        "image": "images/countingNumbers.jpg",
+        "course_video": "https://youtu.be/yi2caADuDfQ?si=0n52FRtWCPRPQ8Xd",
+        "target_age": "4-6",
+        "rate": 4.8,
+        "type": "math",
+        "comments": [
+          {
+            "user": "Olivia Wright",
+            "comment": "My daughter had so much fun learning numbers through the games."
+          },
+          {
+            "user": "Charlie Miller",
+            "comment": "An engaging way to teach young kids how to count!"
+          }
+        ]
+      }
+    ],
+  
+
+    "testimonials": [
+      {
+        "image": "images/model1.jpg",
+        "name": "Rachel Adams",
+        "comment": "This platform has been a fantastic way for my children to learn in a fun and interactive manner. They especially enjoyed the coding and math courses!"
+      },
+      {
+        "image": "images/model2.jpg",
+        "name": "John Cooper",
+        "comment": "I’ve seen noticeable improvements in my son's problem-solving skills after taking the engineering and science courses. Highly recommended!"
+      },
+      {
+        "image": "images/model3.jpg",
+        "name": "Emily Johnson",
+        "comment": "The art and creativity courses are so engaging! My daughter spends hours drawing and creating, and she loves it."
+      }
+    ],
+    "events": [
+    {
+      "name": "Kids Coding Hackathon",
+      "date": "2024-10-21",
+      "image": "images/codingEvent.webp",
+      "duration": "4 hours",
+      "brief": "A fun and engaging coding event where children ages 8-12 can participate in coding challenges, collaborate with peers, and showcase their programming skills using Scratch."
+    },
+    {
+      "name": "Art & Craft Workshop: Build Your Own Collage",
+      "date": "2024-12-05",
+      "image": "images/craftingEvent.jpg",
+      "duration": "3 hours",
+      "brief": "Children aged 5-9 can unleash their creativity in this workshop where they’ll design and create their own artistic collages using colorful materials."
+    },
+    {
+      "name": "Math Challenge Day: Puzzle Fun",
+      "date": "2024-11-10",
+      "image": "images/mathEvent.webp",
+      "duration": "1.5 hours",
+      "brief": "A day full of fun math puzzles and games for children aged 7-10. Boost their problem-solving skills while enjoying interactive math challenges."
+    }
+  ]
+}
+  
+  
