@@ -79,3 +79,63 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+        const eventContainer = document.getElementById('events');
+        data.events.forEach(event => {
+            const eventItem = document.createElement('div');
+            eventItem.classList.add('item');
+            eventItem.innerHTML = `
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="image">
+                            <img src="${event.image}" alt="${event.name}">
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <ul class="list-unstyled">
+                            <li>
+                                <h4>${event.name}</h4>
+                            </li>
+                            <li>
+                                <span>Date:</span>
+                                <h6>${event.date}</h6>
+                            </li>
+                            <li>
+                                <span>Duration:</span>
+                                <h6>${event.duration}</h6>
+                            </li>
+                        </ul>
+                        <a href="#" class="event-link"><i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hidden description section -->
+                <div class="event-description" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out;">
+                    <p>${event.brief}</p>
+                </div>
+            `;
+
+            // Add click event to the event link
+            eventItem.querySelector('.event-link').addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent the default anchor behavior
+                const description = eventItem.querySelector('.event-description');
+                const arrowIcon = eventItem.querySelector('.fa');
+
+                // Toggle the 'show' class to expand/collapse description
+                if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
+                    description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
+                    arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
+                    arrowIcon.classList.add('fa-angle-down');
+                } else {
+                    description.style.maxHeight = '0px'; // Collapse
+                    arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
+                    arrowIcon.classList.add('fa-angle-right');
+                }
+            });
+
+            eventContainer.appendChild(eventItem);
+        });
+    })
+    .catch(error => console.error('Error fetching the event data:', error));
