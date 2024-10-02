@@ -3004,17 +3004,14 @@ Events Style
 Courses Style
 --------------------------------------------- 
 */
-
 .courses {
     margin-top: 60px;
 }
 
+/* Event Filter Styling */
 .event_filter {
     text-align: center;
-}
-
-.event_filter {
-    background-color: #f88b6d4f;
+    background-color: #b2b2b238;
     border-radius: 50px;
     padding: 15px 40px;
     list-style: none;
@@ -3031,14 +3028,62 @@ Courses Style
     font-size: 14px;
     font-weight: 500;
     color: #1e1e1e;
-    transition: all .3s;
+    transition: all .3s ease;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 15px;
 }
 
-.event_filter li .event_filter li a.is_active,
+/* Active and Hover State for Filter Links */
+.event_filter li a.is_active,
 .event_filter li a:hover {
-    color: #F88C6D;
+    background-color: #b2b2b2e0; 
+    color: white; 
+    border-radius: 15px; 
+    transition: background-color .3s ease;
 }
 
+.event_filter li a.science.is_active,
+.event_filter li a.science:hover {
+    background-color: #fd5a4e8e; 
+    color: white; 
+    border-radius: 15px; 
+    transition: background-color .3s ease;
+}
+
+.event_filter li a.technology.is_active,
+.event_filter li a.technology:hover {
+    background-color: #f0c32e91; 
+    color: white; 
+    border-radius: 15px; 
+    transition: background-color .3s ease;
+}
+
+.event_filter li a.engineering.is_active,
+.event_filter li a.engineering:hover {
+    background-color: #16c3af8f; 
+    color: white; 
+    border-radius: 15px; 
+    transition: background-color .3s ease;
+}
+
+.event_filter li a.arts.is_active,
+.event_filter li a.arts:hover {
+    background-color: #f88b6d7e; 
+    color: white; 
+    border-radius: 15px; 
+    transition: background-color .3s ease;
+}
+
+.event_filter li a.math.is_active,
+.event_filter li a.math:hover {
+    background-color: #3db4d896; 
+    color: white; 
+    border-radius: 15px; 
+    transition: background-color .3s ease;
+}
+
+/* Event Item Styles */
 .events_item .thumb {
     position: relative;
     border-radius: 25px;
@@ -3049,50 +3094,16 @@ Courses Style
     margin-bottom: -5px;
 }
 
-.events_item .thumb span.category {
-    position: absolute;
-    left: 30px;
-    top: 30px;
-    font-size: 14px;
-    text-transform: uppercase;
+.events_item .down-content {
+    padding: 20px 30px 25px 30px;
+}
+
+.events_item:hover .down-content h4 {
     color: #F88C6D;
-    background-color: #f88b6d5d(250, 250, 250, 0.95);
-    padding: 8px 20px;
-    border-radius: 25px;
-    font-weight: 500;
-    display: inline-block;
 }
 
-.events_item .thumb span.price {
-    position: absolute;
-    right: -30px;
-    top: -50px;
-    background-color: #F88C6D;
-    width: 130px;
-    height: 500px;
-    border-radius: 50%;
-    display: inline-block;
-    transition: all .3s;
-}
-
-.events_item .thumb span.price h6 {
-    margin-top: 72px;
-    margin-left: 22px;
-    font-size: 28px;
-    text-transform: uppercase;
-    color: #733625;
-    font-weight: 700;
-}
-
-.events_item .thumb span.price em {
-    font-size: 18px;
-    font-weight: 500;
-    font-style: normal;
-    vertical-align: top;
-}
-
-.events_item {
-    background-color: #f88b6d3a;
+.science-card {
+    background-color: #fd5a4e8e;
     border-radius: 25px;
     margin-bottom: 30px;
     position: relative;
@@ -3100,29 +3111,40 @@ Courses Style
     align-items: center;
 }
 
-.events_item .down-content {
-    padding: 20px 30px 25px 30px;
+.technology-card {
+    background-color: #f0c32e91;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
-.events_item .down-content span.author {
-    color: #F88C6D;
-    font-size: 15px;
-    display: inline-block;
-    margin-bottom: 6px;
+.engineering-card {
+    background-color: #16c3af8f;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
-.events_item .down-content h4 {
-    font-size: 22px;
-    font-weight: 600;
-    transition: all .3s;
+.arts-card {
+    background-color: #f88b6d7e;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
-.events_item:hover .down-content h4 {
-    color: #F88C6D;
-}
-
-.events_item:hover .thumb span.price {
-    transform: scale(1.2);
+.math-card {
+    background-color: #3db4d896;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-text {
@@ -3143,3 +3165,156 @@ Courses Style
 .bg-keppel {
     background-color: #16C3B0;
 }
+
+/* the course page styling  */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding: 20px;
+    position: relative; 
+   
+  }
+  
+  .header {
+    grid-area: 1 / 1 / 5 / 10; 
+    background-color: #f0f0f0;
+    position: relative;
+    overflow: hidden; 
+  }
+  
+  .header-content {
+    position: relative; 
+    z-index: 2;
+    padding: 20px; 
+  }
+  
+  .sidebar {
+    grid-area: 1 / 7 / 7 / 10;
+    background-color: rgba(224, 224, 224, 0.9); 
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+    margin-top: 30px; 
+    margin-right: 30px;
+  }
+  .content {
+    grid-area: 5 / 1 / 9 / 7;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .course-video{
+    margin-left: 20px;
+  }
+  
+  /* this is the comment section styling  */
+  .comment-section {
+    width: 900px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px auto;
+    background-color: #f9f9f9;
+  }
+  
+  .comment {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  
+  .user-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ccc; 
+    margin-right: 18px;
+  }
+  
+  .comment-content {
+    flex: 1; 
+  }
+  
+  .username {
+    font-weight: bold; 
+    margin-bottom: 5px; 
+  }
+  
+  .comment-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px; 
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .reply-link {
+    color:  #fd4d40;;
+    text-decoration: none;
+  }
+  
+  .reply-link:hover {
+    text-decoration: underline; 
+  }
+  
+  .leave-message {
+    width: 900px; 
+    margin: 20px auto; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .leave-message h3 {
+    /* margin: 0 0 10px; */
+    margin-bottom: 15px;
+    color:  #fd4d40;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+  }
+  
+  .form-fields {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  input {
+    width: 48%; 
+    padding: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #0056b3; 
+  }
+  
+  /*the background img  */
+  
+  #contact-head{
+    height: 25px;
+    min-height: 50px; 
+  }
+  #about-head{
+    height: 25px;
+    min-height: 300px; 
+  }
+  #course-head{
+    height: 25px;
+    min-height: 250px; 
+  }
