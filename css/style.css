@@ -2377,6 +2377,10 @@ h5,
     padding: 20px;
 }
 
+.top-social a:hover {
+    color: #3DB5D8;
+}
+
 .menu-wrap {
     padding: 10px 20px;
     background: #fff;
@@ -3119,4 +3123,23 @@ Courses Style
 
 .events_item:hover .thumb span.price {
     transform: scale(1.2);
+}
+
+.hero-text {
+    text-align: left;
+    margin-bottom: 20px;
+    line-height: 1.5; 
+}
+
+.btn-blue{
+    background-color: #3DB5D8;
+}
+
+.btn-blue:hover {
+    background-color: #0056b3; 
+    color: white;
+  }
+
+.bg-keppel {
+    background-color: #16C3B0;
 }
