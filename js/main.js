@@ -170,3 +170,91 @@ fetch('data.json')
         });
     })
     .catch(error => console.error('Error fetching the event data:', error));
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Fetch data from courses.json
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const courses = data.courses; // Assuming data.json has a 'courses' array
+    
+                // Select containers for different types of courses
+                
+                const scienceContainer = document.getElementById('science-container');
+                const mathContainer = document.getElementById('math-container');
+                const technologyContainer = document.getElementById('technology-container');
+                const engineeringContainer = document.getElementById('engineering-container');
+                const artContainer = document.getElementById('art-container');
+    
+                // Counter to track how many cards have been displayed
+                let displayedCards = 0;
+    
+                // Loop through the courses and create a card for each
+                courses.forEach(course => {
+                    // Create a new card element for each course
+                    let card = document.createElement('div');
+    
+                    // Add the Bootstrap and event_outer classes
+                    card.classList.add('col-lg-4', 'col-md-6', 'mb-30', 'event_outer'); // Bootstrap classes
+    
+                    // Add specific class based on course type
+                    if (course.type === "science") {
+                        card.classList.add('science-card');
+                    } else if (course.type === "math") {
+                        card.classList.add('math-card');
+                    } else if (course.type === "art") {
+                        card.classList.add('arts-card');
+                    } else if (course.type === "technology") {
+                        card.classList.add('technology-card');
+                    } else if (course.type === "engineering") {
+                        card.classList.add('engineering-card');
+                    }
+    
+                    // Populate the card content dynamically
+                    card.innerHTML = `
+                        <div class="card">
+                            <div class="thumb">
+                                <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
+                            </div>
+                            <div class="down-content">
+                                <span class="CategoryName">${course.type}</span>
+                                <h4 class="courseName">${course.name}</h4>
+                                <p>Target Age: <span class="courseAge">${course.target_age}</span></p>
+                            </div>
+                        </div>
+                    `;
+    
+                    // Append the card to the appropriate container based on the type
+                    if (course.type === "science") {
+                        scienceContainer.appendChild(card);
+                    } else if (course.type === "math") {
+                        mathContainer.appendChild(card);
+                    } else if (course.type === "art") {
+                        artContainer.appendChild(card);
+                    } else if (course.type === "technology") {
+                        technologyContainer.appendChild(card);
+                    } else if (course.type === "engineering") {
+                        engineeringContainer.appendChild(card);
+                    }
+    
+                    // Initially hide cards beyond the 6th card
+                    if (displayedCards >= 6) {
+                        card.style.display = 'none'; // Hide cards after the first 6
+                    }
+                    displayedCards++;
+                });
+            })
+            .catch(error => console.error('Error fetching the JSON data:', error));
+    
+        // Show more functionality
+        const showMoreBtn = document.getElementById('showMoreBtn');
+    
+        showMoreBtn.addEventListener('click', function() {
+            const hiddenCards = document.querySelectorAll('.event_outer[style*="display: none"]');
+            hiddenCards.forEach(card => card.style.display = 'block'); // Show hidden cards
+            showMoreBtn.style.display = 'none'; // Hide the 'Show More' button after clicking
+        });
+    });
+    
+    
+    
