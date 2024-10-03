@@ -259,9 +259,3 @@ fetch('data.json')
     
     
     
-$(document).ready(function () {
-    $('#showMoreBtn').click(function () {
-        $('.event_box .event_outer').slideDown();
-        $(this).hide();
-    });
-});

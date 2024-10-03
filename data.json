@@ -371,21 +371,24 @@
       "date": "2024-10-21",
       "image": "images/codingEvent.webp",
       "duration": "4 hours",
-      "brief": "A fun and engaging coding event where children ages 8-12 can participate in coding challenges, collaborate with peers, and showcase their programming skills using Scratch."
+      "brief": "A fun and engaging coding event where children ages 8-12 can participate in coding challenges, collaborate with peers, and showcase their programming skills using Scratch.",
+      "location": "Amman"
     },
     {
       "name": "Art & Craft Workshop: Build",
       "date": "2024-12-05",
       "image": "images/craftingEvent.jpg",
       "duration": "3 hours",
-      "brief": "Children aged 5-9 can unleash their creativity in this workshop where they’ll design and create their own artistic collages using colorful materials."
+      "brief": "Children aged 5-9 can unleash their creativity in this workshop where they’ll design and create their own artistic collages using colorful materials.",
+      "location": "Irbid"
     },
     {
       "name": "Math Challenge Day: Puzzle Fun",
       "date": "2024-11-10",
       "image": "images/mathEvent.webp",
       "duration": "1.5 hours",
-      "brief": "A day full of fun math puzzles and games for children aged 7-10. Boost their problem-solving skills while enjoying interactive math challenges."
+      "brief": "A day full of fun math puzzles and games for children aged 7-10. Boost their problem-solving skills while enjoying interactive math challenges.",
+       "location":"Zarqa"
     }
   ]
 
