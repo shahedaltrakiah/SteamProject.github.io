@@ -2569,7 +2569,6 @@ h5,
 
 .wrap-icon {
     background-color: white;
-    /* border: 1px solid black; */
 }
 
 .block-2.red,
@@ -2618,105 +2617,122 @@ h5,
     color: #F88C6D;
 }
 
-
-.package {
-    color: #777;
-    padding: 40px;
-    border-radius: 7px;
-}
-
-.package h3 {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.package .img-wrap {
-    display: block;
-    margin: 0 auto 30px auto;
-    width: 80px;
-}
-
-.package .img-wrap img {
-    width: 80px;
-}
-
 .testimonial-3-wrap {
-    background: #fd4d40;
+    background: #f4f4f4; /* Light background */
     padding: 30px;
-    -webkit-box-shadow: 0 5px 30px -10px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 5px 30px -10px rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 5px 30px -10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Puzzle shape simulation using pseudo-elements for interlocking puzzle parts */
+.testimonial-3-wrap:before, .testimonial-3-wrap:after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    border: 5px solid #fd4d40; /* Puzzle-like red edge */
+}
+
+.testimonial-3-wrap:before {
+    top: -30px; /* Top puzzle connector */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.testimonial-3-wrap:after {
+    bottom: -30px; /* Bottom puzzle connector */
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .testimonial-3 {
-    color: #fff;
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Create puzzle connectors on the individual testimonials */
+.testimonial-3:before, .testimonial-3:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 5px solid #fd4d40; /* Puzzle edge */
+}
+
+.testimonial-3:before {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.testimonial-3:after {
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.testimonial-3 h3 {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.testimonial-3 p {
+    font-size: 18px;
+    color: #666;
 }
 
 .testimonial-3 .vcard-wrap {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 80px;
     flex: 0 0 80px;
+    position: relative;
 }
 
 .testimonial-3 .vcard {
     width: 80px;
-}
-
-.testimonial-3 .position {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 16px;
-}
-
-.testimonial-3 h3 {
-    font-size: 20px;
-    color: #fff;
-}
-
-.testimonial-3 p {
-    font-size: 20px;
-}
-
-.pricing .price {
-    width: 90px;
-    height: 90px;
     border-radius: 50%;
-    display: block;
-    margin-bottom: 30px;
-    position: relative;
+    border: 3px solid #fd4d40;
 }
 
-.pricing .price:before {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    left: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    content: "";
+/* Carousel settings */
+.testimonial-3-wrap .owl-carousel {
+    margin-top: 15px;
 }
 
-.pricing .price>span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 26px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+.owl-dots {
+    text-align: center; /* Center the dots */
+    margin-top: 20px; /* Add some space above */
 }
 
-.pricing h3 {
-    font-size: 20px;
-    margin-bottom: 30px;
+.owl-dot {
+    display: inline-block; /* Display dots inline */
+    width: 16px; /* Increased width of dots */
+    height: 16px; /* Increased height of dots */
+    margin: 0 5px; /* Spacing between dots */
+    background: #ffffff; /* Default background color */
+    border: 2px solid #fd4d40; /* Add a border */
+    border-radius: 50%; /* Make dots circular */
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
-.pricing.teal .price {
-    background: #16c3b0;
+.owl-dot.active {
+    background: #fd4d40; /* Gradient for active dot */
 }
 
-.pricing.danger .price {
-    background: #fd4d40;
-}
+
 
 .bg-teal {
     background: #16c3b0;
@@ -2805,7 +2821,7 @@ h5,
 
 /* Enhanced Footer Styling */
 .site-footer {
-    background: linear-gradient(135deg, #111, #333);
+    background: linear-gradient(135deg, #565454, #3b3939);
     color: #ccc;
     padding: 60px 0;
     font-family: 'Poppins', sans-serif;
@@ -2925,56 +2941,59 @@ h5,
     object-fit: contain;
 }
 
-/* 
----------------------------------------------
-Events Style
---------------------------------------------- 
-*/
-
-.events .section-heading {
-    margin-bottom: 100px;
+/* Events Section Styling */
+.events span {
+    color: #16C3B0;
 }
-
 .events .item {
     background-color: #16c3af36;
     border-radius: 25px;
     position: relative;
-    padding: 40px;
-    margin-bottom: 96px;
-    height: 150px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
 }
 
+.events .item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Image */
 .events .item .image {
     position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .events .item .image img {
-    position: absolute;
-    border-radius: 25px;
-    max-width: 210px;
-    left: 0;
-    top: -70px;
-    
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.events .item:hover .image img {
+    transform: scale(1.05);
+}
+
+/* Event Info */
+.events .item ul {
+    padding-left: 0;
+    list-style: none;
 }
 
 .events .item ul li {
-    display: inline-block;
-    width: 17.5%;
-    vertical-align: middle;
-}
-
-.events .item ul li:first-child {
-    width: 35%;
-}
-
-.events .item ul li:nth-of-type(2) {
-    width: 28%;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .events .item ul li h4 {
     font-size: 22px;
     font-weight: 600;
-    margin-left: 100px;
+    color: #333;
 }
 
 .events .item ul li h6 {
@@ -2983,34 +3002,152 @@ Events Style
     font-weight: 600;
 }
 
-.events .item a {
+/* Event Link Button */
+.events .item a.event-link {
     position: absolute;
     right: 0;
     background-color: #16C3B0;
     width: 60px;
-    height: 120px;
-    display: inline-block;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    line-height: 120px;
-    font-size: 18px;
-    z-index: 1;
+    font-size: 24px;
     color: #fff;
-    border-radius: 60px 0px 0px 60px;
-    margin-top: -100px;
-    margin-right: -24px;
+    border-radius: 50%;
+    margin-top: -30px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
 }
+
+.events .item a.event-link:hover {
+    background-color: #0da798;
+}
+
+/* Event Description Section */
 .event-description {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    background-color: #16C3B0;
-    margin-top: 33px;
-    width: 800px;
-    margin-left:225px;
-    padding: 20px auto;
+    transition: max-height 0.4s ease-in-out;
+    padding: 0 20px;
+    color: #333;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.event-description p {
+    margin: 10px 0;
+}
+
+.item.expanded .event-description {
+    max-height: 200px; /* Adjust according to the content */
+}
+
+/* Event Info Styling with Icons */
+.events .item ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.events .item ul li span {
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.events .item ul li span i {
+    margin-right: 5px;
+    color: #16C3B0;
+}
+
+.events .item ul li h6 {
+    font-size: 16px;
+    color: #16C3B0;
+    font-weight: 600;
+    margin: 0;
 }
 
 
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .events .item {
+        padding: 20px;
+    }
+
+    .events .item .image img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .events .item ul li h4 {
+        font-size: 20px;
+    }
+
+    .events .item ul li h6 {
+        font-size: 14px;
+    }
+
+    .events .item a.event-link {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .events .item {
+        padding: 15px;
+    }
+
+    .events .item ul li h4 {
+        font-size: 18px;
+    }
+
+    .events .item ul li h6 {
+        font-size: 14px;
+    }
+
+    .events .item a.event-link {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .event-description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .events .item {
+        padding: 10px;
+    }
+
+    .events .item ul li h4 {
+        font-size: 16px;
+    }
+
+    .events .item ul li h6 {
+        font-size: 12px;
+    }
+
+    .events .item a.event-link {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .event-description {
+        font-size: 13px;
+    }
+}
 
 
 /* 
@@ -3025,7 +3162,7 @@ Courses Style
 /* Event Filter Styling */
 .event_filter {
     text-align: center;
-    background-color: #b2b2b238;
+    background-color: #b2b2b21a;
     border-radius: 50px;
     padding: 15px 40px;
     list-style: none;
@@ -3184,17 +3321,15 @@ Courses Style
 .parent {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     padding: 20px;
-    position: relative; 
-   
   }
   
   .header {
     grid-area: 1 / 1 / 5 / 10; 
-    background-color: #f0f0f0;
+    /* background-color: #f88b6d0e; */
     position: relative;
     overflow: hidden; 
   }
@@ -3207,15 +3342,15 @@ Courses Style
   
   .sidebar {
     grid-area: 1 / 7 / 7 / 10;
-    background-color: rgba(224, 224, 224, 0.9); 
+    background-color: #fd5a4e13; 
+    margin-top: 30px; ;
+    margin-right: 10px;
     position: relative;
     z-index: 3;
     padding: 20px;
-    margin-top: 30px; 
-    margin-right: 30px;
   }
   .content {
-    grid-area: 5 / 1 / 9 / 7;
+    grid-area: 5 / 1 / 8 / 7; 
     background-color: #ffffff;
     position: relative;
     z-index: 2;
@@ -3228,13 +3363,16 @@ Courses Style
   
   /* this is the comment section styling  */
   .comment-section {
-    width: 900px; 
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px auto;
-    background-color: #f9f9f9;
+    padding:30px 20px;
+    margin-top: 30px; 
+    margin-left: 40px;
+    margin-right: 32px;
+    background-color: #f9f9f9d0;
   }
+  
+  
   
   .comment {
     display: flex;
@@ -3270,6 +3408,7 @@ Courses Style
   .reply-link {
     color:  #fd4d40;;
     text-decoration: none;
+    margin-right: 15px;
   }
   
   .reply-link:hover {
@@ -3277,13 +3416,12 @@ Courses Style
   }
   
   .leave-message {
-    width: 900px; 
-    margin: 20px auto; 
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding:30px 20px;
+    margin-left: 40px;
+    margin-right: 32px;
     border-radius: 5px;
-    background-color: #fff;
-    padding: 20px;
+    background-color: #f9f9f9d0;
+    margin-bottom: 40px;
   }
   
   .leave-message h3 {
@@ -3314,21 +3452,33 @@ Courses Style
     border-radius: 4px;
   }
   
+  
+  
   button:hover {
     background-color: #0056b3; 
   }
-  
-  /*the background img  */
+  .hide{
+    display:none;
+  }
+  .img-hover{
+    width: 95px;
+    height: 95px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .img-hover:hover{
+  transform: scale(1.2);
+  }
   
   #contact-head{
-    height: 25px;
-    min-height: 50px; 
-  }
-  #about-head{
-    height: 25px;
-    min-height: 300px; 
-  }
-  #course-head{
-    height: 25px;
-    min-height: 250px; 
-  }
+      height: 25px;
+      min-height: 50px; 
+    }
+    #about-head{
+      height: 25px;
+      min-height: 300px; 
+    }
+    #course-head{
+      height: 25px;
+      min-height: 250px; 
+    }

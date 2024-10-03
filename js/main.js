@@ -116,10 +116,8 @@ fetch('data.json')
             eventItem.classList.add('item');
             eventItem.innerHTML = `
                 <div class="row">
-                    <div class="col-lg-2">
-                        <div class="image">
-                            <img src="${event.image}" alt="${event.name}">
-                        </div>
+                    <div class="col-lg-2 image">
+                        <img src="${event.image}" alt="${event.name}">
                     </div>
                     <div class="col-lg-10">
                         <ul class="list-unstyled">
@@ -127,39 +125,44 @@ fetch('data.json')
                                 <h4>${event.name}</h4>
                             </li>
                             <li>
-                                <span>Date:</span>
+                                <span><i class="fa fa-calendar-alt"></i> Date:</span>
                                 <h6>${event.date}</h6>
                             </li>
                             <li>
-                                <span>Duration:</span>
+                                <span><i class="fa fa-clock duration-icon"></i> Duration:</span>
                                 <h6>${event.duration}</h6>
                             </li>
+                            <li>
+                                <span><i class="fa fa-map-marker-alt"></i> Location:</span>
+                                <h6>${event.location}</h6> <!-- Added location -->
+                            </li>
                         </ul>
-                        <a href="#" class="event-link"><i class="fa fa-angle-right"></i></a>
+                        <!-- Toggle button with separate icon -->
+                        <a href="#" class="event-link"><i class="fa fa-angle-right toggle-icon"></i></a>
                     </div>
                 </div>
 
                 <!-- Hidden description section -->
-                <div class="event-description" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out;">
+                <div class="event-description">
                     <p>${event.brief}</p>
                 </div>
             `;
 
             // Add click event to the event link
             eventItem.querySelector('.event-link').addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent the default anchor behavior
+                e.preventDefault();
                 const description = eventItem.querySelector('.event-description');
-                const arrowIcon = eventItem.querySelector('.fa');
+                const arrowIcon = eventItem.querySelector('.toggle-icon'); // Target the toggle icon
 
-                // Toggle the 'show' class to expand/collapse description
-                if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
-                    description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
-                    arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
-                    arrowIcon.classList.add('fa-angle-down');
-                } else {
-                    description.style.maxHeight = '0px'; // Collapse
-                    arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
+                // Toggle the expanded class and adjust the arrow icon
+                if (eventItem.classList.contains('expanded')) {
+                    eventItem.classList.remove('expanded');
+                    arrowIcon.classList.remove('fa-angle-down');
                     arrowIcon.classList.add('fa-angle-right');
+                } else {
+                    eventItem.classList.add('expanded');
+                    arrowIcon.classList.remove('fa-angle-right');
+                    arrowIcon.classList.add('fa-angle-down');
                 }
             });
 
