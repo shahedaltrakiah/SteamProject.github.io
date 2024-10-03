@@ -170,3 +170,5 @@ fetch('data.json')
         });
     })
     .catch(error => console.error('Error fetching the event data:', error));
+
+    
