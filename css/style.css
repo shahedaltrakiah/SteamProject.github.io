@@ -1,3 +1,4 @@
+
 /* Base */
 .text-cursive {
     font-family: "Indie Flower", cursive !important;
@@ -3578,4 +3579,15 @@ html {
         justify-content: center;
         align-items: center;
     }
+}
+
+#showMoreBtn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+}
+
+/* Hide cards beyond the first 6 */
+.event_box .event_outer:nth-child(n+7) {
+    display: none;
 }
