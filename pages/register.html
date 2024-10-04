@@ -16,16 +16,17 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/stylee.css">
-    <link rel="stylesheet" href="/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../css/stylee.css">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
 
 </head>
 
 <body>
+    <a href="/index.html" class="btn float-left back_btn"> <i class="fa-solid fa-arrow-left"></i> </a>
     <div class="container">
         <div class="home">
-            <img src="/images/bg-logo.jpg" type="image/svg+xml" style="width: 100%;" />
+            <img src="../images/bg-logo.png" type="image/svg+xml" style="width: 100%;" />
         </div>
         <div class="d-flex justify-content-center h-100">
             <div class="form-section">
@@ -38,8 +39,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="firstName" placeholder="First name">
-                            <input type="text" class="form-control ml-2" id="lastName" placeholder="Last name">
+                         <input type="text" class="form-control" id="fname" placeholder="First name">
+                        <input type="text" class="form-control ml-2" id="lname" placeholder="Last name">
                         </div>
                         <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
 
@@ -47,7 +48,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+                           <input type="email" class="form-control"  id="email" placeholder="Email">
                         </div>
                         <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
 
@@ -55,7 +56,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+                           <input type="password" class="form-control" id="pass" placeholder="Password">
                         </div>
                         <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
 
@@ -63,7 +64,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                           <input type="password" class="form-control" id="conpass" placeholder="Confirm Password">
                         </div>
                         <p id="confirmPasswordError" class="error" style="color:red;"></p> <!-- Error for confirm password -->
 
@@ -74,8 +75,9 @@
                             <input type="date" class="form-control" id="dateOfBirth" placeholder="DD / MM / YYYY">
                         </div>
 
+
                         <div class="form-group">
-                            <input type="submit" value="Sign Up" class="btn float-right login_btn">
+                            <input type="submit" value="Sign Up" class="btn float-right login_btn" onclick="saveUser()">
                         </div>
 
                         <p id="signUpResult" class="result"></p> <!-- Result message -->
@@ -167,3 +169,4 @@
 </body>
 
 </html>
+

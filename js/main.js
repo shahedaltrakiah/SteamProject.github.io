@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(counter);
     });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from data.json
     fetch('data.json')
@@ -78,35 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Error fetching testimonials:', error));
 });
 
-// Get all filter links
-const filterLinks = document.querySelectorAll('.event_filter a');
-const eventBoxes = document.querySelectorAll('.event_outer');
-
-// Add click event listener to each filter link
-filterLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        // Remove 'is_active' class from all links
-        filterLinks.forEach(link => link.classList.remove('is_active'));
-
-        // Add 'is_active' class to the clicked link
-        this.classList.add('is_active');
-
-        // Get the filter value from the clicked link
-        const filterValue = this.getAttribute('data-filter');
-
-        // Show or hide event boxes based on the filter
-        eventBoxes.forEach(box => {
-            if (filterValue === '*' || box.classList.contains(filterValue.substring(1))) {
-                box.style.display = 'block';
-            } else {
-                box.style.display = 'none';
-            }
-        });
-    });
-});
-
 fetch('data.json')
     .then(response => response.json())
     .then(data => {
@@ -144,7 +116,7 @@ fetch('data.json')
 
                 <!-- Hidden description section -->
                 <div class="event-description">
-                    <p>${event.brief}</p>
+                    <p style="font-weight: bold;">${event.brief}</p>
                 </div>
             `;
 
@@ -152,8 +124,8 @@ fetch('data.json')
                     eventItem.querySelector('.event-link').addEventListener('click', function (e) {
                         e.preventDefault(); // Prevent the default anchor behavior
                         const description = eventItem.querySelector('.event-description');
-                        const arrowIcon = eventItem.querySelector('.fa');
-
+                        const arrowIcon = eventItem.querySelector('.event-link .fa'); // Target only the toggle icon
+                    
                         // Toggle the 'show' class to expand/collapse description
                         if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
                             description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
@@ -165,7 +137,6 @@ fetch('data.json')
                             arrowIcon.classList.add('fa-angle-right');
                         }
                     });
-
             eventContainer.appendChild(eventItem);
         });
     })
@@ -456,110 +427,127 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Fetch data from courses.json
-  fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-          const courses = data.courses; // Assuming data.json has a 'courses' array
+    // Fetch data from courses.json
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            const courses = data.courses; // Assuming data.json has a 'courses' array
 
-          // Select containers for different types of courses
-          const scienceContainer = document.getElementById('science-container');
-          const mathContainer = document.getElementById('math-container');
-          const technologyContainer = document.getElementById('technology-container');
-          const engineeringContainer = document.getElementById('engineering-container');
-          const artContainer = document.getElementById('art-container');
+            // Select containers for different types of courses
+            const scienceContainer = document.getElementById('science-container');
+            const mathContainer = document.getElementById('math-container');
+            const technologyContainer = document.getElementById('technology-container');
+            const engineeringContainer = document.getElementById('engineering-container');
+            const artContainer = document.getElementById('art-container');
 
-          // Counter to track how many cards have been displayed
-          let displayedCards = 0;
+            // Counter to track how many cards have been displayed
+            let displayedCards = 0;
 
-          // Store cards for later use
-          const allCards = [];
+            // Store cards for later use
+            const allCards = [];
 
-          // Loop through the courses and create a card for each
-          courses.forEach(course => {
-              // Create a new card element for each course
-              let card = document.createElement('div');
+            // Loop through the courses and create a card for each
+            courses.forEach(course => {
+                // Create a new card element for each course
+                let card = document.createElement('div');
 
-              // Add the Bootstrap and event_outer classes
-              card.classList.add('col-lg-4', 'col-md-6', 'mb-30', 'event_outer'); // Bootstrap classes
+                // Add the Bootstrap and event_outer classes
+                card.classList.add('col-lg-4', 'col-md-6', 'mb-30', 'event_outer'); // Bootstrap classes
 
-              // Add specific class based on course type
-              if (course.type === "science") {
-                  card.classList.add('science-card');
-              } else if (course.type === "math") {
-                  card.classList.add('math-card');
-              } else if (course.type === "art") {
-                  card.classList.add('arts-card');
-              } else if (course.type === "technology") {
-                  card.classList.add('technology-card');
-              } else if (course.type === "engineering") {
-                  card.classList.add('engineering-card');
-              }
+                // Add specific class based on course type
+                card.classList.add(`${course.type}-card`);
 
-              // Populate the card content dynamically with a clickable link
-              card.innerHTML = ` 
-                  <a href="../pages/courses.html?id=${course.id}" class="card-link" style="text-decoration: none; color: inherit;">
-                      <div class="card">
-                          <div class="thumb">
-                              <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
-                          </div>
-                          <div class="down-content">
-                              <span class="CategoryName">${course.type}</span>
-                              <h4 class="courseName">${course.name}</h4>
-                              <p>Target Age: <span class="courseAge">${course.target_age}</span></p>
-                          </div>
-                      </div>
-                  </a>
-              `;
+                // Populate the card content dynamically with a clickable link
+                card.innerHTML = ` 
+                    <a href="../pages/courses.html?id=${course.id}" class="card-link" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="thumb" style = "margin-top:15px">
+                                <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
+                            </div>
+                            <div class="down-content" style = "margin-top:10px"  >
+                                <span class="CategoryName" style=" text-transform: capitalize;" >${course.type}</span>
+                                <h4 class="courseName" style="font-weight: bold;" >${course.name}</h4>
+                                <p style = "margin-bottom:20px" >Target Age: <span class="courseAge">${course.target_age}</span></p>
+                            </div>
+                        </div>
+                    </a>
+                `;
 
-              // Store the card in the allCards array
-              allCards.push(card);
+                // Store the card in the allCards array
+                allCards.push(card);
 
-              // Append the card to the appropriate container based on the type
-              if (course.type === "science") {
-                  scienceContainer.appendChild(card);
-              } else if (course.type === "math") {
-                  mathContainer.appendChild(card);
-              } else if (course.type === "art") {
-                  artContainer.appendChild(card);
-              } else if (course.type === "technology") {
-                  technologyContainer.appendChild(card);
-              } else if (course.type === "engineering") {
-                  engineeringContainer.appendChild(card);
-              }
+                // Append the card to the appropriate container based on the type
+                if (course.type === "science") {
+                    scienceContainer.appendChild(card);
+                } else if (course.type === "math") {
+                    mathContainer.appendChild(card);
+                } else if (course.type === "art") {
+                    artContainer.appendChild(card);
+                } else if (course.type === "technology") {
+                    technologyContainer.appendChild(card);
+                } else if (course.type === "engineering") {
+                    engineeringContainer.appendChild(card);
+                }
 
-              // Initially hide cards beyond the 6th card
-              if (displayedCards >= 6) {
-                  card.style.display = 'none'; // Hide cards after the first 6
-              }
-              displayedCards++;
-          });
+                // Initially hide cards beyond the 6th card
+                if (displayedCards >= 6) {
+                    card.style.display = 'none'; // Hide cards after the first 6
+                }
+                displayedCards++;
+            });
 
-          // Show more functionality
-          const showMoreBtn = document.getElementById('showMoreBtn');
-          const showLessBtn = document.getElementById('showLessBtn');
-
-          showMoreBtn.addEventListener('click', function() {
-              // Show all hidden cards
-              allCards.forEach(card => card.style.display = 'block'); // Show hidden cards
-              showMoreBtn.style.display = 'none'; // Hide the 'Show More' button
-              showLessBtn.style.display = 'inline-block'; // Show the 'Show Less' button
-          });
-
-          // Show less functionality
-          showLessBtn.addEventListener('click', function() {
-              // Hide all cards beyond the first 6
-              allCards.forEach((card, index) => {
-                  if (index >= 6) {
-                      card.style.display = 'none'; // Hide cards beyond the first 6
-                  }
+              // Filter functionality
+              const filterBtns = document.querySelectorAll('.filter-btn');
+              filterBtns.forEach(button => {
+                  button.addEventListener('click', () => {
+                      const filter = button.getAttribute('data-filter');
+  
+                      // Show/hide cards based on the selected filter
+                      allCards.forEach(card => {
+                          if (filter === 'all') {
+                              card.style.display = 'block'; // Show all cards
+                          } else if (card.classList.contains(`${filter}-card`)) {
+                              card.style.display = 'block'; // Show filtered cards
+                          } else {
+                              card.style.display = 'none'; // Hide others
+                          }
+                      });
+  
+                      // Hide the 'Show More' button after filtering
+                      showMoreBtn.style.display = 'none'; // Hide 'Show More' button
+                      showLessBtn.style.display = 'none'; // Hide 'Show Less' button
+                      displayedCards = 0; // Reset displayed card count
+                  });
               });
-              showLessBtn.style.display = 'none'; // Hide the 'Show Less' button
-              showMoreBtn.style.display = 'inline-block'; // Show the 'Show More' button
-          });
-      })
-      .catch(error => console.error('Error fetching the JSON data:', error));
-});
+  
+              // Show more functionality
+              const showMoreBtn = document.getElementById('showMoreBtn');
+              const showLessBtn = document.getElementById('showLessBtn');
+  
+              showMoreBtn.addEventListener('click', function() {
+                  // Show all hidden cards
+                  allCards.forEach(card => card.style.display = 'block'); // Show hidden cards
+                  showMoreBtn.style.display = 'none'; // Hide the 'Show More' button
+                  showLessBtn.style.display = 'inline-block'; // Show the 'Show Less' button
+              });
+  
+              // Show less functionality
+              showLessBtn.addEventListener('click', function() {
+                  // Hide all cards beyond the first 6
+                  allCards.forEach((card, index) => {
+                      if (index >= 6) {
+                          card.style.display = 'none'; // Hide cards beyond the first 6
+                      }
+                  });
+                  showLessBtn.style.display = 'none'; // Hide the 'Show Less' button
+                  showMoreBtn.style.display = 'inline-block'; // Show the 'Show More' button
+              });
+          })
+          .catch(error => console.error('Error fetching the JSON data:', error));
+  });
+
+
+
 // Define patterns for validation
 const usernamePattern = /^[a-zA-Z]+$/;  // Only letters (uppercase and lowercase) for the username
 const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/; // Password must have at least 8 characters, one uppercase, one lowercase, one number, and one special character
