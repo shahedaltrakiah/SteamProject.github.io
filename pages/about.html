@@ -124,7 +124,7 @@
                   critical life
                   skills while nurturing their natural love for discovery and innovation.</span></span></p>
             <p></p>
-            <p class="mt-4" onclick="more()"><a class="btn btn-warning py-3 btn-custom-1">Read More</a></p>
+            <p class="mt-4" onclick="more()"><a class="btn btn-warning py-3 btn-custom-1 mine">Read More</a></p>
           </div>
         </div>
       </div>
@@ -313,12 +313,19 @@
 
   <script src="/js/main.js"></script>
   <script>
-    function more() {
+     function more() {
+        
+            const elements = document.getElementById('hide');
+        const button = document.querySelector('.mine');
 
-      const elements = document.getElementById('hide');
-      elements.style.display = 'inline'
-
-    }
+            if (elements.style.display === 'inline') {
+                elements.style.display = 'none';
+                button.textContent = 'Show More'; 
+            } else {
+                elements.style.display = 'inline'; 
+                button.textContent = 'Show Less'; 
+            }
+        }
   </script>
 
 </body>
