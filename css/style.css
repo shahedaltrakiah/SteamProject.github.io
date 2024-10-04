@@ -3837,7 +3837,7 @@ html {
     }
   }
   
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 1020px) {
     .parent {
       grid-template-columns: repeat(1, 1fr); /* 1 column on mobile screens */
     }
