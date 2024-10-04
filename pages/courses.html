@@ -1,12 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>Courses Page</title>
+  
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet" type="text/html">
+  
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -25,7 +27,7 @@
 
 
   <!-- MAIN CSS -->
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -95,6 +97,7 @@
       </div>
   </header>
 
+  
     <div class="ftco-blocks-cover-1">
        <!-- data-stellar-background-ratio="0.5" style="background-image: url('images/hero_1.jpg')" -->
       <div class="site-section-cover overlay" id="course-head" data-stellar-background-ratio="0.5" style="background-image: url('/images/hero_1.jpg')">
@@ -102,7 +105,7 @@
           <div class="row align-items-center ">
 
             <div class="col-md-5 mt-5 pt-5">
-              <span class="text-cursive h5 text-red">Welcome To Our Website</span>
+              <span class="">Welcome To Our Website</span>
               <h1 class="mb-3 font-weight-bold text-teal">Packages</h1>
               <p><a href="index.html" class="text-white">Home</a> <span class="mx-3">/</span> <strong>Packages</strong></p>
             </div>
@@ -118,26 +121,23 @@
   <div class="header">
    
       <div class="header-content">
-         <h1 id="course-name">Web Development Bootcamp</h1>
-        <p id="course-desc">Join our comprehensive web development course and start your journey today!</p></div> <!-- Course Title or other content -->
-        <iframe width="60%" height="400px" src="https://www.youtube.com/embed/wE8s993ZV-8" frameborder="0" allowfullscreen class="course-video" id="course-video"></iframe>
-  </div>
-  <div class="sidebar">        
-    <h2>Course Details</h2>
-    <p id="course-detail">
-        This course covers a wide range of topics including:
-    </p>
-
-</div>
+        
+      </div> 
+      <!-- Course Title or other content -->
+        <!-- <iframe width="60%" height="400px" src="" frameborder="0" allowfullscreen class="course-video" id="course-video"></iframe> -->
+        <iframe width="560" height="315" src="" id="course-video" class="course-video"title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="sidebar">
+        <h2>Course Details</h2>
+        <p id="course-detail"> </p>
+        <p id="course-rate"> </p>
+        <p id="course-age"> </p>
+        <p id="course-type"> </p>
+      </div>
   <div class="content">    
      
-    <h3>What You'll Learn:</h3>
-    <p id="what-you-will-learn">
-        By the end of this course, you will be able to build fully functional web applications, understand the fundamentals of programming, and gain hands-on experience with real-world projects.
-    </p>
-    <h3>Enrollment Information:</h3>
-    <p>
-        Sign up now to secure your spot! Classes start on <strong id="enroll-info">January 15, 2025</strong>.
+    <p id="what-you-will-learn"></p>
+    
     </p></div>
 </div>
 
@@ -148,31 +148,21 @@
 <!--------------------------------this is the comments section -->
 
 <div class="comment-section">
-  <div class="comment">
-      <div class="user-pic">
-        <img src="/images/model1.jpg" alt="" class=" user-pic img-fluid">
-      </div>
-      <div class="comment-content">
-          <span class="username" id="user-name">JohnDoe</span>
-          <p id="comment">This is an example comment! I really enjoyed this article.</p>
-          <div class="comment-meta">
-              <span class="timestamp" id="time-date">October 2, 2024, 3:15 PM</span>
-              <a href="#" class="reply-link">Reply</a>
-          </div>
-      </div>
-  </div>
-
+  <!-- Comments will be dynamically added here -->
+   
 </div>
+
 <!---------------this is the leave a message part -->
 <div class="leave-message">
   <h3>Leave a Message</h3>
-  <textarea placeholder="Write your comment..." rows="4"></textarea>
+  <textarea id="message-content" placeholder="Write your comment..." rows="4" required></textarea>
   <div class="form-fields">
-      <input type="text" placeholder="Your Name" name="comment-txt" required />
-      <input type="email" placeholder="Your Email" name="email" required />
+    <input type="text" id="username" placeholder="Your Name" name="comment-txt" required />
+    <input type="email" id="email" placeholder="Your Email" name="email" required />
   </div>
-  <button type="submit" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto">Add Comment</button>
+  <button type="submit" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto" id="submit-btn">Add Comment</button>
 </div>
+
 
 <!----------------------------------this is the end of the comments section-->
 
@@ -211,7 +201,7 @@
           </div>
           <!-- Logo Section -->
           <div class="col-lg-2 text-center">
-            <img src="path-to-your-logo.png" alt="Logo" class="footer-logo img-fluid mb-3">
+            <!-- <img src="path-to-your-logo.png" alt="Logo" class="footer-logo img-fluid mb-3"> -->
           </div>
         </div>
         <!-- Copyright Section -->
@@ -230,22 +220,23 @@
     </footer>
 
   </div>
+ 
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.0.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/owl.carousel.min.js"></script>
+  <script src="../js/jquery.sticky.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/jquery.animateNumber.min.js"></script>
+  <script src="../js/jquery.fancybox.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/jquery.easing.1.3.js"></script>
+  <script src="../js/bootstrap-datepicker.min.js"></script>
+ 
+  <script src="../js/aos.js"></script>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.0.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/aos.js"></script>
-
-  <script src="js/main.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 
