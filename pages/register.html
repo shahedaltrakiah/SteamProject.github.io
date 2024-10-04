@@ -42,7 +42,7 @@
                             <input type="text" class="form-control ml-2" id="lastName" placeholder="Last name">
                         </div>
                         <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -50,7 +50,7 @@
                             <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
                         </div>
                         <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -58,7 +58,7 @@
                             <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
                         </div>
                         <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -66,18 +66,18 @@
                             <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
                         </div>
                         <p id="confirmPasswordError" class="error" style="color:red;"></p> <!-- Error for confirm password -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <input type="date" class="form-control" placeholder="DD / MM / YYYY">
+                            <input type="date" class="form-control" id="dateOfBirth" placeholder="DD / MM / YYYY">
                         </div>
-                    
+
                         <div class="form-group">
                             <input type="submit" value="Sign Up" class="btn float-right login_btn">
                         </div>
-                    
+
                         <p id="signUpResult" class="result"></p> <!-- Result message -->
                     </form>
                 </div>
@@ -88,32 +88,58 @@
     <!-- Required JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <!-- SweetAlert for popup messages -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Your signup script -->
     <script>
         // Sign up
-        document.getElementById('signupForm').addEventListener('submit', function (event) {
+        document.getElementById('signUpForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Fetch existing users from localStorage or initialize as an empty array
             var users = JSON.parse(localStorage.getItem('users')) || [];
 
-            const userName = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            // Get form input values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('signUpEmail').value;
+            const password = document.getElementById('signUpPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 
-            // Check if passwords match
+            // Check for validation errors
+            let hasError = false;
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('confirmPasswordError').textContent = '';
+
+            if (!firstName || !lastName) {
+                document.getElementById('nameError').textContent = 'Please enter both first and last name.';
+                hasError = true;
+            }
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Please enter your email.';
+                hasError = true;
+            }
+            if (!password) {
+                document.getElementById('passwordError').textContent = 'Please enter a password.';
+                hasError = true;
+            }
             if (password !== confirmPassword) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Passwords do not match!',
-                });
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+                hasError = true;
+            }
+
+            if (hasError) {
                 return;
             }
 
             // Create user object
             var user = {
-                "userName": userName,
+                "firstName": firstName,
+                "lastName": lastName,
                 "email": email,
                 "password": password
             };
@@ -131,12 +157,11 @@
                 showConfirmButton: false,
                 timer: 2000
             }).then(() => {
-                let currentUrl = window.location.href;
-                window.location.href = currentUrl.replace(window.location.pathname, '/login.html');
+                window.location.href = 'login.html';
             });
 
             // Reset the form
-            document.getElementById('signupForm').reset();
+            document.getElementById('signUpForm').reset();
         });
     </script>
 </body>
