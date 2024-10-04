@@ -302,7 +302,7 @@ fetch('../data.json')
         commentMetaDiv.className = 'comment-meta';
         const timestampSpan = document.createElement('span');
         timestampSpan.className = 'timestamp';
-        timestampSpan.innerText = comment.timestamp;
+        timestampSpan.innerText = comment.date;
 
         const replyLink = document.createElement('a');
         replyLink.href = '#';

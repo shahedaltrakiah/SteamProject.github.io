@@ -3279,49 +3279,44 @@ Courses Style
     color: #F88C6D;
 }
 
-.science-card {
-    background-color: #fd5a4e8e;
-    border-radius: 25px;
-    margin-bottom: 30px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.science-card .card {
+    background-color: #fd5a4e8e !important;
+    border-radius: 25px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+    justify-content: center !important;
 }
 
-.technology-card {
-    background-color: #f0c32e91;
-    border-radius: 25px;
-    margin-bottom: 30px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.technology-card .card {
+    background-color: #f0c32e91 !important;
+    border-radius: 25px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+    justify-content: center !important;
 }
 
-.engineering-card {
-    background-color: #16c3af8f;
-    border-radius: 25px;
-    margin-bottom: 30px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.engineering-card .card{
+    background-color: #16c3af8f !important;
+    border-radius: 25px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+    justify-content: center !important;
 }
 
-.arts-card {
-    background-color: #f88b6d7e;
-    border-radius: 25px;
-    margin-bottom: 30px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.arts-card .card{
+    background-color: #f88b6d7e !important;
+    border-radius: 25px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+    justify-content: center !important;
 }
 
-.math-card {
-    background-color: #3db4d896;
-    border-radius: 25px;
-    margin-bottom: 30px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
+.math-card .card{
+    background-color: #3db4d896 !important;
+    border-radius: 25px !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+    justify-content: center !important;
 }
 
 .show-all-btn {
