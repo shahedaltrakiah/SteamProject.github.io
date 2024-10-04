@@ -1,27 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+* {
     margin: 0%;
     padding: 0%;
-    /* box-sizing: border-box; */
-    font-family:'Indie Flower, cursive';
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-
-html , body {
-    background-color: #B2B2B2;
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+    background-color: #343a401a;
+    font-family: 'Indie Flower, cursive' !important;
 }
 
 .home {
-    /* position: absolute; */
-    top: 50%; 
-    left: 0; 
-    transform: translateY(-50%); 
-    padding: 0;
-    margin: 0;
-    text-align: left; 
-    
+    margin-right: 50px;
 }
 
 .home h2 {
@@ -31,38 +24,39 @@ html , body {
 }
 
 .home img {
-    max-width: 150px; 
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 150px;
 }
 
 
 
-.container, .signup-container {
+.container,
+.signup-container {
     height: 100%;
     display: flex;
-    justify-content:flex-end; 
-     align-content: center; 
+    justify-content: flex-end;
+    align-content: center;
     /* position: relative;
     z-index: 2; */
 }
-    .card{
+
+.card {
     height: 470px;
     width: 400px;
     margin-top: 100px;
     margin-right: 20px;
-    /* margin-bottom: auto; */
-    background:rgba(255, 255, 255, 0.15) ;
+    background: rgba(255, 255, 255, 0.685);
     backdrop-filter: blur(15px);
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 
 }
-.form-section{
-    height:580px;
+
+.form-section {
+    height: 580px;
     margin-top: 50px;
     margin-bottom: auto;
     width: 400px;
-    background:rgba(255, 255, 255, 0.15) ;
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(6px);
     border-radius: 10px;
     padding: 20px;
@@ -84,34 +78,36 @@ html , body {
 .social_icon span {
     font-size: 30px;
     margin-left: 10px;
-    color:  #fd5b4e;
+    color: #fd5b4e;
     transition: color 0.3s ease;
 }
 
 .social_icon span:hover {
-    color: #fff;
+    color: #fd5a4e73;
     cursor: pointer;
 }
 
-.card-header h3, .welcome-section h1 {
-    color:#fd5b4e;
-    /* margin-bottom: 20px; */
+.card-header h3,
+.welcome-section h1 {
+    color: #fd5b4e;
     font-weight: bold;
-    text-align: center;
-    
-    
+    text-align: left;
+
+
 }
 
-.input-group-prepend span, .input-container input {
-    width: 50px;
+.input-group-prepend span,
+.input-container input {
+    width: 40px;
     background-color: #fd5b4e;
     color: black;
     border: 0;
 }
 
-input:focus, .input-container input:focus {
-    outline: none ;
-    box-shadow: none ;
+input:focus,
+.input-container input:focus {
+    outline: none;
+    box-shadow: none;
     border-color: #FFC312;
 }
 
@@ -126,7 +122,8 @@ input:focus, .input-container input:focus {
     margin-right: 5px;
 }
 
-.login_btn, .form-section button {
+.login_btn,
+.form-section button {
     color: black;
     background-color: #fd5b4e;
     width: 100px;
@@ -134,13 +131,14 @@ input:focus, .input-container input:focus {
     transition: background-color 0.3s ease;
 }
 
-.login_btn:hover, .form-section button:hover {
+.login_btn:hover,
+.form-section button:hover {
     color: black;
-    background-color: white;
+    background-color: #fd5a4e6c;
 }
 
 .links {
-    color: white;
+    color: #fd5b4e;
 }
 
 .links a {
@@ -148,7 +146,9 @@ input:focus, .input-container input:focus {
 }
 
 
-.input-group-text, .login_btn, .form-section button {
+.input-group-text,
+.login_btn,
+.form-section button {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -172,10 +172,11 @@ input:focus, .input-container input:focus {
     border-radius: 5px;
     border: none;
 }
-.con-input{
-    background:rgba(255, 255, 255, 0.511) ;
+
+.con-input {
+    background: rgba(255, 255, 255, 0.511);
 }
 
-.footer-text{
+.footer-text {
     color: #F0C22E;
 }
