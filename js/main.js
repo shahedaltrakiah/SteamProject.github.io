@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from data.json
     fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
+    .then(response => response.json())
+    .then(data => {
+        const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
 
             // Select all testimonial elements
             const testimonialCards = document.querySelectorAll('.testimonial-3');
@@ -116,7 +116,6 @@ fetch('data.json')
             eventItem.classList.add('item');
             eventItem.innerHTML = `
                 <div class="row">
-
                     <div class="col-lg-2 image">
                         <img src="${event.image}" alt="${event.name}">
                     </div>
@@ -145,27 +144,27 @@ fetch('data.json')
 
                 <!-- Hidden description section -->
                 <div class="event-description">
-                    <p style='font-weight:bold'>${event.brief}</p>
+                    <p>${event.brief}</p>
                 </div>
             `;
 
-            // Add click event to the event link
-            eventItem.querySelector('.event-link').addEventListener('click', function (e) {
-                e.preventDefault();
-                const description = eventItem.querySelector('.event-description');
-                const arrowIcon = eventItem.querySelector('.toggle-icon'); // Target the toggle icon
+                    // Add click event to the event link
+                    eventItem.querySelector('.event-link').addEventListener('click', function (e) {
+                        e.preventDefault(); // Prevent the default anchor behavior
+                        const description = eventItem.querySelector('.event-description');
+                        const arrowIcon = eventItem.querySelector('.fa');
 
-                // Toggle the expanded class and adjust the arrow icon
-                if (eventItem.classList.contains('expanded')) {
-                    eventItem.classList.remove('expanded');
-                    arrowIcon.classList.remove('fa-angle-down');
-                    arrowIcon.classList.add('fa-angle-right');
-                } else {
-                    eventItem.classList.add('expanded');
-                    arrowIcon.classList.remove('fa-angle-right');
-                    arrowIcon.classList.add('fa-angle-down');
-                }
-            });
+                        // Toggle the 'show' class to expand/collapse description
+                        if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
+                            description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
+                            arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
+                            arrowIcon.classList.add('fa-angle-down');
+                        } else {
+                            description.style.maxHeight = '0px'; // Collapse
+                            arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
+                            arrowIcon.classList.add('fa-angle-right');
+                        }
+                    });
 
             eventContainer.appendChild(eventItem);
         });
@@ -216,7 +215,7 @@ fetch('data.json')
                     card.innerHTML = `
                         <div class="card">
                             <div class="thumb">
-                               <a><img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}"></a>
+                                <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
                             </div>
                             <div class="down-content">
                                 <span class="CategoryName">${course.type}</span>
