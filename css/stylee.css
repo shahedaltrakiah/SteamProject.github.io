@@ -14,7 +14,7 @@ body {
 }
 
 .home {
-    margin-right: 80px;
+    margin-right: 50px;
 }
 
 .home h2 {
@@ -28,16 +28,12 @@ body {
     margin-top: 150px;
 }
 
-
-
 .container,
 .signup-container {
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-content: center;
-    /* position: relative;
-    z-index: 2; */
 }
 
 .card {
@@ -241,4 +237,20 @@ input:focus,
     .signup-container {
         padding: 10px;
     }
+}
+
+.back_btn{
+    margin-left: 20px;
+    background-color: #fd5b4e;
+    margin-top: 20px;
+    color: black;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    justify-self: center;
+}
+
+.back-btn :hover{
+color: black;
+background-color: #fd5a4e6c;
 }

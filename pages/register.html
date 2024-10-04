@@ -23,9 +23,10 @@
 </head>
 
 <body>
+    <a href="/index.html" class="btn float-left back_btn"> <i class="fa-solid fa-arrow-left"></i> </a>
     <div class="container">
         <div class="home">
-            <img src="/images/bg-logo.jpg" type="image/svg+xml" style="width: 100%;" />
+            <img src="/images/bg-logo.png" type="image/svg+xml" style="width: 700px;" />
         </div>
         <div class="d-flex justify-content-center h-100">
             <div class="form-section">
@@ -40,45 +41,52 @@
                             </div>
                             <input type="text" class="form-control" id="firstName" placeholder="First name">
                             <input type="text" class="form-control ml-2" id="lastName" placeholder="Last name">
+                            <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
+
                         </div>
-                        <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+                            <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
+
                         </div>
-                        <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+                            <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
+
                         </div>
-                        <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm Password">
+                            <p id="confirmPasswordError" class="error" style="color:red;"></p>
+                            <!-- Error for confirm password -->
+
                         </div>
-                        <p id="confirmPasswordError" class="error" style="color:red;"></p> <!-- Error for confirm password -->
-                    
+
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
                             <input type="date" class="form-control" placeholder="DD / MM / YYYY">
                         </div>
-                    
+
                         <div class="form-group">
                             <input type="submit" value="Sign Up" class="btn float-right login_btn">
+                            <p id="signUpResult" class="result"></p> <!-- Result message -->
+
                         </div>
-                    
-                        <p id="signUpResult" class="result"></p> <!-- Result message -->
+
                     </form>
                 </div>
             </div>

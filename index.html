@@ -274,103 +274,102 @@
         </div>
 
 
-        <!-- Courses - section -->
-        <section class="section courses" id="courses">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-lg-12 text-center">
-                        <span class="text-cursive h1 text-orange d-block">Our Courses</span>
-                    </div>
-                </div>
-                <div id = "courses-container" class="col event_box">
-                    <!-- Science (S) -->
-                    <div class="row align-self-center mb-30 event_outer science" id="science-container">
-                       
-                    </div>
+       <!-- Courses - section -->
+<section class="section courses" id="courses">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-12 text-center">
+                <span class="text-cursive h1 text-orange d-block">Our Courses</span>
+            </div>
+        </div>
+        
+        <!-- Filter Buttons -->
+        <div class="row mb-4">
+            <div class="col text-center event_filter">
+                <button class="btn filter-btn all" data-filter="all">All</button>
+                <button class="btn filter-btn  science " data-filter="science">Science</button>
+                <button class="btn filter-btn technology" data-filter="technology">Technology</button>
+                <button class="btn filter-btn engineering" data-filter="engineering">Engineering</button>
+                <button class="btn filter-btn art" data-filter="art">Arts</button>
+                <button class="btn filter-btn math" data-filter="math">Math</button>
+            </div>
+        </div>
 
-                    <!-- Technology (T) -->
-                    <div class="row align-self-center mb-30 event_outer technology" id="technology-container">
-                        
-                    </div>
+        <div id="courses-container" class="col event_box">
+            <!-- Science (S) -->
+            <div class="row align-self-center mb-30 event_outer science" id="science-container"></div>
+            <!-- Technology (T) -->
+            <div class="row align-self-center mb-30 event_outer technology" id="technology-container"></div>
+            <!-- Engineering (E) -->
+            <div class="row align-self-center mb-30 event_outer engineering" id='engineering-container'></div>
+            <!-- Arts (A) -->
+            <div class="row align-self-center mb-30 event_outer arts" id="art-container"></div>
+            <!-- Math (M) -->
+            <div class="row align-self-center mb-30 event_outer math" id="math-container"></div>
+        </div>
 
-                    <!-- Engineering (E) -->
-                    <div class="row align-self-center mb-30 event_outer engineering"id='engineering-container'>
-                        
-                    </div>
-
-                    <!-- Arts (A) -->
-                    <div class="row align-self-center mb-30 event_outer arts" id="art-container">
-                        
-                    </div>
-
-                    <!-- Math (M) -->
-                    <div class="row align-self-center mb-30 event_outer math" id="math-container">
-                        
-                    </div>
-                </div>
-                <div class="row">
+        <div class="row">
             <div class="col-12 text-center">
-                <button id="showMoreBtn" class="btn btn-primary">Show More</button>
+                <button id="showMoreBtn" class="btn">Show More</button>
             </div>
             <div class="col-12 text-center"></div>
-                <button id="showLessBtn" style="display: none;" class="btn btn-primary">Show Less</button>
-            </div>
+            <button id="showLessBtn" style="display: none; margin-top: 20px;" class="btn">Show Less</button>
         </div>
-            </div>
-        </section>
+    </div>
+</section>
 
 
-        <!-- Events - section -->
-        <div class=" site-section section events">
-            <div class="container" id="events">
-                <div class="row mb-5">
-                    <div class="col-12 text-center">
-                        <span class="text-cursive h1 text-teal d-block">Events</span>
-                    </div>
+
+    <!-- Events - section -->
+    <div class=" site-section section events">
+        <div class="container" id="events">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <span class="text-cursive h1 text-teal d-block">Events</span>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <!-- Testimonial - section -->
-        <div class="site-section bg-light" id="testimonial">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12 text-center">
-                        <span class="text-cursive h1 text-red d-block">Testimonial</span>
-                        <h4 class="text-black">What Our Client Says About Us</h4>
-                    </div>
+    <!-- Testimonial - section -->
+    <div class="site-section bg-light" id="testimonial">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <span class="text-cursive h1 text-red d-block">Testimonial</span>
+                    <h4 class="text-black">What Our Client Says About Us</h4>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="testimonial-3-wrap">
-                            <div class="owl-carousel nonloop-block-13" id='testimonial-carousel'>
-                                <div class="testimonial-3 d-flex">
-                                    <div class="vcard-wrap mr-5">
-                                        <img id="userImg" alt="Image" class="vcard img-fluid">
-                                    </div>
-                                    <div class="text">
-                                        <h3 id="userName"></h3>
-                                        <p id="userFeedback"></p>
-                                    </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="testimonial-3-wrap">
+                        <div class="owl-carousel nonloop-block-13" id='testimonial-carousel'>
+                            <div class="testimonial-3 d-flex">
+                                <div class="vcard-wrap mr-5">
+                                    <img id="userImg" alt="Image" class="vcard img-fluid">
                                 </div>
-                                <div class="testimonial-3 d-flex">
-                                    <div class="vcard-wrap mr-5">
-                                        <img id="userImg" alt="Image" class="vcard img-fluid">
-                                    </div>
-                                    <div class="text">
-                                        <h3 id="userName"></h3>
-                                        <p id="userFeedback"></p>
-                                    </div>
+                                <div class="text">
+                                    <h3 id="userName"></h3>
+                                    <p id="userFeedback"></p>
                                 </div>
-                                <div class="testimonial-3 d-flex">
-                                    <div class="vcard-wrap mr-5">
-                                        <img id="userImg" alt="Image" class="vcard img-fluid">
-                                    </div>
-                                    <div class="text">
-                                        <h3 id="userName"></h3>
-                                        <p id="userFeedback"></p>
-                                    </div>
+                            </div>
+                            <div class="testimonial-3 d-flex">
+                                <div class="vcard-wrap mr-5">
+                                    <img id="userImg" alt="Image" class="vcard img-fluid">
+                                </div>
+                                <div class="text">
+                                    <h3 id="userName"></h3>
+                                    <p id="userFeedback"></p>
+                                </div>
+                            </div>
+                            <div class="testimonial-3 d-flex">
+                                <div class="vcard-wrap mr-5">
+                                    <img id="userImg" alt="Image" class="vcard img-fluid">
+                                </div>
+                                <div class="text">
+                                    <h3 id="userName"></h3>
+                                    <p id="userFeedback"></p>
                                 </div>
                             </div>
                         </div>
@@ -378,100 +377,101 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <!-- Partner - section -->
-        <div class="partners-section py-5">
-            <div class="container">
-                <div class="row mb-5">
-                    <div class="col-12 text-center">
-                        <span class="text-cursive h1 text-red d-block">Our Partners</span>
+    <!-- Partner - section -->
+    <div class="partners-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <span class="text-cursive h1 text-red d-block">Our Partners</span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2 mb-4 d-flex justify-content-center">
+                    <img src="images/Orange_logo.svg.png" alt="Partner Logo 1" class="img-fluid">
+                </div>
+                <div class="col-2 mb-4 d-flex justify-content-center">
+                    <img src="images/logo_simplon.webp" alt="Partner Logo 2" class="img-fluid">
+                </div>
+                <div class="col-2 mb-4 d-flex justify-content-center">
+                    <img src="images/modee_logo.jpg" alt="Partner Logo 3" class="img-fluid">
+                </div>
+                <div class="col-2 mb-4 d-flex justify-content-center">
+                    <img src="images/PSUT_Logo.png" alt="Partner Logo 4" class="img-fluid">
+                </div>
+                <div class="col-2 mb-4 d-flex justify-content-center">
+                    <img src="images/amideast_logo.png" alt="Partner Logo 5" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Get Started - section -->
+    <div class="site-section py-5 bg-keppel finalSection">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 d-flex">
+                    <h2 class="text-white m-0">Bring Fun Life To Your Kids</h2>
+                    <a href="pages/login.html" class="btn btn-primary btn-custom-1 py-3 px-5 ml-auto">Get
+                        Started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - section -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Navigation Links -->
+                <div class="col-lg-3">
+                    <h2 class="footer-heading mb-4">Quick Link</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="pages/about.html"> About Us</a></li>
+                        <li><a href="#testimonial"> Testimonials</a></li>
+                        <li><a href="pages/contact.html"> Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Information -->
+                <div class="col-lg-4">
+                    <h2 class="footer-heading mb-4">Contact</h2>
+                    <ul class="list-unstyled contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Amman,Jordan</li>
+                        <li><i class="fas fa-phone-alt"></i> +962 772694988</li>
+                        <li><i class="fas fa-envelope"></i> steamkiddy@gmail.com</li>
+                    </ul>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="col-lg-3">
+                    <h2 class="footer-heading mb-2">Follow Us</h2>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-2 mb-4 d-flex justify-content-center">
-                        <img src="images/Orange_logo.svg.png" alt="Partner Logo 1" class="img-fluid">
-                    </div>
-                    <div class="col-2 mb-4 d-flex justify-content-center">
-                        <img src="images/logo_simplon.webp" alt="Partner Logo 2" class="img-fluid">
-                    </div>
-                    <div class="col-2 mb-4 d-flex justify-content-center">
-                        <img src="images/modee_logo.jpg" alt="Partner Logo 3" class="img-fluid">
-                    </div>
-                    <div class="col-2 mb-4 d-flex justify-content-center">
-                        <img src="images/PSUT_Logo.png" alt="Partner Logo 4" class="img-fluid">
-                    </div>
-                    <div class="col-2 mb-4 d-flex justify-content-center">
-                        <img src="images/amideast_logo.png" alt="Partner Logo 5" class="img-fluid">
+                <!-- Logo Section -->
+                <div class="col-lg-2 text-center">
+                    <img src="images/logo.png" alt="Logo" class="footer-logo img-fluid mb-3">
+                </div>
+            </div>
+            <!-- Copyright Section -->
+            <div class="row pt-3 mt-4 text-center">
+                <div class="col-md-12">
+                    <div class="border-top pt-5">
+                        <h6>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | Stream
+                            <i class="icon-heart text-danger" aria-hidden="true"></i>
+                        </h6>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Get Started - section -->
-        <div class="site-section py-5 bg-keppel finalSection">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-12 d-flex">
-                        <h2 class="text-white m-0">Bring Fun Life To Your Kids</h2>
-                        <a href="pages/login.html" class="btn btn-primary btn-custom-1 py-3 px-5 ml-auto">Get
-                            Started</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer - section -->
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <!-- Navigation Links -->
-                    <div class="col-lg-3">
-                        <h2 class="footer-heading mb-4">Quick Link</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="pages/about.html"> About Us</a></li>
-                            <li><a href="#testimonial"> Testimonials</a></li>
-                            <li><a href="pages/contact.html"> Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <!-- Contact Information -->
-                    <div class="col-lg-4">
-                        <h2 class="footer-heading mb-4">Contact</h2>
-                        <ul class="list-unstyled contact-info">
-                            <li><i class="fas fa-map-marker-alt"></i> Amman,Jordan</li>
-                            <li><i class="fas fa-phone-alt"></i> +962 772694988</li>
-                            <li><i class="fas fa-envelope"></i> steamkiddy@gmail.com</li>
-                        </ul>
-                    </div>
-                    <!-- Social Media Icons -->
-                    <div class="col-lg-3">
-                        <h2 class="footer-heading mb-4">Follow Us</h2>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                    <!-- Logo Section -->
-                    <div class="col-lg-2 text-center">
-                        <img src="images/logo.png" alt="Logo" class="footer-logo img-fluid mb-3">
-                    </div>
-                </div>
-                <!-- Copyright Section -->
-                <div class="row pt-3 mt-4 text-center">
-                    <div class="col-md-12">
-                        <div class="border-top pt-5">
-                            <h6>
-                                Copyright &copy;
-                                <script>document.write(new Date().getFullYear());</script> All rights reserved | Stream
-                                <i class="icon-heart text-danger" aria-hidden="true"></i>
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    </footer>
     </div>
 
     <script src="js/main2.js"></script>
