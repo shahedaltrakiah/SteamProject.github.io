@@ -3279,44 +3279,53 @@ Courses Style
     color: #F88C6D;
 }
 
-.science-card .card {
-    background-color: #fd5a4e8e !important;
+#science-container, #math-container, #technology-container, #engineering-container, #art-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin:auto ;
+}
+
+/* Common card styling */
+.science-card .card,
+.technology-card .card,
+.engineering-card .card,
+.arts-card .card,
+.math-card .card {
+    background-color: #f5f5f5; /* Default background */
     border-radius: 25px !important;
-    margin-bottom: 30px !important;
+    margin: 15px; /* Margin between cards */
+    width: 300px !important; /* Fixed width */
+    height: 220px !important; /* Fixed height */    
+    max-width: 350px; /* Limit max width */
     position: relative !important;
     justify-content: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content inside the card */
+    text-align: center;
+}
+
+/* Specific color for each type */
+.science-card .card {
+    background-color: #fd5a4e8e !important;
 }
 
 .technology-card .card {
     background-color: #f0c32e91 !important;
-    border-radius: 25px !important;
-    margin-bottom: 30px !important;
-    position: relative !important;
-    justify-content: center !important;
 }
 
-.engineering-card .card{
+.engineering-card .card {
     background-color: #16c3af8f !important;
-    border-radius: 25px !important;
-    margin-bottom: 30px !important;
-    position: relative !important;
-    justify-content: center !important;
 }
 
-.arts-card .card{
+.arts-card .card {
     background-color: #f88b6d7e !important;
-    border-radius: 25px !important;
-    margin-bottom: 30px !important;
-    position: relative !important;
-    justify-content: center !important;
 }
 
-.math-card .card{
+.math-card .card {
     background-color: #3db4d896 !important;
-    border-radius: 25px !important;
-    margin-bottom: 30px !important;
-    position: relative !important;
-    justify-content: center !important;
 }
 
 .show-all-btn {
