@@ -3727,7 +3727,7 @@ html {
   color: #f0c22e;
 }
 
-/* Responsive Design */
+/* Responsive Design  for steamies page*/
 @media screen and  (max-width: 370px) {
  
 
@@ -3747,6 +3747,109 @@ html {
   }
   .maxiii{
     margin-left: 0px;
+  }
+}
+
+
+/* Responsive Styles for contact page  */
+@media screen and (max-width: 1200px) {
+  .parent {
+    grid-template-columns: repeat(6, 1fr); /* 6 columns on medium screens */
+  }
+
+  .sidebar {
+    grid-area: 1 / 5 / 7 / 10; /* Adjust sidebar position */
+  }
+
+  .content {
+    grid-area: 5 / 1 / 8 / 5; /* Adjust content area */
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .parent {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on smaller screens */
+  }
+
+  .sidebar {
+    grid-area: 1 / 4 / 7 / 10; /* Adjust sidebar position */
+  }
+
+  .content {
+    grid-area: 5 / 1 / 8 / 4; /* Adjust content area */
+  }
+  #course-video{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .parent {
+    grid-template-columns: repeat(1, 1fr); /* 1 column on mobile screens */
+  }
+
+  .sidebar {
+    grid-area: 3 / 1 / 5 / 2; /* Adjust sidebar position */
+    width: 100%;
+    background-size: cover;
+    margin: 0px;
+  }
+
+  .header-content {
+    margin: 0 auto; /* Center header content */
+  }
+
+  .content {
+    grid-area: 5 / 1 / 5 / 2; /* Adjust content area */
+  }
+
+  #course-video {
+    width: 100%; /* Ensure video fits within the container */
+    height: 35%; /* Adjust height as needed */
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .header-content,
+  .sidebar,
+  .content,
+  .comment-section,
+  .leave-message {
+    padding: 10px; /* Reduce padding on small screens */
+  }
+
+  .user-pic {
+    width: 50px; /* Smaller user pic on mobile */
+    height: 50px;
+  }
+  #course-video{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .parent {
+    grid-template-columns: repeat(1, 1fr); /* 1 column on very small screens */
+  }
+
+  .sidebar {
+    grid-area: 3 / 1 / 5 / 2; /* Adjust sidebar position */
+    width: 100%;
+    background-size: cover;
+    margin: 0px;
+  }
+
+  .header-content {
+    margin: 0 auto; /* Center header content */
+  }
+
+  .content {
+    grid-area: 5 / 1 / 6 / 2; /* Adjust content area */
+  }
+
+  #course-video {
+    width: 100%; /* Ensure video fits within the container */
+    height: auto; /* Maintain aspect ratio */
   }
 }
 
