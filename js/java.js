@@ -75,4 +75,6 @@ if (email) {
     document.getElementById('userInfo').innerText = "No email found.";
 }
 
+ getQueryParam(name)
+
 
