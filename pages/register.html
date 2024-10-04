@@ -39,8 +39,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                         <input type="text" class="form-control" id="fname" placeholder="First name">
-                        <input type="text" class="form-control ml-2" id="lname" placeholder="Last name">
+                            <input type="text" class="form-control" id="fname" placeholder="First name">
+                            <input type="text" class="form-control ml-2" id="lname" placeholder="Last name">
                         </div>
                         <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
 
@@ -48,7 +48,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                           <input type="email" class="form-control"  id="email" placeholder="Email">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
                         </div>
                         <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
 
@@ -56,7 +56,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                           <input type="password" class="form-control" id="pass" placeholder="Password">
+                            <input type="password" class="form-control" id="pass" placeholder="Password">
                         </div>
                         <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
 
@@ -64,7 +64,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                           <input type="password" class="form-control" id="conpass" placeholder="Confirm Password">
+                            <input type="password" class="form-control" id="conpass" placeholder="Confirm Password">
                         </div>
                         <p id="confirmPasswordError" class="error" style="color:red;"></p> <!-- Error for confirm password -->
 
@@ -75,9 +75,8 @@
                             <input type="date" class="form-control" id="dateOfBirth" placeholder="DD / MM / YYYY">
                         </div>
 
-
                         <div class="form-group">
-                            <input type="submit" value="Sign Up" class="btn float-right login_btn" onclick="saveUser()">
+                            <input type="submit" value="Sign Up" class="btn float-right login_btn">
                         </div>
 
                         <p id="signUpResult" class="result"></p> <!-- Result message -->
@@ -94,79 +93,86 @@
     <!-- SweetAlert for popup messages -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Your signup script -->
     <script>
-        // Sign up
         document.getElementById('signUpForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            // Fetch existing users from localStorage or initialize as an empty array
-            var users = JSON.parse(localStorage.getItem('users')) || [];
+            const firstName = document.getElementById('fname').value.trim();
+            const lastName = document.getElementById('lname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('pass').value.trim();
+            const confirmPassword = document.getElementById('conpass').value.trim();
 
-            // Get form input values
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('signUpEmail').value;
-            const password = document.getElementById('signUpPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+            // Validate that all fields are filled in
+            if (!firstName || !lastName || !email || !password || !confirmPassword) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'All fields are required!',
+                });
+                return;
+            }
 
-            // Check for validation errors
-            let hasError = false;
-            document.getElementById('nameError').textContent = '';
-            document.getElementById('emailError').textContent = '';
-            document.getElementById('passwordError').textContent = '';
-            document.getElementById('confirmPasswordError').textContent = '';
-
-            if (!firstName || !lastName) {
-                document.getElementById('nameError').textContent = 'Please enter both first and last name.';
-                hasError = true;
-            }
-            if (!email) {
-                document.getElementById('emailError').textContent = 'Please enter your email.';
-                hasError = true;
-            }
-            if (!password) {
-                document.getElementById('passwordError').textContent = 'Please enter a password.';
-                hasError = true;
-            }
+            // Validate passwords match
             if (password !== confirmPassword) {
-                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
-                hasError = true;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Passwords do not match!',
+                });
+                return;
             }
 
-            if (hasError) {
+            // Validate email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid email format!',
+                });
+                return;
+            }
+
+            // Fetch existing users from localStorage or initialize as an empty array
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Check if the email already exists
+            if (users.some(user => user.email === email)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Email already exists!',
+                });
                 return;
             }
 
             // Create user object
-            var user = {
-                "firstName": firstName,
-                "lastName": lastName,
-                "email": email,
-                "password": password
+            const newUser = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
             };
 
-            // Add the new user to the array of users
-            users.push(user);
-            // Store the updated array back to localStorage
+            // Add the new user to the array
+            users.push(newUser);
+
+            // Store the updated users array back to localStorage
             localStorage.setItem('users', JSON.stringify(users));
 
             // Display success message
             Swal.fire({
                 icon: 'success',
                 title: 'Signup successful!',
-                text: 'You will be redirected to the login page.',
+                text: 'Redirecting to login page...',
                 showConfirmButton: false,
                 timer: 2000
             }).then(() => {
-                window.location.href = 'login.html';
+                window.location.href = 'login.html';  // Redirect after signup
             });
 
             // Reset the form
             document.getElementById('signUpForm').reset();
         });
     </script>
+
 </body>
 
 </html>
-

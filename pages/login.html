@@ -39,7 +39,7 @@
     <div class="container">
       <div class="home">
         <img
-          src="/images/bg-logo.jpg"
+          src="../images/bg-logo.png"
           type="image/svg+xml"
           style="width: 100%"
         />
@@ -100,8 +100,8 @@
       document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const loginFirstName = document.getElementById('loginFirstName').value;
-            const loginPassword = document.getElementById('loginPassword').value;
+            const loginFirstName = document.getElementById('loginFirstName').value.trim();
+            const loginPassword = document.getElementById('loginPassword').value.trim();
 
             // Retrieve users array from localStorage
             const users = JSON.parse(localStorage.getItem('users')) || [];
