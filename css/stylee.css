@@ -179,3 +179,66 @@ input:focus,
 .footer-text {
     color: #F0C22E;
 }
+
+@media only screen and (max-width: 1200px) {
+
+    .card,
+    .form-section,
+    .cards {
+        width: 300px;
+        margin-right: 10px;
+    }
+
+    .container,
+    .signup-container {
+        justify-content: center;
+    }
+}
+
+/* /* For screens with a maximum width of 992px / */
+@media only screen and (max-width: 992px) {
+
+    .card,
+    .form-section,
+    .cards {
+        width: 250px;
+        margin-right: 5px;
+    }
+
+    .container,
+    .signup-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* / For screens with a maximum width of 768px / */
+@media only screen and (max-width: 768px) {
+
+    .card,
+    .form-section,
+    .cards {
+        width: 200px;
+        margin-right: 0;
+    }
+
+    .container,
+    .signup-container {
+        padding: 20px;
+    }
+}
+/* / For screens with a maximum width of 480px */
+@media only screen and (max-width: 480px) {
+
+    .card,
+    .form-section,
+    .cards {
+        width: 150px;
+        margin-right: 0;
+    }
+
+    .container,
+    .signup-container {
+        padding: 10px;
+    }
+}
