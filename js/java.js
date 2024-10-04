@@ -62,7 +62,7 @@ if (email) {
         console.log("User Data:", userData);
         
    
-        document.getElementById('stdNmae').innerHTML = `
+        document.getElementById('stdName').innerHTML = `
             <p> ${userData.fname} ${userData.lname}</p>
            
         `;
