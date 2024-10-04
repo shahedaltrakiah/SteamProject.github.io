@@ -282,27 +282,7 @@
                         <span class="text-cursive h1 text-orange d-block">Our Courses</span>
                     </div>
                 </div>
-                <ul class="event_filter">
-                    <li>
-                        <a class="is_active" href="#!" data-filter="*">Show All</a>
-                    </li>
-                    <li>
-                        <a class="science" href="#!" data-filter=".science">Science</a>
-                    </li>
-                    <li>
-                        <a class="technology" href="#!" data-filter=".technology">Technology</a>
-                    </li>
-                    <li>
-                        <a class="engineering" href="#!" data-filter=".engineering">Engineering</a>
-                    </li>
-                    <li>
-                        <a class="arts" href="#!" data-filter=".arts">Arts</a>
-                    </li>
-                    <li>
-                        <a class="math" href="#!" data-filter=".math">Math</a>
-                    </li>
-                </ul>
-                <div id = "courses-container" class="row event_box">
+                <div id = "courses-container" class="col event_box">
                     <!-- Science (S) -->
                     <div class="row align-self-center mb-30 event_outer science" id="science-container">
                        
@@ -331,6 +311,9 @@
                 <div class="row">
             <div class="col-12 text-center">
                 <button id="showMoreBtn" class="btn btn-primary">Show More</button>
+            </div>
+            <div class="col-12 text-center"></div>
+                <button id="showLessBtn" style="display: none;" class="btn btn-primary">Show Less</button>
             </div>
         </div>
             </div>

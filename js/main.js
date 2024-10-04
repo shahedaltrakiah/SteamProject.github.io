@@ -455,90 +455,110 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => console.error('Error:', error));
 });
 
-  document.addEventListener("DOMContentLoaded", function() {
-    // Fetch data from courses.json
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            const courses = data.courses; // Assuming data.json has a 'courses' array
+document.addEventListener("DOMContentLoaded", function() {
+  // Fetch data from courses.json
+  fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+          const courses = data.courses; // Assuming data.json has a 'courses' array
 
-            // Select containers for different types of courses
-            const scienceContainer = document.getElementById('science-container');
-            const mathContainer = document.getElementById('math-container');
-            const technologyContainer = document.getElementById('technology-container');
-            const engineeringContainer = document.getElementById('engineering-container');
-            const artContainer = document.getElementById('art-container');
+          // Select containers for different types of courses
+          const scienceContainer = document.getElementById('science-container');
+          const mathContainer = document.getElementById('math-container');
+          const technologyContainer = document.getElementById('technology-container');
+          const engineeringContainer = document.getElementById('engineering-container');
+          const artContainer = document.getElementById('art-container');
 
-            // Counter to track how many cards have been displayed
-            let displayedCards = 0;
+          // Counter to track how many cards have been displayed
+          let displayedCards = 0;
 
-            // Loop through the courses and create a card for each
-            courses.forEach(course => {
-                // Create a new card element for each course
-                let card = document.createElement('div');
+          // Store cards for later use
+          const allCards = [];
 
-                // Add the Bootstrap and event_outer classes
-                card.classList.add('col-lg-4', 'col-md-6', 'mb-30', 'event_outer'); // Bootstrap classes
+          // Loop through the courses and create a card for each
+          courses.forEach(course => {
+              // Create a new card element for each course
+              let card = document.createElement('div');
 
-                // Add specific class based on course type
-                if (course.type === "science") {
-                    card.classList.add('science-card');
-                } else if (course.type === "math") {
-                    card.classList.add('math-card');
-                } else if (course.type === "art") {
-                    card.classList.add('arts-card');
-                } else if (course.type === "technology") {
-                    card.classList.add('technology-card');
-                } else if (course.type === "engineering") {
-                    card.classList.add('engineering-card');
-                }
+              // Add the Bootstrap and event_outer classes
+              card.classList.add('col-lg-4', 'col-md-6', 'mb-30', 'event_outer'); // Bootstrap classes
 
-                // Populate the card content dynamically with a clickable link
-                card.innerHTML = `
-                    <a href="../pages/courses.html?id=${course.id}" class="card-link" style="text-decoration: none; color: inherit;">
-                        <div class="card">
-                            <div class="thumb">
-                                <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
-                            </div>
-                            <div class="down-content">
-                                <span class="CategoryName">${course.type}</span>
-                                <h4 class="courseName">${course.name}</h4>
-                                <p>Target Age: <span class="courseAge">${course.target_age}</span></p>
-                            </div>
-                        </div>
-                    </a>
-                `;
+              // Add specific class based on course type
+              if (course.type === "science") {
+                  card.classList.add('science-card');
+              } else if (course.type === "math") {
+                  card.classList.add('math-card');
+              } else if (course.type === "art") {
+                  card.classList.add('arts-card');
+              } else if (course.type === "technology") {
+                  card.classList.add('technology-card');
+              } else if (course.type === "engineering") {
+                  card.classList.add('engineering-card');
+              }
 
-                // Append the card to the appropriate container based on the type
-                if (course.type === "science") {
-                    scienceContainer.appendChild(card);
-                } else if (course.type === "math") {
-                    mathContainer.appendChild(card);
-                } else if (course.type === "art") {
-                    artContainer.appendChild(card);
-                } else if (course.type === "technology") {
-                    technologyContainer.appendChild(card);
-                } else if (course.type === "engineering") {
-                    engineeringContainer.appendChild(card);
-                }
+              // Populate the card content dynamically with a clickable link
+              card.innerHTML = ` 
+                  <a href="../pages/courses.html?id=${course.id}" class="card-link" style="text-decoration: none; color: inherit;">
+                      <div class="card">
+                          <div class="thumb">
+                              <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
+                          </div>
+                          <div class="down-content">
+                              <span class="CategoryName">${course.type}</span>
+                              <h4 class="courseName">${course.name}</h4>
+                              <p>Target Age: <span class="courseAge">${course.target_age}</span></p>
+                          </div>
+                      </div>
+                  </a>
+              `;
 
-                // Initially hide cards beyond the 6th card
-                if (displayedCards >= 6) {
-                    card.style.display = 'none'; // Hide cards after the first 6
-                }
-                displayedCards++;
-            });
-        })
-        .catch(error => console.error('Error fetching the JSON data:', error));
+              // Store the card in the allCards array
+              allCards.push(card);
 
-    // Show more functionality
-    const showMoreBtn = document.getElementById('showMoreBtn');
+              // Append the card to the appropriate container based on the type
+              if (course.type === "science") {
+                  scienceContainer.appendChild(card);
+              } else if (course.type === "math") {
+                  mathContainer.appendChild(card);
+              } else if (course.type === "art") {
+                  artContainer.appendChild(card);
+              } else if (course.type === "technology") {
+                  technologyContainer.appendChild(card);
+              } else if (course.type === "engineering") {
+                  engineeringContainer.appendChild(card);
+              }
 
-    showMoreBtn.addEventListener('click', function() {
-        const hiddenCards = document.querySelectorAll('.event_outer[style*="display: none"]');
-        hiddenCards.forEach(card => card.style.display = 'block'); // Show hidden cards
-        showMoreBtn.style.display = 'none'; // Hide the 'Show More' button after clicking
-    });
+              // Initially hide cards beyond the 6th card
+              if (displayedCards >= 6) {
+                  card.style.display = 'none'; // Hide cards after the first 6
+              }
+              displayedCards++;
+          });
+
+          // Show more functionality
+          const showMoreBtn = document.getElementById('showMoreBtn');
+          const showLessBtn = document.getElementById('showLessBtn');
+
+          showMoreBtn.addEventListener('click', function() {
+              // Show all hidden cards
+              allCards.forEach(card => card.style.display = 'block'); // Show hidden cards
+              showMoreBtn.style.display = 'none'; // Hide the 'Show More' button
+              showLessBtn.style.display = 'inline-block'; // Show the 'Show Less' button
+          });
+
+          // Show less functionality
+          showLessBtn.addEventListener('click', function() {
+              // Hide all cards beyond the first 6
+              allCards.forEach((card, index) => {
+                  if (index >= 6) {
+                      card.style.display = 'none'; // Hide cards beyond the first 6
+                  }
+              });
+              showLessBtn.style.display = 'none'; // Hide the 'Show Less' button
+              showMoreBtn.style.display = 'inline-block'; // Show the 'Show More' button
+          });
+      })
+      .catch(error => console.error('Error fetching the JSON data:', error));
 });
 
     

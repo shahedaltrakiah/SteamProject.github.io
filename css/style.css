@@ -3018,10 +3018,7 @@ h5,
     font-size: 16px;
 }
 
-/* Hide cards beyond the first 6 */
-.event_box .event_outer:nth-child(n+7) {
-    display: none;
-}
+
 
 /* Event Link Button */
 .events .item a.event-link {
@@ -3341,10 +3338,7 @@ Courses Style
     font-size: 16px;
 }
 
-/* Hide cards beyond the first 6 */
-.event_box .event_outer:nth-child(n+7){
-    display: none;
-}
+
 .hero-text {
     text-align: left;
     margin-bottom: 20px;
@@ -3599,13 +3593,49 @@ html {
         align-items: center;
     }
 }
-
+#showLessBtn{
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+    margin: auto;
+}
 #showMoreBtn {
     margin-top: 20px;
     padding: 10px 30px;
     font-size: 16px;
 }
+.event_box {
+    display: grid; /* Enable CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-template-rows: repeat(5, auto); /* 5 rows with auto height */
+    grid-template-areas: 
+        "science science science"
+        "engineering engineering engineering"
+        "math math math"
+        "technology technology technology"
+        "arts arts arts"; /* Define areas for rows and columns */
+    gap: 10px; /* Optional: space between grid items */
+}
 
+.science {
+    grid-area: science; /* Assign area for science */
+}
+
+.technology {
+    grid-area: technology; /* Assign area for technology */
+}
+
+.engineering {
+    grid-area: engineering; /* Assign area for engineering */
+}
+
+.arts {
+    grid-area: arts; /* Assign area for arts */
+}
+
+.math {
+    grid-area: math; /* Assign area for math */
+}
 /* Hide cards beyond the first 6 */
 .event_box .event_outer:nth-child(n+7) {
     display: none;
