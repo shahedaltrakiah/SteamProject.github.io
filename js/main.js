@@ -116,6 +116,7 @@ fetch('data.json')
             eventItem.classList.add('item');
             eventItem.innerHTML = `
                 <div class="row">
+
                     <div class="col-lg-2 image">
                         <img src="${event.image}" alt="${event.name}">
                     </div>
@@ -144,7 +145,7 @@ fetch('data.json')
 
                 <!-- Hidden description section -->
                 <div class="event-description">
-                    <p>${event.brief}</p>
+                    <p style='font-weight:bold'>${event.brief}</p>
                 </div>
             `;
 
