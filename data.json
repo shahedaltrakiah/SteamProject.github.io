@@ -2,7 +2,7 @@
     "courses": [
       {
         "id": 1,
-        "name": "Discovering the World of Dinosaurs",
+        "name": "World of Dinosaurs",
         "description": "Take an exciting journey to learn about the different types of dinosaurs and their history.",
         "image": "images/dinosaurs.jpg",
         "course_video": "https://www.youtube.com/embed/dktnOPfE7Dc?si=5cTj74unvkJLjuYH",
@@ -11,6 +11,7 @@
         "enrollment":"15-10-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "science",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Jessica Green",
@@ -28,13 +29,14 @@
         "id": 2,
         "name": "Exploring the Solar System",
         "description": "Learn about the planets, stars, and the wonders of space through exciting visuals and simple lessons.",
-        "image": "images/solarSystem.jfif",
+        "image": "../images/solarSystem.jpg",
         "course_video": "https://www.youtube.com/embed/ErUZVWUP0c4?si=-Sd4-D9qLPzkU-1D",
         "target_age": "7-10",
         "rate": 4.8,
         "enrollment":"15-11-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "science",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Lucas Thompson",
@@ -50,7 +52,7 @@
       },
       {
         "id": 3,
-        "name": "Animal Habitats Exploration",
+        "name": "Animal Habitats",
         "description": "Discover different animal habitats and learn how animals adapt to their environments.",
         "image": "images/AnimalHabitats.webp",
         "course_video": "https://www.youtube.com/embed/Xj1ASC-TlsI?si=CrdXp86loaGHgai_",
@@ -59,6 +61,7 @@
         "enrollment":"15-12-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "science",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Olivia James",
@@ -74,7 +77,7 @@
       },
       {
         "id": 4,
-        "name": "Introduction to Coding with Scratch",
+        "name": "Coding with Scratch",
         "description": "Learn basic coding concepts using Scratch, a visual programming language designed for kids.",
         "image": "images/scratch.jpg",
         "course_video": "https://www.youtube.com/embed/_cTyVq1KHME?si=1oqborO4_fVXQhhz",
@@ -83,6 +86,7 @@
         "enrollment":"22-4-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "technology",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Jennifer Brown",
@@ -107,6 +111,7 @@
         "enrollment":"2-5-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "technology",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Sophie Adams",
@@ -122,7 +127,7 @@
       },
       {
         "id": 6,
-        "name": "Robots and Programming Basics",
+        "name": "Programming Basics",
         "description": "Learn how to control simple robots and program basic commands through block-based programming.",
         "image": "images/robotsKids.webp",
         "course_video": "https://www.youtube.com/embed/uNfUAJBuZ0s?si=uELSVECxuGSo3035",
@@ -131,6 +136,7 @@
         "enrollment":"10-2-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "technology",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Alex Turner",
@@ -157,6 +163,7 @@
         "enrollment":"15-3-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "engineering",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Anna Lewis",
@@ -174,7 +181,7 @@
       },
       {
         "id": 8,
-        "name": "Lego Engineering Challenges",
+        "name": "Lego Challenges",
         "description": "Develop engineering skills through fun Lego challenges designed for young builders.",
         "image": "images/LegoChallenges.jpg",
         "course_video": "https://www.youtube.com/embed/pwQVKkZtS6k?si=aFppe3vMvqyHneHS",
@@ -183,6 +190,7 @@
         "enrollment":"1-3-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "engineering",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "George Hall",
@@ -200,7 +208,7 @@
       },
       {
         "id": 9,
-        "name": "Design and Build Your Own Bridge",
+        "name": "Build Your Own Bridge",
         "description": "Learn the basics of structural engineering by designing and building a small bridge using household materials.",
         "image": "images/DesignYourOwnBridge.avif",
         "course_video": "https://www.youtube.com/embed/lYVjbHJ1Jbc?si=mKpKHmi9Us6X5P3E",
@@ -209,6 +217,7 @@
         "enrollment":"6-7-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "engineering",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Lily Martin",
@@ -235,6 +244,7 @@
         "enrollment":"4-8-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "art",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Sarah Peterson",
@@ -261,6 +271,7 @@
         "enrollment":"12-7-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "art",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Chris Foster",
@@ -287,6 +298,7 @@
         "enrollment":"28-1-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "art",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Emma Taylor",
@@ -304,7 +316,7 @@
       },
       {
         "id": 13,
-        "name": "Basic Math with Fun Puzzles",
+        "name": "Math with Fun Puzzles",
         "description": "Develop math skills through fun and interactive puzzles designed for young learners.",
         "image": "images/basicMath.avif",
         "course_video":"https://www.youtube.com/embed/pIcxGD0cZQw?si=3ZbIUMdgwMH9ZLJP",
@@ -313,6 +325,7 @@
         "enrollment":"30-9-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "math",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Emily White",
@@ -330,7 +343,7 @@
       },
       {
         "id": 14,
-        "name": "Introduction to Geometry Shapes",
+        "name": "Geometry Shapes",
         "description": "Learn the basics of geometry through fun activities, like identifying and drawing shapes.",
         "image": "images/introShapes.jpg",
         "course_video": "https://www.youtube.com/embed/NDMPwZL47JY?si=eTZQgv7zneN4ivmG",
@@ -339,6 +352,7 @@
         "enrollment":"13-2-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "math",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Sophia Brooks",
@@ -356,15 +370,16 @@
       },
       {
         "id": 15,
-        "name": "Counting and Number Games",
+        "name": "Counting and Numbers",
         "description": "Help young children develop counting skills and number recognition through fun games.",
-        "user-pic": "images/countingNumbers.jpg",
+        "image": "images/countingNumbers.jpg",
         "course_video": "https://www.youtube.com/embed/yi2caADuDfQ?si=aDqeJRLPHvoc9OoQ",
         "target_age": "4-6",
         "rate": 4.8,
         "enrollment":"1-1-2024",
         "youWillLearn": "Build 16 web development projects for your portfolio, ready to apply for junior developer jobs.Learn the latest technologies, including Javascript, React, Node and even Web3 development.",
         "type": "math",
+        "duration": "1 hour",
         "comments": [
           {
             "user": "Olivia Wright",
