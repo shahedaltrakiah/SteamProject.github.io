@@ -116,36 +116,40 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-8 mb-5">
-            <form action="#" method="post">
-              <div class="form-group row">
-                <div class="col-md-6 mb-4 mb-lg-0">
-                  <input type="text" class="form-control" placeholder="First name" name="first-name">
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Last name" name="last-name">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Email address" name="con-email">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="7"
-                    name="msg"></textarea>
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-md-6 mr-auto">
-                  <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
-                </div>
-              </div>
-            </form>
-          </div>
+          <div class="row">
+            <div class="col-lg-8 mb-5">
+                <form id="contactForm" action="javascript:void(0);" method="post">
+                    <div class="form-group row">
+                        <div class="col-md-6 mb-4 mb-lg-0">
+                            <input type="text" class="form-control" id="contactFirstName" placeholder="First name" name="first-name">
+                            <p id="nameError" class="error" style="color:red;"></p> <!-- خطأ الاسم -->
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="contactLastName" placeholder="Last name" name="last-name">
+                        </div>
+                    </div>
+        
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="contactEmail" placeholder="Email address" name="con-email">
+                            <p id="emailError" class="error" style="color:red;"></p> <!-- خطأ البريد الإلكتروني -->
+                        </div>
+                    </div>
+        
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <textarea id="contactMessage" class="form-control" placeholder="Write your message." cols="30" rows="10" name="msg"></textarea>
+                            <p id="messageError" class="error" style="color:red;"></p> <!-- خطأ الرسالة -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6 mr-auto">
+                            <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message">
+                        </div>
+                    </div>
+                    <p id="contactResult" class="result"></p> <!-- نتيجة الإرسال -->
+                </form>
+            </div> 
 
           <div class="col-lg-4 ml-auto">
             <div class="bg-white p-3 p-md-5">
