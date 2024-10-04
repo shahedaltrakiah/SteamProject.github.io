@@ -3012,6 +3012,16 @@ h5,
     color: #16C3B0;
     font-weight: 600;
 }
+#showMoreBtn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+}
+
+/* Hide cards beyond the first 6 */
+.event_box .event_outer:nth-child(n+7) {
+    display: none;
+}
 
 /* Event Link Button */
 .events .item a.event-link {
@@ -3244,7 +3254,12 @@ Courses Style
     border-radius: 15px;
     transition: background-color .3s ease;
 }
-
+.coursePic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 /* Event Item Styles */
 .events_item .thumb {
     position: relative;
@@ -3309,6 +3324,23 @@ Courses Style
     align-items: center;
 }
 
+.show-all-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+}
+#showMoreBtn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+}
+
+/* Hide cards beyond the first 6 */
+.event_box .event_outer:nth-child(n+7){
+    display: none;
+}
 .hero-text {
     text-align: left;
     margin-bottom: 20px;
