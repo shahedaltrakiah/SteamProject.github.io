@@ -3253,10 +3253,10 @@ Courses Style
 }
 
 .coursePic {
-    width: 100px;
+    width: 280px;
     height: 100px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 /* Event Item Styles */
