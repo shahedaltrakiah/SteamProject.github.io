@@ -3643,9 +3643,9 @@ html {
     grid-template-rows: repeat(5, auto); /* 5 rows with auto height */
     grid-template-areas: 
         "science science science"
-        "engineering engineering engineering"
-        "math math math"
         "technology technology technology"
+        "math math math"
+        "engineering engineering engineering"
         "arts arts arts"; /* Define areas for rows and columns */
     gap: 10px; /* Optional: space between grid items */
 }
