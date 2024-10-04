@@ -16,9 +16,9 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/stylee.css">
-    <link rel="stylesheet" href="/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="../css/stylee.css">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
 
 </head>
 
@@ -26,7 +26,7 @@
     <a href="/index.html" class="btn float-left back_btn"> <i class="fa-solid fa-arrow-left"></i> </a>
     <div class="container">
         <div class="home">
-            <img src="/images/bg-logo.png" type="image/svg+xml" style="width: 700px;" />
+            <img src="/images/bg-logo.jpg" type="image/svg+xml" style="width: 100%;" />
         </div>
         <div class="d-flex justify-content-center h-100">
             <div class="form-section">
@@ -41,8 +41,6 @@
                             </div>
                             <input type="text" class="form-control" id="firstName" placeholder="First name">
                             <input type="text" class="form-control ml-2" id="lastName" placeholder="Last name">
-                            <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
-
                         </div>
 
                         <div class="input-group form-group">
@@ -50,8 +48,6 @@
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
-                            <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
-
                         </div>
 
                         <div class="input-group form-group">
@@ -59,32 +55,24 @@
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
-                            <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
-
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="confirmPassword"
-                                placeholder="Confirm Password">
-                            <p id="confirmPasswordError" class="error" style="color:red;"></p>
-                            <!-- Error for confirm password -->
-
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
                         </div>
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <input type="date" class="form-control" placeholder="DD / MM / YYYY">
+                           <input type="date" class="form-control" id="dob" placeholder="DD / MM / YYYY">
                         </div>
 
                         <div class="form-group">
                             <input type="submit" value="Sign Up" class="btn float-right login_btn">
-                            <p id="signUpResult" class="result"></p> <!-- Result message -->
-
                         </div>
 
                     </form>
@@ -96,57 +84,64 @@
     <!-- Required JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script>
-        // Sign up
-        document.getElementById('signupForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            // Fetch existing users from localStorage or initialize as an empty array
-            var users = JSON.parse(localStorage.getItem('users')) || [];
+<script >
+    function saveUser() {
+  event.preventDefault(); 
 
-            const userName = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+  var fname = document.getElementById("fname").value;
+  var lname = document.getElementById("lname").value;
+  var pass = document.getElementById("pass").value;
+  var conpass = document.getElementById("conpass").value;
+  var email = document.getElementById("email").value;
+  var dob = document.getElementById("dob").value;
+if(localStorage.getItem(email)===null){
+  if (pass === conpass) {
+    var userData = {
+      fname: fname,
+      lname: lname,
+      pass: pass,
+      email: email,
+      dob: dob,
+      logged: "no"
+    };
+    
+    localStorage.setItem(email, JSON.stringify(userData));
+    console.log("User registered successfully!");
+    Swal.fire({
+        title: "User registered successfully!",
+        width: 600,
+        padding: "3em",
+        color: "#F0C22E",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `rgba(0,0,123,0.4)`,
+        html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          console.log("User clicked OK");
+          window.location.href = "../pages/login.html"; 
+        }
+      });
 
-            // Check if passwords match
-            if (password !== confirmPassword) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Passwords do not match!',
-                });
-                return;
-            }
-
-            // Create user object
-            var user = {
-                "userName": userName,
-                "email": email,
-                "password": password
-            };
-
-            // Add the new user to the array of users
-            users.push(user);
-            // Store the updated array back to localStorage
-            localStorage.setItem('users', JSON.stringify(users));
-
-            // Display success message
-            Swal.fire({
-                icon: 'success',
-                title: 'Signup successful!',
-                text: 'You will be redirected to the login page.',
-                showConfirmButton: false,
-                timer: 2000
-            }).then(() => {
-                let currentUrl = window.location.href;
-                window.location.href = currentUrl.replace(window.location.pathname, '/login.html');
-            });
-
-            // Reset the form
-            document.getElementById('signupForm').reset();
-        });
-    </script>
+  } else {
+    console.log("Make sure that your passwords match.");
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Make sure that your passwords match."
+      });
+  }
+}else{
+    Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "This email is taken",
+       
+      });
+}
+}
+</script>
 </body>
 
 </html>

@@ -16,10 +16,10 @@
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/stylee.css">
-    <link rel="stylesheet" href="/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/stylee.css">
+    <link rel="stylesheet" href="../fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css">
+   
 
 </head>
 
@@ -30,7 +30,7 @@
     </div>
     <div class="container">
         <div class="home">
-            <img src="/images/bg-logo.png" type="image/svg+xml" style="width: 700px;" />
+            <img src="/images/bg-logo.jpg" type="image/svg+xml" style="width: 100%;" />
         </div>
 
         <div class="d-flex justify-content-center h-100">
@@ -49,30 +49,30 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="loginEmail" placeholder="username">
+                            <input type="text" class="form-control"  id="loginEmail" placeholder="username">
                             <p id="usernameError" class="error"></p>
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="password">
+                           <input type="password" class="form-control" placeholder="password" id="logPass">
                             <p id="passwordError" class="error"></p>
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Remember Me
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Login" class="btn float-right login_btn">
+                          <input type="submit" value="Login" class="btn float-right login_btn" onclick="check()">
                         </div>
                     </form>
                 </div>
                 <div class="card-footer con-input ">
                     <div class="d-flex justify-content-center links">
-                        Don't have an account?<a href="/pages/register.html">Sign Up</a>
+                        Don't have an account?<a href="../pages/register.html">Sign Up</a>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <a href="/pages/forgetPassword.html">Forget your password?</a>
+                        <a href="../pages/forgetPassword.html">Forget your password?</a>
                     </div>
                 </div>
             </div>
@@ -82,42 +82,69 @@
     <!-- Required JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script>
-        // Login
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function check() {
+  event.preventDefault(); 
 
-            const loginUsername = document.getElementById('loginUsername').value;
-            const loginPassword = document.getElementById('loginPassword').value;
+  var enteredPass1 = document.getElementById("logPass").value;
+  var enteredEmail = document.getElementById("log-email").value;
 
-            // Retrieve users array from localStorage
-            const users = JSON.parse(localStorage.getItem('users')) || [];
 
-            // Check if the username and password match any stored user
-            const user = users.find(user => user.userName === loginUsername && user.password === loginPassword);
+  var userData = JSON.parse(localStorage.getItem(enteredEmail));
 
-            if (user) {
-                // Use SweetAlert for success message
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Login successful!',
-                    text: 'You will be redirected shortly.',
-                    showConfirmButton: false,
-                    timer: 2000
-                }).then(() => {
-                    window.location.href = "/index.html";  // Redirect after alert
-                });
 
-            } else {
-                // Use SweetAlert for error message
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Login failed!',
-                    text: 'Incorrect username or password.'
-                });
-            }
-        });
-    </script>
+  if (!userData) {
+    console.log("No user data found. Please sign up first.");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "There is no such email. Please try signing up or check your email address."
+   
+    });
+    return;
+  }
+
+  var savedPass1 = userData.pass;
+  if (enteredEmail === userData.email) {
+    if (savedPass1 === enteredPass1) {
+      userData.logged = "Yes";
+      localStorage.setItem(enteredEmail, JSON.stringify(userData)); 
+
+      Swal.fire({
+        title: `You logged in, welcome back ${userData.fname}!`,
+        width: 600,
+        padding: "3em",
+        color: "#F0C22E",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `rgba(0,0,123,0.4)`,
+        html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
+        confirmButtonText: "OK",
+        preConfirm: () => {
+          console.log("User clicked OK");
+          window.location.href = "../pages/profile.html?email=" + encodeURIComponent(enteredEmail); 
+        },
+      });
+    } else {
+      console.log("Please check your password");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please check your password"
+      
+      });
+    }
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "There is no such email. Please try signing up or check your email address."
+      
+    });
+  }
+}
+    
+</script>
 
 </body>
 
