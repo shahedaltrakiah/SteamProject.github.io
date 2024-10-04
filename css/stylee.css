@@ -52,15 +52,14 @@ body {
 }
 
 .form-section {
-    height: 580px;
-    margin-top: 50px;
+    height: 500px;
+    margin-top: 100px;
     margin-bottom: auto;
     width: 400px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(6px);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.685);
+    backdrop-filter: blur(15px);
     padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 

@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from data.json
     fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
+        .then(response => response.json())
+        .then(data => {
+            const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
 
             // Select all testimonial elements
             const testimonialCards = document.querySelectorAll('.testimonial-3');
@@ -148,314 +148,310 @@ fetch('data.json')
                 </div>
             `;
 
-                    // Add click event to the event link
-                    eventItem.querySelector('.event-link').addEventListener('click', function (e) {
-                        e.preventDefault(); // Prevent the default anchor behavior
-                        const description = eventItem.querySelector('.event-description');
-                        const arrowIcon = eventItem.querySelector('.fa');
+            // Add click event to the event link
+            eventItem.querySelector('.event-link').addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent the default anchor behavior
+                const description = eventItem.querySelector('.event-description');
+                const arrowIcon = eventItem.querySelector('.fa');
 
-                        // Toggle the 'show' class to expand/collapse description
-                        if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
-                            description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
-                            arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
-                            arrowIcon.classList.add('fa-angle-down');
-                        } else {
-                            description.style.maxHeight = '0px'; // Collapse
-                            arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
-                            arrowIcon.classList.add('fa-angle-right');
-                        }
-                    });
+                // Toggle the 'show' class to expand/collapse description
+                if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
+                    description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
+                    arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
+                    arrowIcon.classList.add('fa-angle-down');
+                } else {
+                    description.style.maxHeight = '0px'; // Collapse
+                    arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
+                    arrowIcon.classList.add('fa-angle-right');
+                }
+            });
 
             eventContainer.appendChild(eventItem);
         });
     })
     .catch(error => console.error('Error fetching the event data:', error));
 
-
- 
-
-
 // Fetch the JSON data
-document.addEventListener("DOMContentLoaded", function() {
-  // Function to get the course ID from the URL parameters
-  function getCourseIdFromUrl() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('id'); // Returns the 'id' parameter from the URL
-  }
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get the course ID from the URL parameters
+    function getCourseIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id'); // Returns the 'id' parameter from the URL
+    }
 
-  // Fetch the course ID from the URL
-  const courseId = getCourseIdFromUrl();
+    // Fetch the course ID from the URL
+    const courseId = getCourseIdFromUrl();
 
-  // Fetch data from courses.json
-  fetch('../data.json')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Failed to fetch data');
-          }
-          return response.json();
-      })
-      .then(data => {
-          const courses = data.courses;
+    // Fetch data from courses.json
+    fetch('../data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const courses = data.courses;
 
-          // Find the course by its ID
-          const course = courses.find(c => c.id == courseId); // Use the courseId from the URL
+            // Find the course by its ID
+            const course = courses.find(c => c.id == courseId); // Use the courseId from the URL
 
-          if (!course) {
-              console.error('Course not found');
-              return;
-          }
+            if (!course) {
+                console.error('Course not found');
+                return;
+            }
 
-          // Populate course name and description
-          const courseName = document.createElement('h1');
-          courseName.id = 'course-name';
-          courseName.innerText = course.name;
+            // Populate course name and description
+            const courseName = document.createElement('h1');
+            courseName.id = 'course-name';
+            courseName.innerText = course.name;
 
-          const courseDesc = document.createElement('p');
-          courseDesc.id = 'course-desc';
-          courseDesc.innerText = course.description;
+            const courseDesc = document.createElement('p');
+            courseDesc.id = 'course-desc';
+            courseDesc.innerText = course.description;
 
-          const headerContent = document.querySelector('.header-content');
-          if (headerContent) {
-              headerContent.appendChild(courseName);
-              headerContent.appendChild(courseDesc);
-          } else {
-              console.error('Header content element not found.');
-          }
+            const headerContent = document.querySelector('.header-content');
+            if (headerContent) {
+                headerContent.appendChild(courseName);
+                headerContent.appendChild(courseDesc);
+            } else {
+                console.error('Header content element not found.');
+            }
 
-          // Populate other course details
-          const courseDetail = document.querySelector('#course-detail');
-          const courseDuration = document.getElementById('duration');
-          const courseAge = document.getElementById('age');
-          const courseType = document.getElementById('type');
+            // Populate other course details
+            const courseDetail = document.querySelector('#course-detail');
+            const courseDuration = document.getElementById('duration');
+            const courseAge = document.getElementById('age');
+            const courseType = document.getElementById('type');
 
-          if (courseDetail) {
-              courseDetail.innerText = `Description: ${course.description}`;
-          } else {
-              console.error('Course detail element not found.');
-          }
+            if (courseDetail) {
+                courseDetail.innerText = `Description: ${course.description}`;
+            } else {
+                console.error('Course detail element not found.');
+            }
 
-          if (courseDuration) {
-              courseDuration.innerText = `Duration: ${course.duration}`;
-          } else {
-              console.error('Course rate element not found.');
-          }
+            if (courseDuration) {
+                courseDuration.innerText = `Duration: ${course.duration}`;
+            } else {
+                console.error('Course rate element not found.');
+            }
 
-          if (courseAge) {
-              courseAge.innerText = `Target Age: ${course.target_age}`;
-          } else {
-              console.error('Course age element not found.');
-          }
+            if (courseAge) {
+                courseAge.innerText = `Target Age: ${course.target_age}`;
+            } else {
+                console.error('Course age element not found.');
+            }
 
-          if (courseType) {
-              courseType.innerText = `Type: ${course.type}`;
-          } else {
-              console.error('Course type element not found.');
-          }
+            if (courseType) {
+                courseType.innerText = `Type: ${course.type}`;
+            } else {
+                console.error('Course type element not found.');
+            }
 
-          // Set course video
-          const videoElement = document.getElementById('course-video');
-          if (videoElement) {
-              videoElement.setAttribute('src', course.course_video);
-          } else {
-              console.error('Video element not found.');
-          }
+            // Set course video
+            const videoElement = document.getElementById('course-video');
+            if (videoElement) {
+                videoElement.setAttribute('src', course.course_video);
+            } else {
+                console.error('Video element not found.');
+            }
 
-          // Populate "What You'll Learn" section
-          const contentDiv = document.querySelector('.content');
-          if (contentDiv) {
-              const whatYouWillLearnTitle = document.createElement('h3');
-              whatYouWillLearnTitle.innerText = "What You'll Learn:";
+            // Populate "What You'll Learn" section
+            const contentDiv = document.querySelector('.content');
+            if (contentDiv) {
+                const whatYouWillLearnTitle = document.createElement('h3');
+                whatYouWillLearnTitle.innerText = "What You'll Learn:";
 
-              const whatYouWillLearn = document.createElement('p');
-              whatYouWillLearn.id = 'what-you-will-learn';
-              whatYouWillLearn.innerText = course.youWillLearn;
+                const whatYouWillLearn = document.createElement('p');
+                whatYouWillLearn.id = 'what-you-will-learn';
+                whatYouWillLearn.innerText = course.youWillLearn;
 
-              contentDiv.appendChild(whatYouWillLearnTitle);
-              contentDiv.appendChild(whatYouWillLearn);
+                contentDiv.appendChild(whatYouWillLearnTitle);
+                contentDiv.appendChild(whatYouWillLearn);
 
-              // Enrollment information
-              const enrollmentInfoTitle = document.createElement('h3');
-              enrollmentInfoTitle.innerText = "Enrollment Information:";
+                // Enrollment information
+                const enrollmentInfoTitle = document.createElement('h3');
+                enrollmentInfoTitle.innerText = "Enrollment Information:";
 
-              const enrollmentInfo = document.createElement('p');
-              const enrollInfoStrong = document.createElement('strong');
-              enrollInfoStrong.id = 'enroll-info';
-              enrollInfoStrong.innerText = course.enrollment;
+                const enrollmentInfo = document.createElement('p');
+                const enrollInfoStrong = document.createElement('strong');
+                enrollInfoStrong.id = 'enroll-info';
+                enrollInfoStrong.innerText = course.enrollment;
 
-              enrollmentInfo.appendChild(document.createTextNode("Sign up now! Classes start on "));
-              enrollmentInfo.appendChild(enrollInfoStrong);
+                enrollmentInfo.appendChild(document.createTextNode("Sign up now! Classes start on "));
+                enrollmentInfo.appendChild(enrollInfoStrong);
 
-              contentDiv.appendChild(enrollmentInfoTitle);
-              contentDiv.appendChild(enrollmentInfo);
-          } else {
-              console.error('Content element not found.');
-          }
+                contentDiv.appendChild(enrollmentInfoTitle);
+                contentDiv.appendChild(enrollmentInfo);
+            } else {
+                console.error('Content element not found.');
+            }
 
-          // Handle the comment section
-          const commentSection = document.querySelector('.comment-section');
-          if (commentSection && Array.isArray(course.comments)) {
-              course.comments.forEach(comment => {
-                  const commentDiv = document.createElement('div');
-                  commentDiv.className = 'comment';
+            // Handle the comment section
+            const commentSection = document.querySelector('.comment-section');
+            if (commentSection && Array.isArray(course.comments)) {
+                course.comments.forEach(comment => {
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment';
 
-                  const commentContentDiv = document.createElement('div');
-                  commentContentDiv.className = 'comment-content';
+                    const commentContentDiv = document.createElement('div');
+                    commentContentDiv.className = 'comment-content';
 
-                  const usernameSpan = document.createElement('span');
-                  usernameSpan.className = 'username';
-                  usernameSpan.innerText = comment.user;
+                    const usernameSpan = document.createElement('span');
+                    usernameSpan.className = 'username';
+                    usernameSpan.innerText = comment.user;
 
-                  const commentP = document.createElement('p');
-                  commentP.innerText = comment.comment;
+                    const commentP = document.createElement('p');
+                    commentP.innerText = comment.comment;
 
-                  const commentMetaDiv = document.createElement('div');
-                  commentMetaDiv.className = 'comment-meta';
-                  const timestampSpan = document.createElement('span');
-                  timestampSpan.className = 'timestamp';
-                  timestampSpan.innerText = comment.date;
+                    const commentMetaDiv = document.createElement('div');
+                    commentMetaDiv.className = 'comment-meta';
+                    const timestampSpan = document.createElement('span');
+                    timestampSpan.className = 'timestamp';
+                    timestampSpan.innerText = comment.date;
 
-                  const replyLink = document.createElement('a');
-                  replyLink.href = '#';
-                  replyLink.className = 'reply-link';
-                  replyLink.innerText = 'Reply';
+                    const replyLink = document.createElement('a');
+                    replyLink.href = '#';
+                    replyLink.className = 'reply-link';
+                    replyLink.innerText = 'Reply';
 
-                  replyLink.addEventListener('click', function(event) {
-                      event.preventDefault();
-                      createReplyForm(commentDiv);
-                  });
+                    replyLink.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        createReplyForm(commentDiv);
+                    });
 
-                  commentMetaDiv.appendChild(timestampSpan);
-                  commentMetaDiv.appendChild(replyLink);
+                    commentMetaDiv.appendChild(timestampSpan);
+                    commentMetaDiv.appendChild(replyLink);
 
-                  commentContentDiv.appendChild(usernameSpan);
-                  commentContentDiv.appendChild(commentP);
-                  commentContentDiv.appendChild(commentMetaDiv);
+                    commentContentDiv.appendChild(usernameSpan);
+                    commentContentDiv.appendChild(commentP);
+                    commentContentDiv.appendChild(commentMetaDiv);
 
-                  commentDiv.appendChild(commentContentDiv);
-                  commentSection.appendChild(commentDiv);
-              });
-          } else {
-              console.error('Comment section element not found or comments are not an array.');
-          }
+                    commentDiv.appendChild(commentContentDiv);
+                    commentSection.appendChild(commentDiv);
+                });
+            } else {
+                console.error('Comment section element not found or comments are not an array.');
+            }
 
-          // Function to create a reply form
-          function createReplyForm(parentDiv) {
-              const existingForm = parentDiv.querySelector('.reply-form');
-              if (existingForm) return;
+            // Function to create a reply form
+            function createReplyForm(parentDiv) {
+                const existingForm = parentDiv.querySelector('.reply-form');
+                if (existingForm) return;
 
-              const replyForm = document.createElement('div');
-              replyForm.className = 'reply-form mt-3';
+                const replyForm = document.createElement('div');
+                replyForm.className = 'reply-form mt-3';
 
-              const replyInput = document.createElement('textarea');
-              replyInput.className = 'form-control';
-              replyInput.placeholder = 'Write your reply...';
+                const replyInput = document.createElement('textarea');
+                replyInput.className = 'form-control';
+                replyInput.placeholder = 'Write your reply...';
 
-              const submitReplyBtn = document.createElement('button');
-              submitReplyBtn.className = 'btn btn-primary mt-2';
-              submitReplyBtn.innerText = 'Submit Reply';
+                const submitReplyBtn = document.createElement('button');
+                submitReplyBtn.className = 'btn btn-primary mt-2';
+                submitReplyBtn.innerText = 'Submit Reply';
 
-              submitReplyBtn.addEventListener('click', function() {
-                  const replyContent = replyInput.value.trim();
-                  if (replyContent) {
-                      addReply(parentDiv, replyContent);
-                      replyForm.remove();
-                  }
-              });
+                submitReplyBtn.addEventListener('click', function () {
+                    const replyContent = replyInput.value.trim();
+                    if (replyContent) {
+                        addReply(parentDiv, replyContent);
+                        replyForm.remove();
+                    }
+                });
 
-              replyForm.appendChild(replyInput);
-              replyForm.appendChild(submitReplyBtn);
-              parentDiv.appendChild(replyForm);
-          }
+                replyForm.appendChild(replyInput);
+                replyForm.appendChild(submitReplyBtn);
+                parentDiv.appendChild(replyForm);
+            }
 
-          // Function to add the reply to the comment
-          function addReply(commentDiv, replyContent) {
-              const replyDiv = document.createElement('div');
-              replyDiv.className = 'reply mt-2 pl-3';
+            // Function to add the reply to the comment
+            function addReply(commentDiv, replyContent) {
+                const replyDiv = document.createElement('div');
+                replyDiv.className = 'reply mt-2 pl-3';
 
-              const replyContentDiv = document.createElement('div');
-              replyContentDiv.className = 'reply-content';
+                const replyContentDiv = document.createElement('div');
+                replyContentDiv.className = 'reply-content';
 
-              const usernameSpan = document.createElement('span');
-              usernameSpan.className = 'username font-weight-bold';
-              usernameSpan.innerText = 'You';
+                const usernameSpan = document.createElement('span');
+                usernameSpan.className = 'username font-weight-bold';
+                usernameSpan.innerText = 'You';
 
-              const replyP = document.createElement('p');
-              replyP.className = 'mb-2';
-              replyP.innerText = replyContent;
+                const replyP = document.createElement('p');
+                replyP.className = 'mb-2';
+                replyP.innerText = replyContent;
 
-              const replyMetaDiv = document.createElement('div');
-              replyMetaDiv.className = 'reply-meta text-muted';
-              const replyTimestamp = new Date().toLocaleString();
-              const timestampSpan = document.createElement('span');
-              timestampSpan.className = 'timestamp';
-              timestampSpan.innerText = replyTimestamp;
+                const replyMetaDiv = document.createElement('div');
+                replyMetaDiv.className = 'reply-meta text-muted';
+                const replyTimestamp = new Date().toLocaleString();
+                const timestampSpan = document.createElement('span');
+                timestampSpan.className = 'timestamp';
+                timestampSpan.innerText = replyTimestamp;
 
-              replyMetaDiv.appendChild(timestampSpan);
-              replyContentDiv.appendChild(usernameSpan);
-              replyContentDiv.appendChild(replyP);
-              replyContentDiv.appendChild(replyMetaDiv);
-              replyDiv.appendChild(replyContentDiv);
+                replyMetaDiv.appendChild(timestampSpan);
+                replyContentDiv.appendChild(usernameSpan);
+                replyContentDiv.appendChild(replyP);
+                replyContentDiv.appendChild(replyMetaDiv);
+                replyDiv.appendChild(replyContentDiv);
 
-              commentDiv.appendChild(replyDiv);
-          }
+                commentDiv.appendChild(replyDiv);
+            }
 
-          // Add new comments
-          const submitBtn = document.getElementById('submit-btn');
-          if (submitBtn) {
-              submitBtn.addEventListener('click', function(event) {
-                  event.preventDefault();
+            // Add new comments
+            const submitBtn = document.getElementById('submit-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function (event) {
+                    event.preventDefault();
 
-                  const username = document.getElementById('username').value;
-                  const messageContent = document.getElementById('message-content').value;
-                  const email = document.getElementById('email').value;
+                    const username = document.getElementById('username').value;
+                    const messageContent = document.getElementById('message-content').value;
+                    const email = document.getElementById('email').value;
 
-                  if (!username || !messageContent || !email) {
-                      alert('Please fill out all fields.');
-                      return;
-                  }
+                    if (!username || !messageContent || !email) {
+                        alert('Please fill out all fields.');
+                        return;
+                    }
 
-                  const newCommentDiv = document.createElement('div');
-                  newCommentDiv.className = 'comment d-flex mb-4';
+                    const newCommentDiv = document.createElement('div');
+                    newCommentDiv.className = 'comment d-flex mb-4';
 
-                  const commentContentDiv = document.createElement('div');
-                  commentContentDiv.className = 'comment-content d-flex flex-column';
+                    const commentContentDiv = document.createElement('div');
+                    commentContentDiv.className = 'comment-content d-flex flex-column';
 
-                  const usernameSpan = document.createElement('span');
-                  usernameSpan.className = 'username font-weight-bold';
-                  usernameSpan.innerText = username;
+                    const usernameSpan = document.createElement('span');
+                    usernameSpan.className = 'username font-weight-bold';
+                    usernameSpan.innerText = username;
 
-                  const messageP = document.createElement('p');
-                  messageP.className = 'mb-2';
-                  messageP.innerText = messageContent;
+                    const messageP = document.createElement('p');
+                    messageP.className = 'mb-2';
+                    messageP.innerText = messageContent;
 
-                  const commentMetaDiv = document.createElement('div');
-                  commentMetaDiv.className = 'comment-meta';
-                  const timestampSpan = document.createElement('span');
-                  timestampSpan.className = 'timestamp text-muted';
-                  const timestamp = new Date().toLocaleString();
-                  timestampSpan.innerText = timestamp;
+                    const commentMetaDiv = document.createElement('div');
+                    commentMetaDiv.className = 'comment-meta';
+                    const timestampSpan = document.createElement('span');
+                    timestampSpan.className = 'timestamp text-muted';
+                    const timestamp = new Date().toLocaleString();
+                    timestampSpan.innerText = timestamp;
 
-                  commentContentDiv.appendChild(usernameSpan);
-                  commentContentDiv.appendChild(messageP);
-                  commentContentDiv.appendChild(commentMetaDiv);
-                  commentMetaDiv.appendChild(timestampSpan);
+                    commentContentDiv.appendChild(usernameSpan);
+                    commentContentDiv.appendChild(messageP);
+                    commentContentDiv.appendChild(commentMetaDiv);
+                    commentMetaDiv.appendChild(timestampSpan);
 
-                  newCommentDiv.appendChild(commentContentDiv);
-                  commentSection.appendChild(newCommentDiv);
+                    newCommentDiv.appendChild(commentContentDiv);
+                    commentSection.appendChild(newCommentDiv);
 
-                  // Clear input fields
-                  document.getElementById('username').value = '';
-                  document.getElementById('message-content').value = '';
-                  document.getElementById('email').value = '';
-              });
-          } else {
-              console.error('Submit button not found.');
-          }
-      })
-      .catch(error => console.error('Error:', error));
+                    // Clear input fields
+                    document.getElementById('username').value = '';
+                    document.getElementById('message-content').value = '';
+                    document.getElementById('email').value = '';
+                });
+            } else {
+                console.error('Submit button not found.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
 });
 
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from courses.json
     fetch('data.json')
         .then(response => response.json())
@@ -534,12 +530,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show more functionality
     const showMoreBtn = document.getElementById('showMoreBtn');
 
-    showMoreBtn.addEventListener('click', function() {
+    showMoreBtn.addEventListener('click', function () {
         const hiddenCards = document.querySelectorAll('.event_outer[style*="display: none"]');
         hiddenCards.forEach(card => card.style.display = 'block'); // Show hidden cards
         showMoreBtn.style.display = 'none'; // Hide the 'Show More' button after clicking
     });
 });
-
-    
-    
