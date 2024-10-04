@@ -216,7 +216,7 @@ fetch('data.json')
                     card.innerHTML = `
                         <div class="card">
                             <div class="thumb">
-                                <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
+                               <a><img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}"></a>
                             </div>
                             <div class="down-content">
                                 <span class="CategoryName">${course.type}</span>
