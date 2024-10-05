@@ -198,30 +198,32 @@ document.addEventListener("DOMContentLoaded", function() {
           const courseDuration = document.getElementById('duration');
           const courseAge = document.getElementById('age');
           const courseType = document.getElementById('type');
-
           if (courseDetail) {
-              courseDetail.innerText = `Description: ${course.description}`;
-          } else {
-              console.error('Course detail element not found.');
-          }
-
-          if (courseDuration) {
-              courseDuration.innerText = `Duration: ${course.duration}`;
-          } else {
-              console.error('Course rate element not found.');
-          }
-
-          if (courseAge) {
-              courseAge.innerText = `Target Age: ${course.target_age}`;
-          } else {
-              console.error('Course age element not found.');
-          }
-
-          if (courseType) {
-              courseType.innerText = `Type: ${course.type}`;
-          } else {
-              console.error('Course type element not found.');
-          }
+            courseDetail.innerHTML += ` Description: ${course.description}`;
+        } else {
+            console.error('Course detail element not found.');
+        }
+        
+        // Append course duration without removing icons
+        if (courseDuration) {
+            courseDuration.innerHTML += ` Duration: ${course.duration}`;
+        } else {
+            console.error('Course duration element not found.');
+        }
+        
+        // Append course age without removing icons
+        if (courseAge) {
+            courseAge.innerHTML += ` Target Age: ${course.target_age}`;
+        } else {
+            console.error('Course age element not found.');
+        }
+        
+        // Append course type without removing icons
+        if (courseType) {
+            courseType.innerHTML += ` Type: ${course.type}`;
+        } else {
+            console.error('Course type element not found.');
+        }
 
           // Set course video
           const videoElement = document.getElementById('course-video');
@@ -238,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
               whatYouWillLearnTitle.innerText = "What You'll Learn:";
 
               const whatYouWillLearn = document.createElement('p');
+              whatYouWillLearn.setAttribute('id','what-you-will-learn')
               whatYouWillLearn.id = 'what-you-will-learn';
               whatYouWillLearn.innerText = course.youWillLearn;
 
@@ -263,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function() {
           }
 
           // Handle the comment section
-          const commentSection = document.querySelector('.comment-section');
+          const commentSection = document.querySelector('.comments-section');
           if (commentSection && Array.isArray(course.comments)) {
               course.comments.forEach(comment => {
                   const commentDiv = document.createElement('div');
@@ -296,8 +299,6 @@ document.addEventListener("DOMContentLoaded", function() {
                   });
 
                   commentMetaDiv.appendChild(timestampSpan);
-                  commentMetaDiv.appendChild(replyLink);
-
                   commentContentDiv.appendChild(usernameSpan);
                   commentContentDiv.appendChild(commentP);
                   commentContentDiv.appendChild(commentMetaDiv);
@@ -309,67 +310,7 @@ document.addEventListener("DOMContentLoaded", function() {
               console.error('Comment section element not found or comments are not an array.');
           }
 
-          // Function to create a reply form
-          function createReplyForm(parentDiv) {
-              const existingForm = parentDiv.querySelector('.reply-form');
-              if (existingForm) return;
-
-              const replyForm = document.createElement('div');
-              replyForm.className = 'reply-form mt-3';
-
-              const replyInput = document.createElement('textarea');
-              replyInput.className = 'form-control';
-              replyInput.placeholder = 'Write your reply...';
-
-              const submitReplyBtn = document.createElement('button');
-              submitReplyBtn.className = 'btn btn-primary mt-2';
-              submitReplyBtn.innerText = 'Submit Reply';
-
-              submitReplyBtn.addEventListener('click', function() {
-                  const replyContent = replyInput.value.trim();
-                  if (replyContent) {
-                      addReply(parentDiv, replyContent);
-                      replyForm.remove();
-                  }
-              });
-
-              replyForm.appendChild(replyInput);
-              replyForm.appendChild(submitReplyBtn);
-              parentDiv.appendChild(replyForm);
-          }
-
-          // Function to add the reply to the comment
-          function addReply(commentDiv, replyContent) {
-              const replyDiv = document.createElement('div');
-              replyDiv.className = 'reply mt-2 pl-3';
-
-              const replyContentDiv = document.createElement('div');
-              replyContentDiv.className = 'reply-content';
-
-              const usernameSpan = document.createElement('span');
-              usernameSpan.className = 'username font-weight-bold';
-              usernameSpan.innerText = 'You';
-
-              const replyP = document.createElement('p');
-              replyP.className = 'mb-2';
-              replyP.innerText = replyContent;
-
-              const replyMetaDiv = document.createElement('div');
-              replyMetaDiv.className = 'reply-meta text-muted';
-              const replyTimestamp = new Date().toLocaleString();
-              const timestampSpan = document.createElement('span');
-              timestampSpan.className = 'timestamp';
-              timestampSpan.innerText = replyTimestamp;
-
-              replyMetaDiv.appendChild(timestampSpan);
-              replyContentDiv.appendChild(usernameSpan);
-              replyContentDiv.appendChild(replyP);
-              replyContentDiv.appendChild(replyMetaDiv);
-              replyDiv.appendChild(replyContentDiv);
-
-              commentDiv.appendChild(replyDiv);
-          }
-
+        
           // Add new comments
           const submitBtn = document.getElementById('submit-btn');
           if (submitBtn) {
@@ -415,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function() {
                   // Clear input fields
                   document.getElementById('username').value = '';
                   document.getElementById('message-content').value = '';
-                  document.getElementById('email').value = '';
+                  
               });
           } else {
               console.error('Submit button not found.');
