@@ -21,10 +21,7 @@
         <div class="content__bull"><span>
         </div>
       </div>
-      <a href="../index.html">
-        <button class="go-back" >Go Back</button>
-
-      </a>
+     <button class="go-back" onclick="goBack()">Go Back</button>
 
       <div class="content__actions">
         <a><img src="../images/logo_highres.png" id="logo"></a>
@@ -122,6 +119,23 @@
   </div>
 
   <script src="../js/java.js"></script>
+  <script>
+function goBack() {
+    const email = getQueryParam('email'); // Assuming you have getQueryParam function in scope
+    if (email) {
+        // Redirect to the homepage with the email as a query parameter
+        window.location.href = `../index.html?email=${encodeURIComponent(email)}`;
+    } else {
+        // If email is not found, just redirect to the homepage
+        window.location.href = '../index.html';
+    }
+}
+
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name); 
+}
+</script>
 </body>
 
 </html>
