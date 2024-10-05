@@ -40,9 +40,7 @@ function checkUserLogin() {
         }
 
         if (icon) {
-            // Remove profile icon if not logged in
-            icon.innerHTML = '';
-            icon.textContent=''SIGN UP'
+            icon.innerHTML = `<a href="../pages/signup.html">SIGN UP</a>`;
         }
     }
 }
