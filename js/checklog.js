@@ -35,7 +35,7 @@ function checkUserLogin() {
             loginButton.innerText = "Login";
             loginButton.onclick = () => {
                 // Redirect to login page
-                window.location.href = "pages/login.html"; // Redirect to login page instead of index.html
+                window.location.href = "../index.html";
             };
         }
 
