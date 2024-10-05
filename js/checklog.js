@@ -49,7 +49,7 @@ function checkUserLogin() {
 
         if (signupButton) {
             signupButton.style.display = "inline-block";
-           signupButton.innerText = "SIGN UP ";
+           // signupButton.innerText = "SIGN UP ";
             signupButton.innerHTML = `<a href="pages/register.html">SIGN UP</a>`;
         }
 
