@@ -1,10 +1,10 @@
-// Function to get query parameters from the URL
+  // Function to get query parameters from the URL
 function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-// Function to check if the user is logged in
+
 function checkUserLogin() {
     const email = getQueryParam('email'); 
     let userData;
@@ -15,33 +15,47 @@ function checkUserLogin() {
 
     // Select necessary elements
     const loginButton = document.querySelector('.btn-custom-1');
-    const icon = document.querySelector('.for-logging');
+    const signupButton = document.querySelector('.for-logging'); 
+    const icon = document.querySelector('.profile-icon'); 
 
     if (userData && userData.logged === "Yes") {
-        // User is logged in
+    
         if (loginButton) {
-            loginButton.innerText = "Logout";
-            loginButton.onclick = () => logout(email); // Set the logout function on click
+            loginButton.style.display = "none";
         }
 
+        if (signupButton) {
+            signupButton.style.display = "none";
+        }
+
+
         if (icon) {
-            icon.classList.remove('btn-custom-1')
+            icon.style.display = "inline-block";
             icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
                                 <i class="fa-solid fa-user" style="color:#FD5B4E"></i>
-                              </a>`;
+                              </a> 
+                              <button class="logout-button" onclick="logout('${email}')">Logout</button>`;
         }
     } else {
-        // User is not logged in
+       
         if (loginButton) {
+            loginButton.style.display = "inline-block";
             loginButton.innerText = "Login";
             loginButton.onclick = () => {
-                // Redirect to login page
-                window.location.href = "../index.html";
+           
+                window.location.href = "../pages/login.html";
             };
         }
 
+        if (signupButton) {
+            signupButton.style.display = "inline-block";
+            signupButton.innerHTML = `<a href="../pages/register.html">SIGN UP</a>`;
+        }
+
+        // Hide profile icon and logout button
         if (icon) {
-            icon.innerHTML = `<a href="../pages/signup.html">SIGN UP</a>`;
+            icon.style.display = "none";
+            icon.innerHTML = ""; // Clear the icon element
         }
     }
 }
@@ -51,12 +65,10 @@ function logout(email) {
     if (email) {
         const userData = JSON.parse(localStorage.getItem(email));
         if (userData) {
-            // Set the user's logged status to "no"
             userData.logged = "no";
             localStorage.setItem(email, JSON.stringify(userData));
             console.log("User logged out.");
 
-            // Redirect to homepage after logout
             window.location.href = "../index.html";
         }
     }
