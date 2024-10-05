@@ -177,8 +177,9 @@ document.addEventListener("DOMContentLoaded", function() {
           }
 
           // Populate course name and description
-          const courseName = document.createElement('h1');
+          const courseName = document.getElementById('course-name');
           courseName.id = 'course-name';
+          courseName.style.padding= '20px';
           courseName.innerText = course.name;
 
           const courseDesc = document.createElement('p');
@@ -198,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
           const courseDuration = document.getElementById('duration');
           const courseAge = document.getElementById('age');
           const courseType = document.getElementById('type');
+
           if (courseDetail) {
             courseDetail.innerHTML += ` Description: ${course.description}`;
         } else {
@@ -238,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
           if (contentDiv) {
               const whatYouWillLearnTitle = document.createElement('h3');
               whatYouWillLearnTitle.innerText = "What You'll Learn:";
+              whatYouWillLearnTitle.style.padding = '10px';
 
               const whatYouWillLearn = document.createElement('p');
               whatYouWillLearn.setAttribute('id','what-you-will-learn')
@@ -250,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
               // Enrollment information
               const enrollmentInfoTitle = document.createElement('h3');
               enrollmentInfoTitle.innerText = "Enrollment Information:";
+              enrollmentInfoTitle.style.padding = '10px';
 
               const enrollmentInfo = document.createElement('p');
               const enrollInfoStrong = document.createElement('strong');
