@@ -93,84 +93,85 @@
     <!-- SweetAlert for popup messages -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-  function saveUser() {
-  event.preventDefault(); 
+ function saveUser() {
+    event.preventDefault();
 
-            const firstName = document.getElementById('fname').value.trim();
-            const lastName = document.getElementById('lname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('pass').value.trim();
-            const confirmPassword = document.getElementById('conpass').value.trim();
+    const fname = document.getElementById("fname").value.trim();
+    const lname = document.getElementById("lname").value.trim();
+    const pass = document.getElementById("pass").value.trim();
+    const conpass = document.getElementById("conpass").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const dob = document.getElementById("dob").value.trim();
 
-            // Validate that all fields are filled in
-            if (!firstName || !lastName || !email || !password || !confirmPassword) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'All fields are required!',
-                });
-                return;
-            }
-
-            // Validate passwords match
-            if (password !== confirmPassword) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Passwords do not match!',
-                });
-                return;
-            }
-
-            // Validate email
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid email format!',
-                });
-                return;
-            }
-
-            // Fetch existing users from localStorage or initialize as an empty array
-            const users = JSON.parse(localStorage.getItem('users')) || [];
-
-            // Check if the email already exists
-            if (users.some(user => user.email === email)) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Email already exists!',
-                });
-                return;
-            }
-
-            // Create user object
-            const newUser = {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password
-            };
-
-            // Add the new user to the array
-            users.push(newUser);
-
-            // Store the updated users array back to localStorage
-            localStorage.setItem('users', JSON.stringify(users));
-
-            // Display success message
-            Swal.fire({
-                icon: 'success',
-                title: 'Signup successful!',
-                text: 'Redirecting to login page...',
-                showConfirmButton: false,
-                timer: 2000
-            }).then(() => {
-                window.location.assign('login.html');  // Try using window.location.assign
-            });
-
-            // Reset the form
-            document.getElementById('signUpForm').reset();
+    // Validate that all fields are filled in
+    if (!fname || !lname || !pass || !conpass || !email || !dob) {
+        Swal.fire({
+            icon: "error",
+            title: "All fields are required!",
         });
-    </script>
+        return;
+    }
+
+    // Validate passwords match
+    if (pass !== conpass) {
+        Swal.fire({
+            icon: "error",
+            title: "Passwords do not match!",
+        });
+        return;
+    }
+
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid email format!",
+        });
+        return;
+    }
+
+    // Check if the email is already taken
+    if (localStorage.getItem(email) !== null) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "This email is already taken.",
+        });
+        return;
+    }
+
+    // Create user object
+    const userData = {
+        fname: fname,
+        lname: lname,
+        pass: pass,
+        email: email,
+        dob: dob,
+        logged: "no"
+    };
+
+    // Store user data in localStorage
+    localStorage.setItem(email, JSON.stringify(userData));
+    console.log("User registered successfully!");
+
+    // Display success message
+    Swal.fire({
+        title: "User registered successfully!",
+        width: 600,
+        padding: "3em",
+        color: "#F0C22E",
+        background: "#fff url(/images/trees.png)",
+        backdrop: `rgba(0,0,123,0.4)`,
+        html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
+        confirmButtonText: "OK",
+        preConfirm: () => {
+            console.log("User clicked OK");
+            window.location.href = "../pages/login.html"; 
+        }
+    });
+}
+   </script>
 
 </body>
 
