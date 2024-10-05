@@ -32,7 +32,7 @@ function checkUserLogin() {
             icon.innerHTML = `
         <div class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src=""../images/profile_icon.jpg" class="profile-img" alt="Profile Image"> 
+                <img src="../images/profile_icon.jpg" class="profile-img" alt="Profile Image"> 
                 <i class="arrow-down"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
