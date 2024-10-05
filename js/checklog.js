@@ -31,7 +31,7 @@ function checkUserLogin() {
 
         if (icon) {
             icon.style.display = "inline-block";
-            icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
+            icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}">
                                 <i class="fa-solid fa-user btn btn-blue py-3 px-4 ml-auto mt-3" style="color:#FD5B4E"></i>
                               </a> 
                               <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3 " onclick="logout('${email}')">Logout</button>`;
@@ -43,13 +43,13 @@ function checkUserLogin() {
             loginButton.innerText = "Login";
             loginButton.onclick = () => {
            
-                window.location.href = "../pages/login.html";
+                window.location.href = "pages/login.html";
             };
         }
 
         if (signupButton) {
             signupButton.style.display = "inline-block";
-            signupButton.innerHTML = `<a href="../pages/register.html">SIGN UP</a>`;
+            signupButton.innerHTML = `<a href="pages/register.html">SIGN UP</a>`;
         }
 
         // Hide profile icon and logout button
@@ -69,7 +69,7 @@ function logout(email) {
             localStorage.setItem(email, JSON.stringify(userData));
             console.log("User logged out.");
 
-            window.location.href = "../index.html";
+            window.location.href = "index.html";
         }
     }
 }
