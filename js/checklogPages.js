@@ -29,10 +29,19 @@ function checkUserLogin() {
 
         if (icon) {
             icon.style.display = "inline-block";
-            icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
-                                <i class="fa-solid fa-user py-3 px-4 ml-auto mt-3" style="color:#FD5B4E; font-size:25px"></i>
-                              </a>
-                              <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3" onclick="logout('${email}')">Logout</button>`;
+            icon.innerHTML = `
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src=""../images/profile_icon.jpg" class="profile-img" alt="Profile Image"> 
+                <i class="arrow-down"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="pages/profile.html?email=${encodeURIComponent(email)}">Profile</a>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" onclick="logout('${email}')">Logout</button>
+            </div>
+        </div>
+    `;
         }
 
         // Append email to all navigation links
