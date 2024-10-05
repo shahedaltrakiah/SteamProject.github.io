@@ -34,7 +34,7 @@ function checkUserLogin() {
             icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
                                 <i class="fa-solid fa-user" style="color:#FD5B4E"></i>
                               </a> 
-                              <button class="logout-button" onclick="logout('${email}')">Logout</button>`;
+                              <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3 " onclick="logout('${email}')">Logout</button>`;
         }
     } else {
        
