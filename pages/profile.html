@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  
+
   <div class="profile-page">
     <div class="content">
       <div class="content__cover">
@@ -21,7 +21,7 @@
         <div class="content__bull"><span>
         </div>
       </div>
-     <button class="go-back" onclick="goBack()">Go Back</button>
+      <button class="go-back" onclick="goBack()">Go Back</button>
 
       <div class="content__actions">
         <a><img src="../images/logo_highres.png" id="logo"></a>
@@ -38,6 +38,7 @@
     </div>
     <div class="bg">
       <div>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
     <div class="theme-switcher-wrapper" id="theme-switcher-wrapper"><span>Themes color</span>
@@ -111,7 +112,7 @@
         </span>
         <div class="progress-value">20%</div>
       </div>
-     
+
     </div>
     <div style="margin-top: 40px;">
     </div>
@@ -120,22 +121,22 @@
 
   <script src="../js/java.js"></script>
   <script>
-function goBack() {
-    const email = getQueryParam('email'); // Assuming you have getQueryParam function in scope
-    if (email) {
+    function goBack() {
+      const email = getQueryParam('email'); // Assuming you have getQueryParam function in scope
+      if (email) {
         // Redirect to the homepage with the email as a query parameter
         window.location.href = `../index.html?email=${encodeURIComponent(email)}`;
-    } else {
+      } else {
         // If email is not found, just redirect to the homepage
         window.location.href = '../index.html';
+      }
     }
-}
 
-function getQueryParam(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name); 
-}
-</script>
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+  </script>
 </body>
 
 </html>

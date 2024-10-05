@@ -19,10 +19,14 @@
     <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="/css/aos.css">
 
-
-
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+        h2,
+        h3 {
+            color: #FFFFFF;
+        }
+    </style>
 
 </head>
 
@@ -49,26 +53,19 @@
                     <div class="site-logo mr-auto">
                         <a href="/index.html"><img src="/images/logo.png" style="width: 250px; height: 60px;"></a>
                     </div>
-                      <div class="site-quick-contact d-none d-lg-flex ml-auto ">
+                    <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-3">
                             <p class="block-icon mr-3">
-                                <a href="pages/login.html" class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3">
+                                <a href="login.html" class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3">
                                     Login </a>
                             </p>
                         </div>
                         <div class="d-flex site-info align-items-center">
                             <p class="block-icon mr-3">
-                                <a href="pages/register.html"
-                                    class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto mt-3 for-logging"> Sign Up</a>
+                                <a href="register.html" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto mt-3">
+                                    Sign Up</a>
                             </p>
                         </div>
-<!--                           <div class="d-flex site-info align-items-center">
-                            <p class="block-icon mr-3">
-                                <a href="pages/register.html"
-                                    class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto mt-3  profile-icon"> </a>
-                            </p>
-                        </div> -->
-                        <span class="profile-icon"></span>
                     </div>
                 </div>
             </div>
@@ -93,9 +90,9 @@
                     </nav>
 
                     <div class="top-social ml-auto">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://web.facebook.com/?_rdc=1&_rdr"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/login"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -110,72 +107,54 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- the course part --------------------------------------------------------- -->
-        <div class="parent">
-            <div class="header">
-                <div class="header-content">
-                    <h1 id="course-name"></h1>
-                    <p id="course-desc"></p>
-                </div> <!-- Course Title or other content -->
-                <iframe width="60%" height="400px" src="https://www.youtube.com/embed/wE8s993ZV-8" frameborder="0"
+        <div class="container1">
+            <div class="video-section">
+                <h2 id="course-name"></h2>
+                <h2>Course Video</h2>
+                <iframe width="90%" height="400px" src="https://www.youtube.com/embed/wE8s993ZV-8" frameborder="0"
                     allowfullscreen class="course-video" id="course-video">
                 </iframe>
             </div>
-            <div class="sidebar">
-                <h2>Course Details</h2>
-                <p id="course-detail">
-                    This course covers a wide range of topics including:
-                </p>
-                <p class="course-icons">
-                <p id="age"><i class="fa-solid fa-user" style="color:#00B4DB"></i></p>
-                <p id="duration"><i class="fa-solid fa-business-time" style="color:#00B4DB"></i></p>
-                <p id="type"><i class="fa-solid fa-list" style="color:#00B4DB"></i></p>
-                </p>
-            </div>
 
-            <div class="content">
-                <p id="what-you-will-learn">
+            <div class="info-section">
+                <h2>Course Details:</h2>
+                <p id="course-detail"></p>
+                <div class="course-icons">
+                    <p id="age"><i class="fa-solid fa-child" style="color:#f2588b;"></i> </p>
+                    <p id="duration"><i class="fa-solid fa-clock" style="color:#2591e8;"></i> </p>
+                    <p id="type"><i class="fa-solid fa-puzzle-piece" style="color:#97df99;"></i></p>
+                </div>
+                <h2>What You'll Learn:</h2>
+                <p id="what-you-will-learn"></p>
             </div>
         </div>
 
-        <!--------------------------end of the course details content--------------------------------------------------->
-
-
-
-        <!--------------------------------this is the comments section -->
-
-        <div class="comment-section">
-            <div class="comment">
-                <div class="comment-content">
-                    <span class="username" id="user-name">JohnDoe</span>
-                    <p id="comment">This is an example comment! I really enjoyed this article.</p>
-                    <div class="comment-meta">
-                        <span class="timestamp" id="time-date">October 2, 2024, 3:15 PM</span>
-                        <a href="#" class="reply-link">Reply</a>
+        <div class="container1">
+            <div class="comments-section">
+                <div class="comment" style="background-color: #F0F0F0;">
+                    <div class="comment-content">
+                        <span class="username" id="user-name">JohnDoe</span>
+                        <p id="comment">This is an example comment! I really enjoyed this article.</p>
+                        <div class="comment-meta">
+                            <span class="timestamp" id="time-date">October 2, 2024, 3:15 PM</span>
+                            <a href="#" class="reply-link">Reply</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div>
-
-        <!--this is the leave a message part -->
-        <div class="leave-message">
-            <h3>Leave a Message</h3>
-            <textarea id="message-content" placeholder="Write your comment..." rows="4"></textarea>
-            <div class="form-fields">
-                <input id="username" type="text" placeholder="Your Name" name="comment-txt" required />
-                <input id="email" type="email" placeholder="Your Email" name="email" required />
+            <div class="form-section">
+                <div class="form-section">
+                    <h3>Leave a Message</h3>
+                    <form class="form-fields">
+                        <input id="username" type="text" name="username" placeholder="Your Name" required>
+                        <textarea id="message-content" name="comment" placeholder="Your Comment" rows="4"
+                            required></textarea>
+                    </form>
+                    <button id="submit-btn" class="btn btn-primary btn-custom-1 mt-3 ">Send</button>
+                </div>
             </div>
-            <button id="submit-btn" type="submit" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto">Add
-                Comment</button>
         </div>
-
-        <!--this is the end of the comments section-->
-
-
-
         <!-- Footer - section -->
         <footer class="site-footer">
             <div class="container">
@@ -193,24 +172,24 @@
                     <div class="col-lg-4">
                         <h2 class="footer-heading mb-4">Contact</h2>
                         <ul class="list-unstyled contact-info">
-                            <li><i class="fas fa-map-marker-alt"></i> 123 Street, New York, USA</li>
-                            <li><i class="fas fa-phone-alt"></i> +012 345 67890</li>
-                            <li><i class="fas fa-envelope"></i> info@example.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Amman,Jordan</li>
+                            <li><i class="fas fa-phone-alt"></i> +962 772694988</li>
+                            <li><i class="fas fa-envelope"></i> steamkiddy@gmail.com</li>
                         </ul>
                     </div>
                     <!-- Social Media Icons -->
                     <div class="col-lg-3">
                         <h2 class="footer-heading mb-4">Follow Us</h2>
                         <div class="social-icons">
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://web.facebook.com/?_rdc=1&_rdr" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.tiktok.com/login" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/" class="social-icon"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <!-- Logo Section -->
                     <div class="col-lg-2 text-center">
-                        <img src="path-to-your-logo.png" alt="Logo" class="footer-logo img-fluid mb-3">
+                        <img src="/images/logo.png" alt="Logo" class="footer-logo img-fluid mb-3">
                     </div>
                 </div>
                 <!-- Copyright Section -->
@@ -229,7 +208,7 @@
         </footer>
 
     </div>
-<script src="js/checklogPages.js"></script>
+
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/jquery-migrate-3.0.0.js"></script>
     <script src="../js/popper.min.js"></script>

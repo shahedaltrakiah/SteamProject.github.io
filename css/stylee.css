@@ -6,6 +6,7 @@
     font-family: "Indie Flower", cursive;
     font-weight: 400;
     font-style: normal;
+    text-decoration: none;
 }
 
 body {
@@ -70,14 +71,14 @@ body {
     margin-top: 10px;
 }
 
-.social_icon span {
+.social_icon a {
     font-size: 30px;
     margin-left: 10px;
     color: #fd5b4e;
     transition: color 0.3s ease;
 }
 
-.social_icon span:hover {
+.social_icon a:hover {
     color: #fd5a4e73;
     cursor: pointer;
 }

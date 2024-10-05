@@ -248,44 +248,7 @@ body {
 .theme-try .profile-page .content__actions a:last-child {
     color: #FD5B4E;
   }
-.profile-page .content__actions a:hover:first-child {
-  background: #3DB5D8;
-  color: #fff;
-}
-.theme-orange .profile-page .content__actions a:hover:first-child {
-  background: #F0C22E;
-}
-.theme-purple .profile-page .content__actions a:hover:first-child {
-  background: #F88C6D;
-}
-.theme-green .profile-page .content__actions a:hover:first-child {
-  background: #16C3B0;
-}
-.theme-blue .profile-page .content__actions a:hover:first-child {
-  background: #3DB5D8;
-}
-.theme-try .profile-page .content__actions a:hover:first-child {
-    background: #FD5B4E;
-  }
-.profile-page .content__actions a:hover:last-child {
-  background: #3DB5D8;
-  color: #fff;
-}
-.theme-orange .profile-page .content__actions a:hover:last-child {
-  background: #fd8d76;
-}
-.theme-purple .profile-page .content__actions a:hover:last-child {
-  background: #F88C6D;
-}
-.theme-green .profile-page .content__actions a:hover:last-child {
-  background: #42b883;
-}
-.theme-blue .profile-page .content__actions a:hover:last-child {
-  background: #00f2c3;
-}
-.theme-try .profile-page .content__actions a:hover:last-child {
-    background: #FD5B4E;
-  }
+
 .profile-page .content__title {
   margin-top: 4.9rem;
   text-align: center;

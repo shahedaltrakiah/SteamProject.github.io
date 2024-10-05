@@ -41,32 +41,36 @@
                             </div>
                             <input type="text" class="form-control" id="fname" placeholder="First name">
                             <input type="text" class="form-control ml-2" id="lname" placeholder="Last name">
+                            <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
                         </div>
-                        <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
                             <input type="email" class="form-control" id="email" placeholder="Email">
+                            <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
+
                         </div>
-                        <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" class="form-control" id="pass" placeholder="Password">
+                            <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
+
                         </div>
-                        <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
                             <input type="password" class="form-control" id="conpass" placeholder="Confirm Password">
+                            <p id="confirmPasswordError" class="error" style="color:red;"></p>
+                            <!-- Error for confirm password -->
+
                         </div>
-                        <p id="confirmPasswordError" class="error" style="color:red;"></p> <!-- Error for confirm password -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
@@ -76,10 +80,9 @@
                         </div>
 
                         <div class="form-group">
-                           <input type="submit" value="Sign Up" class="btn float-right login_btn" onclick="saveUser()">
+                            <input type="submit" value="Sign Up" class="btn float-right login_btn" onclick="saveUser()">
+                            <p id="signUpResult" class="result"></p> <!-- Result message -->
                         </div>
-
-                        <p id="signUpResult" class="result"></p> <!-- Result message -->
                     </form>
                 </div>
             </div>
@@ -92,86 +95,86 @@
 
     <!-- SweetAlert for popup messages -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
- function saveUser() {
-    event.preventDefault();
+    <script>
+        function saveUser() {
+            event.preventDefault();
 
-    const fname = document.getElementById("fname").value.trim();
-    const lname = document.getElementById("lname").value.trim();
-    const pass = document.getElementById("pass").value.trim();
-    const conpass = document.getElementById("conpass").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const dob = document.getElementById("dob").value.trim();
+            const fname = document.getElementById("fname").value.trim();
+            const lname = document.getElementById("lname").value.trim();
+            const pass = document.getElementById("pass").value.trim();
+            const conpass = document.getElementById("conpass").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const dob = document.getElementById("dob").value.trim();
 
-    // Validate that all fields are filled in
-    if (!fname || !lname || !pass || !conpass || !email || !dob) {
-        Swal.fire({
-            icon: "error",
-            title: "All fields are required!",
-        });
-        return;
-    }
+            // Validate that all fields are filled in
+            if (!fname || !lname || !pass || !conpass || !email || !dob) {
+                Swal.fire({
+                    icon: "error",
+                    title: "All fields are required!",
+                });
+                return;
+            }
 
-    // Validate passwords match
-    if (pass !== conpass) {
-        Swal.fire({
-            icon: "error",
-            title: "Passwords do not match!",
-        });
-        return;
-    }
+            // Validate passwords match
+            if (pass !== conpass) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Passwords do not match!",
+                });
+                return;
+            }
 
-    // Validate email format
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        Swal.fire({
-            icon: "error",
-            title: "Invalid email format!",
-        });
-        return;
-    }
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid email format!",
+                });
+                return;
+            }
 
-    // Check if the email is already taken
-    if (localStorage.getItem(email) !== null) {
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "This email is already taken.",
-        });
-        return;
-    }
+            // Check if the email is already taken
+            if (localStorage.getItem(email) !== null) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "This email is already taken.",
+                });
+                return;
+            }
 
-    // Create user object
-    const userData = {
-        fname: fname,
-        lname: lname,
-        pass: pass,
-        email: email,
-        dob: dob,
-        logged: "no"
-    };
+            // Create user object
+            const userData = {
+                fname: fname,
+                lname: lname,
+                pass: pass,
+                email: email,
+                dob: dob,
+                logged: "no"
+            };
 
-    // Store user data in localStorage
-    localStorage.setItem(email, JSON.stringify(userData));
-    console.log("User registered successfully!");
+            // Store user data in localStorage
+            localStorage.setItem(email, JSON.stringify(userData));
+            console.log("User registered successfully!");
 
-    // Display success message
-    Swal.fire({
-        title: "User registered successfully!",
-        width: 600,
-        padding: "3em",
-        color: "#F0C22E",
-        background: "#fff url(/images/trees.png)",
-        backdrop: `rgba(0,0,123,0.4)`,
-        html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
-        confirmButtonText: "OK",
-        preConfirm: () => {
-            console.log("User clicked OK");
-            window.location.href = "../pages/login.html"; 
+            // Display success message
+            Swal.fire({
+                title: "User registered successfully!",
+                width: 600,
+                padding: "3em",
+                color: "#F0C22E",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `rgba(0,0,123,0.4)`,
+                html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
+                confirmButtonText: "OK",
+                preConfirm: () => {
+                    console.log("User clicked OK");
+                    window.location.href = "../pages/login.html";
+                }
+            });
         }
-    });
-}
-   </script>
+    </script>
 
 </body>
 
