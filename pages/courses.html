@@ -8,6 +8,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700|Indie+Flower" rel="stylesheet">
     <script src="https://kit.fontawesome.com/8510d63d0e.js" crossorigin="anonymous"></script>
+    <!-- SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<!-- SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -113,45 +118,35 @@
                 </iframe>
             </div>
 
-            <div class="info-section">
+            <div class="info-section content">
                 <h2>Course Details:</h2>
                 <p id="course-detail"></p>
                 <div class="course-icons">
                     <p id="age"><i class="fa-solid fa-child" style="color:#f2588b;"></i> </p>
                     <p id="duration"><i class="fa-solid fa-clock" style="color:#2591e8;"></i> </p>
-                    <p id="type"><i class="fa-solid fa-puzzle-piece" style="color:#97df99;"></i></p>
+                    <p id="type"><i class="fa-solid fa-puzzle-piece" style="color:#f1ee03;"></i></p>
                 </div>
-                <h2>What You'll Learn:</h2>
-                <p id="what-you-will-learn"></p>
+                
+            </div>
             </div>
         </div>
-
-        <div class="container1">
-            <div class="comments-section">
-                <div class="comment" style="background-color: #F0F0F0;">
-                    <div class="comment-content">
-                        <span class="username" id="user-name">JohnDoe</span>
-                        <p id="comment">This is an example comment! I really enjoyed this article.</p>
-                        <div class="comment-meta">
-                            <span class="timestamp" id="time-date">October 2, 2024, 3:15 PM</span>
-                            <a href="#" class="reply-link">Reply</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-section">
-                <div class="form-section">
-                    <h3>Leave a Message</h3>
-                    <form class="form-fields">
-                        <input id="username" type="text" name="username" placeholder="Your Name" required>
-                        <textarea id="message-content" name="comment" placeholder="Your Comment" rows="4"
-                            required></textarea>
-                    </form>
-                    <button id="submit-btn" class="btn btn-primary btn-custom-1 mt-3 ">Send</button>
-                </div>
-            </div>
+<div class="container1">
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <!-- Comments will be dynamically inserted here via the script -->
         </div>
+    
+        <!-- Comment Form -->
+        <div class="form-section">
+            <h3>Leave a Comment</h3>
+            <form id="comment-form" class="form-fields">
+                <input id="username" type="text" name="username" placeholder="Your Name" required>
+                <textarea id="message-content" name="comment" placeholder="Your Comment" rows="4" required></textarea>
+            </form>
+            <button id="submit-btn" class="btn btn-primary btn-custom-1 mt-3">Send</button>
+        </div>
+        </div>
+    
         <!-- Footer - section -->
         <footer class="site-footer">
             <div class="container">

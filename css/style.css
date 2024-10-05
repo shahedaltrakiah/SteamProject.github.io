@@ -3664,6 +3664,9 @@ button:hover {
     padding: 10px;
     border-radius: 8px;
 }
+.comment{
+    background-color: #F0F0F0;
+}
 
 .comments-section {
     flex: 1;
