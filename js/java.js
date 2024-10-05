@@ -62,7 +62,7 @@ if (email) {
         console.log("User Data:", userData);
         
    
-        document.getElementById('stdNmae').innerHTML = `
+        document.getElementById('stdName').innerHTML = `
             <p> ${userData.fname} ${userData.lname}</p>
            
         `;
@@ -74,5 +74,7 @@ if (email) {
     console.log("No email found in the URL.");
     document.getElementById('userInfo').innerText = "No email found.";
 }
+
+ getQueryParam(name)
 
 

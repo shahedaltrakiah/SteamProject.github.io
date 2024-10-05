@@ -72,11 +72,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                            <input type="date" class="form-control" id="dateOfBirth" placeholder="DD / MM / YYYY">
+                            <input type="date" class="form-control" id="dob" placeholder="DD / MM / YYYY">
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Sign Up" class="btn float-right login_btn">
+                           <input type="submit" value="Sign Up" class="btn float-right login_btn" onclick="saveUser()">
                         </div>
 
                         <p id="signUpResult" class="result"></p> <!-- Result message -->
@@ -92,10 +92,9 @@
 
     <!-- SweetAlert for popup messages -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script>
-        document.getElementById('signUpForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+<script>
+  function saveUser() {
+  event.preventDefault(); 
 
             const firstName = document.getElementById('fname').value.trim();
             const lastName = document.getElementById('lname').value.trim();
