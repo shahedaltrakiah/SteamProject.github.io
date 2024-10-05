@@ -378,9 +378,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                   const username = document.getElementById('username').value;
                   const messageContent = document.getElementById('message-content').value;
-                  const email = document.getElementById('email').value;
-
-                  if (!username || !messageContent || !email) {
+                  
+                  if (!username || !messageContent) {
                       alert('Please fill out all fields.');
                       return;
                   }
@@ -410,7 +409,6 @@ document.addEventListener("DOMContentLoaded", function() {
                   commentContentDiv.appendChild(messageP);
                   commentContentDiv.appendChild(commentMetaDiv);
                   commentMetaDiv.appendChild(timestampSpan);
-
                   newCommentDiv.appendChild(commentContentDiv);
                   commentSection.appendChild(newCommentDiv);
 
