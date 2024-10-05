@@ -1,25 +1,24 @@
-  // Function to get query parameters from the URL
-  function getQueryParam(name) {
+// Function to get query parameters from the URL
+function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
-
 function checkUserLogin() {
-    const email = getQueryParam('email'); 
+    const email = getQueryParam('email');
     let userData;
 
     if (email) {
-        userData = JSON.parse(localStorage.getItem(email)); 
+        userData = JSON.parse(localStorage.getItem(email));
     }
 
     // Select necessary elements
     const loginButton = document.querySelector('.btn-custom-1');
-    const signupButton = document.querySelector('.for-logging'); 
-    const icon = document.querySelector('.profile-icon'); 
+    const signupButton = document.querySelector('.for-logging');
+    const icon = document.querySelector('.profile-icon');
+    const navLinks = document.querySelectorAll('.nav-link');
 
     if (userData && userData.logged === "Yes") {
-    
         if (loginButton) {
             loginButton.style.display = "none";
         }
@@ -28,29 +27,32 @@ function checkUserLogin() {
             signupButton.style.display = "none";
         }
 
-
         if (icon) {
             icon.style.display = "inline-block";
-            icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}">
-                                <i class="fa-solid fa-user py-3 px-4 ml-auto mt-3" style="color:#FD5B4E ; font-size:25px"></i>
-                              </a> 
-                              <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3 " onclick="logout('${email}')">Logout</button>`;
+            icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
+                                <i class="fa-solid fa-user py-3 px-4 ml-auto mt-3" style="color:#FD5B4E; font-size:25px"></i>
+                              </a>
+                              <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3" onclick="logout('${email}')">Logout</button>`;
         }
+
+        // Append email to all navigation links
+        navLinks.forEach(link => {
+            const url = new URL(link.href, window.location.origin);
+            url.searchParams.set('email', email);
+            link.href = url.toString();
+        });
     } else {
-       
         if (loginButton) {
             loginButton.style.display = "inline-block";
             loginButton.innerText = "Login";
             loginButton.onclick = () => {
-           
                 window.location.href = "../pages/login.html";
             };
         }
 
         if (signupButton) {
             signupButton.style.display = "inline-block";
-           // signupButton.innerText = "SIGN UP ";
-            signupButton.innerHTML = `<a href="../pages/register.html" class="for-logging" >SIGN UP</a>`;
+            signupButton.innerHTML = `<a href="../pages/register.html" class="for-logging">SIGN UP</a>`;
         }
 
         // Hide profile icon and logout button
@@ -58,6 +60,13 @@ function checkUserLogin() {
             icon.style.display = "none";
             icon.innerHTML = ""; // Clear the icon element
         }
+
+        // Ensure navigation links do not include email if not logged in
+        navLinks.forEach(link => {
+            const url = new URL(link.href, window.location.origin);
+            url.searchParams.delete('email');
+            link.href = url.toString();
+        });
     }
 }
 
