@@ -3944,3 +3944,8 @@ html {
         flex: 0 0 100%; /* Make form section full width */
     }
 }
+
+
+.profile-icon{
+    margin:10px 10px;
+}
