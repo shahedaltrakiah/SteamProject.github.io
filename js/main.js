@@ -177,8 +177,9 @@ document.addEventListener("DOMContentLoaded", function() {
           }
 
           // Populate course name and description
-          const courseName = document.createElement('h1');
+          const courseName = document.getElementById('course-name');
           courseName.id = 'course-name';
+          courseName.style.padding= '20px';
           courseName.innerText = course.name;
 
           const courseDesc = document.createElement('p');
@@ -198,6 +199,7 @@ document.addEventListener("DOMContentLoaded", function() {
           const courseDuration = document.getElementById('duration');
           const courseAge = document.getElementById('age');
           const courseType = document.getElementById('type');
+
           if (courseDetail) {
             courseDetail.innerHTML += ` Description: ${course.description}`;
         } else {
@@ -238,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
           if (contentDiv) {
               const whatYouWillLearnTitle = document.createElement('h3');
               whatYouWillLearnTitle.innerText = "What You'll Learn:";
+              whatYouWillLearnTitle.style.padding = '10px';
 
               const whatYouWillLearn = document.createElement('p');
               whatYouWillLearn.setAttribute('id','what-you-will-learn')
@@ -250,6 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
               // Enrollment information
               const enrollmentInfoTitle = document.createElement('h3');
               enrollmentInfoTitle.innerText = "Enrollment Information:";
+              enrollmentInfoTitle.style.padding = '10px';
 
               const enrollmentInfo = document.createElement('p');
               const enrollInfoStrong = document.createElement('strong');
@@ -539,92 +543,3 @@ loginForm.addEventListener('submit', function(event) {
     }
   });
 
-//     // If inputs are valid
-//     if (valid) {
-//         // Retrieve stored user data from localStorage
-//         const storedUserData = localStorage.getItem(username);
-        
-//         if (storedUserData) {
-//             const userData = JSON.parse(storedUserData);
-
-//             // Check if the password matches the stored password
-//             if (userData.password === password) {
-//                 // Login successful
-//                 console.log("Login successful!");
-//                 // Optionally, redirect the user or display a success message
-//             } else {
-//                 document.getElementById('passwordError').textContent = "Incorrect password.";
-//             }
-//         } else {
-//             document.getElementById('usernameError').textContent = "Username not found.";
-//         }
-//     }
-
-
-// // Define patterns for sign up validation
-// const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-// const namePattern = /^[a-zA-Z]+$/; // Pattern for names (only letters)
-
-// const signUpForm = document.getElementById('signUpForm');
-
-// signUpForm.addEventListener('submit', function(event) {
-//     event.preventDefault(); // Prevent page reload
-
-//     // Read inputs
-//     const firstName = document.getElementById('firstName').value.trim();
-//     const lastName = document.getElementById('lastName').value.trim();
-//     const email = document.getElementById('signUpEmail').value.trim();
-//     const password = document.getElementById('signUpPassword').value.trim();
-//     const confirmPassword = document.getElementById('confirmPassword').value.trim();
-//     const result = document.getElementById('signUpResult');
-//     let valid = true;
-
-//     // Clear previous messages
-//     document.getElementById('nameError').textContent = '';
-//     document.getElementById('emailError').textContent = '';
-//     document.getElementById('passwordError').textContent = '';
-//     document.getElementById('confirmPasswordError').textContent = '';
-//     result.textContent = '';
-
-//     // Validate inputs
-//     if (!namePattern.test(firstName)) {
-//         document.getElementById('nameError').textContent = "First name is required and should contain only letters.";
-//         valid = false;
-//     }
-
-//     if (!namePattern.test(lastName)) {
-//         document.getElementById('nameError').textContent = "Last name is required and should contain only letters.";
-//         valid = false;
-//     }
-
-//     if (!emailPattern.test(email)) {
-//         document.getElementById('emailError').textContent = "Invalid email format.";
-//         valid = false;
-//     }
-
-//     if (!passwordPattern.test(password)) {
-//         document.getElementById('passwordError').textContent = "Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special character.";
-//         valid = false;
-//     }
-
-//     if (password !== confirmPassword) {
-//         document.getElementById('confirmPasswordError').textContent = "Passwords do not match.";
-//         valid = false;
-//     }
-
-//     // If inputs are valid
-//     if (valid) {
-//         const userData = {
-//             firstName: firstName,
-//             lastName: lastName,
-//             email: email,
-//             password: password
-//         };
-
-//         // Store data in localStorage
-//         localStorage.setItem(username, JSON.stringify(userData)); // Change email to username for storage
-
-//         result.textContent = "Sign up successful!";
-//         result.className = "success";
-//     }
-// });
