@@ -1,3 +1,10 @@
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     let counters = document.querySelectorAll('.milestone_counter');
     let speed = 200; // Adjust the speed of the count-up
@@ -401,8 +408,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 card.classList.add(`${course.type}-card`);
 
                 // Populate the card content dynamically with a clickable link
+                  const email = getQueryParam('email');
                 card.innerHTML = ` 
-                    <a href="../pages/courses.html?id=${course.id}" class="card-link" style="text-decoration: none; color: inherit;">
+                    <a href="../pages/courses.html?id=${course.id}&email=${email}" class="card-link" style="text-decoration: none; color: inherit;">
                         <div class="card">
                             <div class="thumb" style = "margin-top:15px">
                                 <img class="coursePic card-img-top" src="${course.image}" alt="Image of ${course.name}">
