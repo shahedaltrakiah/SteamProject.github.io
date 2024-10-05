@@ -2627,6 +2627,37 @@ h5,
 }
 
 /* Contact Information Styling */
+#contact-section{
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    font-size: 18px;
+}
+#contact-section p {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#contactForm .form-control {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    font-size: 18px;
+
+}
+
+#contactForm .submitt {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+
+#contact-section h1 {
+    font-family: "Indie Flower", cursive;
+    font-weight: bold;
+    font-size: 40px;
+
+}
 .contact-info li {
     font-size: 16px;
     margin-bottom: 10px;
