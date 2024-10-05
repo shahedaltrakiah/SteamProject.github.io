@@ -3952,4 +3952,6 @@ html {
 
 .for-logging{  border-radius: 30px;
   border-top-right-radius: 0;
-  border-bottom-left-radius: 0;}
+  border-bottom-left-radius: 0;
+  color:white;
+            }
