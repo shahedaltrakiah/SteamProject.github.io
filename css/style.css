@@ -3949,3 +3949,7 @@ html {
 .profile-icon{
     margin:20px 40px;
 }
+
+.for-logging{  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;}
