@@ -122,11 +122,11 @@ if(localStorage.getItem(email)===null){
         color: "#F0C22E",
         background: "#fff url(/images/trees.png)",
         backdrop: `rgba(0,0,123,0.4)`,
-        html: '<img src="nyan-cat.gif" style="width: 200px; height: auto;"/>',
+        html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
         confirmButtonText: "OK",
         preConfirm: () => {
           console.log("User clicked OK");
-          window.location.href = "signup.html"; 
+          window.location.href = "../pages.login.html"; 
         }
       });
 
