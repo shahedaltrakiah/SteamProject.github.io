@@ -50,7 +50,7 @@ function checkUserLogin() {
         if (signupButton) {
             signupButton.style.display = "inline-block";
            // signupButton.innerText = "SIGN UP ";
-            signupButton.innerHTML = `<a href="pages/register.html" class=" btn-blue btn-custom-1  for-logging" >SIGN UP</a>`;
+            signupButton.innerHTML = `<a href="pages/register.html" class=" btn btn-custom-1  for-logging" >SIGN UP</a>`;
         }
 
         // Hide profile icon and logout button
