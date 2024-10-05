@@ -43,3 +43,38 @@
   themeSwitcher.init();
 
 })();
+
+
+
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+const email = getQueryParam('email');
+
+if (email) {
+    console.log("Retrieved email:", email);
+
+ 
+    const userData = JSON.parse(localStorage.getItem(email));
+    if (userData) {
+        console.log("User Data:", userData);
+        
+   
+        document.getElementById('stdName').innerHTML = `
+            <p> ${userData.fname} ${userData.lname}</p>
+           
+        `;
+    } else {
+        console.log("No user data found for this email.");
+        document.getElementById('userInfo').innerText = "No user data found.";
+    }
+} else {
+    console.log("No email found in the URL.");
+    document.getElementById('userInfo').innerText = "No email found.";
+}
+
+ getQueryParam(name)
+
+

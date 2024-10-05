@@ -23,10 +23,10 @@
 </head>
 
 <body>
-    <a href="/index.html" class="btn float-left back_btn"> <i class="fa-solid fa-arrow-left"></i> </a>
+    <a href="../index.html" class="btn float-left back_btn"> <i class="fa-solid fa-arrow-left"></i> </a>
     <div class="container">
         <div class="home">
-            <img src="/images/bg-logo.png" type="image/svg+xml" style="width: 100%;" />
+            <img src="../images/bg-logo.png" type="image/svg+xml" style="width: 100%;" />
         </div>
         <div class="d-flex justify-content-center h-100">
             <div class="form-section">
@@ -39,42 +39,47 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
                             </div>
-                            <input type="text" class="form-control" id="firstName" placeholder="First name">
-                            <input type="text" class="form-control ml-2" id="lastName" placeholder="Last name">
+                            <input type="text" class="form-control" id="fname" placeholder="First name">
+                            <input type="text" class="form-control ml-2" id="lname" placeholder="Last name">
                         </div>
+                        <p id="nameError" class="error" style="color:red;"></p> <!-- Error for name -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                             </div>
-                            <input type="email" class="form-control" id="signUpEmail" placeholder="Email">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
                         </div>
+                        <p id="emailError" class="error" style="color:red;"></p> <!-- Error for email -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="signUpPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="pass" placeholder="Password">
                         </div>
+                        <p id="passwordError" class="error" style="color:red;"></p> <!-- Error for password -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-key"></i></span>
                             </div>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+                            <input type="password" class="form-control" id="conpass" placeholder="Confirm Password">
                         </div>
+                        <p id="confirmPasswordError" class="error" style="color:red;"></p> <!-- Error for confirm password -->
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                             </div>
-                           <input type="date" class="form-control" id="dob" placeholder="DD / MM / YYYY">
+                            <input type="date" class="form-control" id="dob" placeholder="DD / MM / YYYY">
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Sign Up" class="btn float-right login_btn">
+                           <input type="submit" value="Sign Up" class="btn float-right login_btn" onclick="saveUser()">
                         </div>
 
+                        <p id="signUpResult" class="result"></p> <!-- Result message -->
                     </form>
                 </div>
             </div>
@@ -84,31 +89,73 @@
     <!-- Required JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script >
-    function saveUser() {
-  event.preventDefault(); 
+    <!-- SweetAlert for popup messages -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+ function saveUser() {
+    event.preventDefault();
 
-  var fname = document.getElementById("fname").value;
-  var lname = document.getElementById("lname").value;
-  var pass = document.getElementById("pass").value;
-  var conpass = document.getElementById("conpass").value;
-  var email = document.getElementById("email").value;
-  var dob = document.getElementById("dob").value;
-if(localStorage.getItem(email)===null){
-  if (pass === conpass) {
-    var userData = {
-      fname: fname,
-      lname: lname,
-      pass: pass,
-      email: email,
-      dob: dob,
-      logged: "no"
+    const fname = document.getElementById("fname").value.trim();
+    const lname = document.getElementById("lname").value.trim();
+    const pass = document.getElementById("pass").value.trim();
+    const conpass = document.getElementById("conpass").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const dob = document.getElementById("dob").value.trim();
+
+    // Validate that all fields are filled in
+    if (!fname || !lname || !pass || !conpass || !email || !dob) {
+        Swal.fire({
+            icon: "error",
+            title: "All fields are required!",
+        });
+        return;
+    }
+
+    // Validate passwords match
+    if (pass !== conpass) {
+        Swal.fire({
+            icon: "error",
+            title: "Passwords do not match!",
+        });
+        return;
+    }
+
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid email format!",
+        });
+        return;
+    }
+
+    // Check if the email is already taken
+    if (localStorage.getItem(email) !== null) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "This email is already taken.",
+        });
+        return;
+    }
+
+    // Create user object
+    const userData = {
+        fname: fname,
+        lname: lname,
+        pass: pass,
+        email: email,
+        dob: dob,
+        logged: "no"
     };
-    
+
+    // Store user data in localStorage
     localStorage.setItem(email, JSON.stringify(userData));
     console.log("User registered successfully!");
+
+    // Display success message
     Swal.fire({
         title: "User registered successfully!",
         width: 600,
@@ -119,29 +166,13 @@ if(localStorage.getItem(email)===null){
         html: '<img src="../images/nyan-cat.gif" style="width: 200px; height: auto;"/>',
         confirmButtonText: "OK",
         preConfirm: () => {
-          console.log("User clicked OK");
-          window.location.href = "../pages/login.html"; 
+            console.log("User clicked OK");
+            window.location.href = "../pages/login.html"; 
         }
-      });
+    });
+}
+   </script>
 
-  } else {
-    console.log("Make sure that your passwords match.");
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Make sure that your passwords match."
-      });
-  }
-}else{
-    Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "This email is taken",
-       
-      });
-}
-}
-</script>
 </body>
 
 </html>

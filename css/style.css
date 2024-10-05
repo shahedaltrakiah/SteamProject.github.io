@@ -3944,3 +3944,15 @@ html {
         flex: 0 0 100%; /* Make form section full width */
     }
 }
+
+
+/* .profile-icon{
+    margin-right:20px;
+    margin-top:60px
+} */
+
+.for-logging{  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  color:white;
+            }
