@@ -25,8 +25,9 @@ function checkUserLogin() {
         }
 
         if (icon) {
+            icon.classList.remove('btn-custom-1')
             icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
-                                <i class="fa-solid fa-user" style="color:white"></i>
+                                <i class="fa-solid fa-user" style="color:#FD5B4E"></i>
                               </a>`;
         }
     } else {
