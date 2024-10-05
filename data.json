@@ -29,7 +29,7 @@
         "id": 2,
         "name": "Exploring the Solar System",
         "description": "Learn about the planets, stars, and the wonders of space through exciting visuals and simple lessons.",
-        "image": "../images/solarSystem.jpg",
+        "image": "images/solarSystem.jpg",
         "course_video": "https://www.youtube.com/embed/iWNuW0_ycxc?si=fhZA6CyajrkZL6vF",
         "target_age": "7-10",
         "rate": 4.8,
