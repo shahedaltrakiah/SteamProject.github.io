@@ -3665,7 +3665,8 @@ button:hover {
     border-radius: 8px;
 }
 .comment{
-    background-color: #F0F0F0;
+    background-color: #FFFFFF;
+    border-radius: 4px;
 }
 
 .comments-section {
