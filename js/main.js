@@ -36,62 +36,68 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Fetch data from data.json
     fetch('data.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok: ' + response.statusText);
+    .then(response => response.json())
+    .then(data => {
+        const testimonials = data.testimonials; 
+        const carouselContainer = document.getElementById('testimonial-carousel');
+
+        // Create and append testimonial cards
+        testimonials.forEach(testimonial => {
+            const testimonialCard = document.createElement('div');
+            testimonialCard.className = 'testimonial-3 d-flex';
+            
+            const vcardWrap = document.createElement('div');
+            vcardWrap.className = 'vcard-wrap mr-5';
+
+            const img = document.createElement('img');
+            img.className = 'vcard img-fluid';
+            img.src = testimonial.image; 
+            img.alt = 'Image of ' + testimonial.name;
+
+            vcardWrap.appendChild(img);
+
+            const textDiv = document.createElement('div');
+            textDiv.className = 'text';
+
+            const nameElement = document.createElement('h3');
+            nameElement.className = 'user-name';
+            nameElement.textContent = testimonial.name;
+
+            const feedbackElement = document.createElement('p');
+            feedbackElement.className = 'user-feedback';
+            feedbackElement.textContent = testimonial.comment;
+
+            textDiv.appendChild(nameElement);
+            textDiv.appendChild(feedbackElement);
+
+            testimonialCard.appendChild(vcardWrap);
+            testimonialCard.appendChild(textDiv);
+
+            carouselContainer.appendChild(testimonialCard);
+        });
+
+        // Initialize Owl Carousel after testimonials are added
+        $('#testimonial-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                }
             }
-            return response.json();
-        })
-        .then(data => {
-            const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
-            console.log('Testimonials fetched:', testimonials); // Debugging statement
-
-            // Select all testimonial elements
-            const testimonialCards = document.querySelectorAll('.testimonial-3');
-
-            // Loop through each testimonial and populate the HTML
-            testimonialCards.forEach((card, index) => {
-                if (testimonials[index]) { // Ensure there's a testimonial to match the card
-                    const img = card.querySelector('.vcard');
-                    const name = card.querySelector('.user-name');
-                    const feedback = card.querySelector('.user-feedback');
-
-                    // Set the content from the JSON data
-                    img.src = testimonials[index].image; // Set image from JSON
-                    img.alt = 'Image of ' + testimonials[index].name; // Set alt text
-                    name.textContent = testimonials[index].name; // Set name from JSON
-                    feedback.textContent = testimonials[index].comment; // Set comment from JSON
-
-                    // Debugging statements to confirm each step
-                    console.log(`Setting testimonial ${index}:`, testimonials[index]);
-                } else {
-                    console.warn('No testimonial available for card index:', index);
-                }
-            });
-
-            // Initialize Owl Carousel after testimonials have been populated
-            $('.owl-carousel').owlCarousel({
-                loop: true,
-                margin: 20, // Set margin between items in the carousel
-                nav: true,   // Enable navigation buttons
-                autoplay: true, // Disable automatic sliding
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 1
-                    },
-                    1000: {
-                        items: 1
-                    }
-                }
-            });
-        })
-        .catch(error => console.error('Error fetching testimonials:', error));
+        });
+    })
+    .catch(error => console.error('Error fetching testimonials:', error));
 });
+
 
 
 fetch('data.json')
