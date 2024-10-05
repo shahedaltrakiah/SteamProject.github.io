@@ -38,9 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from data.json
     fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const testimonials = data.testimonials; // Assuming data.json has a 'testimonials' array
+            console.log('Testimonials fetched:', testimonials); // Debugging statement
 
             // Select all testimonial elements
             const testimonialCards = document.querySelectorAll('.testimonial-3');
@@ -49,18 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
             testimonialCards.forEach((card, index) => {
                 if (testimonials[index]) { // Ensure there's a testimonial to match the card
                     const img = card.querySelector('.vcard');
-                    const name = card.querySelector('h3');
-                    const feedback = card.querySelector('p');
+                    const name = card.querySelector('.user-name');
+                    const feedback = card.querySelector('.user-feedback');
 
                     // Set the content from the JSON data
                     img.src = testimonials[index].image; // Set image from JSON
-                    console.log(testimonials[index].image);
                     img.alt = 'Image of ' + testimonials[index].name; // Set alt text
                     name.textContent = testimonials[index].name; // Set name from JSON
-                    console.log(testimonials[index].name);
                     feedback.textContent = testimonials[index].comment; // Set comment from JSON
-                    console.log(testimonials[index].image);
 
+                    // Debugging statements to confirm each step
+                    console.log(`Setting testimonial ${index}:`, testimonials[index]);
+                } else {
+                    console.warn('No testimonial available for card index:', index);
                 }
             });
 
@@ -85,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error('Error fetching testimonials:', error));
 });
+
 
 fetch('data.json')
     .then(response => response.json())
@@ -127,256 +135,256 @@ fetch('data.json')
                 </div>
             `;
 
-                    // Add click event to the event link
-                    eventItem.querySelector('.event-link').addEventListener('click', function (e) {
-                        e.preventDefault(); // Prevent the default anchor behavior
-                        const description = eventItem.querySelector('.event-description');
-                        const arrowIcon = eventItem.querySelector('.event-link .fa'); // Target only the toggle icon
-                    
-                        // Toggle the 'show' class to expand/collapse description
-                        if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
-                            description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
-                            arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
-                            arrowIcon.classList.add('fa-angle-down');
-                        } else {
-                            description.style.maxHeight = '0px'; // Collapse
-                            arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
-                            arrowIcon.classList.add('fa-angle-right');
-                        }
-                    });
+            // Add click event to the event link
+            eventItem.querySelector('.event-link').addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent the default anchor behavior
+                const description = eventItem.querySelector('.event-description');
+                const arrowIcon = eventItem.querySelector('.event-link .fa'); // Target only the toggle icon
+
+                // Toggle the 'show' class to expand/collapse description
+                if (description.style.maxHeight === '0px' || description.style.maxHeight === '') {
+                    description.style.maxHeight = description.scrollHeight + 'px'; // Expand to fit content
+                    arrowIcon.classList.remove('fa-angle-right'); // Change arrow to down
+                    arrowIcon.classList.add('fa-angle-down');
+                } else {
+                    description.style.maxHeight = '0px'; // Collapse
+                    arrowIcon.classList.remove('fa-angle-down'); // Change arrow to right
+                    arrowIcon.classList.add('fa-angle-right');
+                }
+            });
             eventContainer.appendChild(eventItem);
         });
     })
     .catch(error => console.error('Error fetching the event data:', error));
 
 
- 
+
 
 
 // Fetch the JSON data
-document.addEventListener("DOMContentLoaded", function() {
-  // Function to get the course ID from the URL parameters
-  function getCourseIdFromUrl() {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get('id'); // Returns the 'id' parameter from the URL
-  }
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to get the course ID from the URL parameters
+    function getCourseIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id'); // Returns the 'id' parameter from the URL
+    }
 
-  // Fetch the course ID from the URL
-  const courseId = getCourseIdFromUrl();
+    // Fetch the course ID from the URL
+    const courseId = getCourseIdFromUrl();
 
-  // Fetch data from courses.json
-  fetch('../data.json')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Failed to fetch data');
-          }
-          return response.json();
-      })
-      .then(data => {
-          const courses = data.courses;
+    // Fetch data from courses.json
+    fetch('../data.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const courses = data.courses;
 
-          // Find the course by its ID
-          const course = courses.find(c => c.id == courseId); // Use the courseId from the URL
+            // Find the course by its ID
+            const course = courses.find(c => c.id == courseId); // Use the courseId from the URL
 
-          if (!course) {
-              console.error('Course not found');
-              return;
-          }
+            if (!course) {
+                console.error('Course not found');
+                return;
+            }
 
-          // Populate course name and description
-          const courseName = document.getElementById('course-name');
-          courseName.id = 'course-name';
-          courseName.style.padding= '20px';
-          courseName.innerText = course.name;
+            // Populate course name and description
+            const courseName = document.getElementById('course-name');
+            courseName.id = 'course-name';
+            courseName.style.padding = '20px';
+            courseName.innerText = course.name;
 
-          const courseDesc = document.createElement('p');
-          courseDesc.id = 'course-desc';
-          courseDesc.innerText = course.description;
+            const courseDesc = document.createElement('p');
+            courseDesc.id = 'course-desc';
+            courseDesc.innerText = course.description;
 
-          const headerContent = document.querySelector('.header-content');
-          if (headerContent) {
-              headerContent.appendChild(courseName);
-              headerContent.appendChild(courseDesc);
-          } else {
-              console.error('Header content element not found.');
-          }
+            const headerContent = document.querySelector('.header-content');
+            if (headerContent) {
+                headerContent.appendChild(courseName);
+                headerContent.appendChild(courseDesc);
+            } else {
+                console.error('Header content element not found.');
+            }
 
-          // Populate other course details
-          const courseDetail = document.querySelector('#course-detail');
-          const courseDuration = document.getElementById('duration');
-          const courseAge = document.getElementById('age');
-          const courseType = document.getElementById('type');
+            // Populate other course details
+            const courseDetail = document.querySelector('#course-detail');
+            const courseDuration = document.getElementById('duration');
+            const courseAge = document.getElementById('age');
+            const courseType = document.getElementById('type');
 
-          if (courseDetail) {
-            courseDetail.innerHTML += ` Description: ${course.description}`;
-        } else {
-            console.error('Course detail element not found.');
-        }
-        
-        // Append course duration without removing icons
-        if (courseDuration) {
-            courseDuration.innerHTML += ` Duration: ${course.duration}`;
-        } else {
-            console.error('Course duration element not found.');
-        }
-        
-        // Append course age without removing icons
-        if (courseAge) {
-            courseAge.innerHTML += ` Target Age: ${course.target_age}`;
-        } else {
-            console.error('Course age element not found.');
-        }
-        
-        // Append course type without removing icons
-        if (courseType) {
-            courseType.innerHTML += ` Type: ${course.type}`;
-        } else {
-            console.error('Course type element not found.');
-        }
+            if (courseDetail) {
+                courseDetail.innerHTML += ` Description: ${course.description}`;
+            } else {
+                console.error('Course detail element not found.');
+            }
 
-          // Set course video
-          const videoElement = document.getElementById('course-video');
-          if (videoElement) {
-              videoElement.setAttribute('src', course.course_video);
-          } else {
-              console.error('Video element not found.');
-          }
+            // Append course duration without removing icons
+            if (courseDuration) {
+                courseDuration.innerHTML += ` Duration: ${course.duration}`;
+            } else {
+                console.error('Course duration element not found.');
+            }
 
-          // Populate "What You'll Learn" section
-          const contentDiv = document.querySelector('.content');
-          if (contentDiv) {
-              const whatYouWillLearnTitle = document.createElement('h3');
-              whatYouWillLearnTitle.innerText = "What You'll Learn:";
-              whatYouWillLearnTitle.style.padding = '10px';
+            // Append course age without removing icons
+            if (courseAge) {
+                courseAge.innerHTML += ` Target Age: ${course.target_age}`;
+            } else {
+                console.error('Course age element not found.');
+            }
 
-              const whatYouWillLearn = document.createElement('p');
-              whatYouWillLearn.setAttribute('id','what-you-will-learn')
-              whatYouWillLearn.id = 'what-you-will-learn';
-              whatYouWillLearn.innerText = course.youWillLearn;
+            // Append course type without removing icons
+            if (courseType) {
+                courseType.innerHTML += ` Type: ${course.type}`;
+            } else {
+                console.error('Course type element not found.');
+            }
 
-              contentDiv.appendChild(whatYouWillLearnTitle);
-              contentDiv.appendChild(whatYouWillLearn);
+            // Set course video
+            const videoElement = document.getElementById('course-video');
+            if (videoElement) {
+                videoElement.setAttribute('src', course.course_video);
+            } else {
+                console.error('Video element not found.');
+            }
 
-              // Enrollment information
-              const enrollmentInfoTitle = document.createElement('h3');
-              enrollmentInfoTitle.innerText = "Enrollment Information:";
-              enrollmentInfoTitle.style.padding = '10px';
+            // Populate "What You'll Learn" section
+            const contentDiv = document.querySelector('.content');
+            if (contentDiv) {
+                const whatYouWillLearnTitle = document.createElement('h3');
+                whatYouWillLearnTitle.innerText = "What You'll Learn:";
+                whatYouWillLearnTitle.style.padding = '10px';
 
-              const enrollmentInfo = document.createElement('p');
-              const enrollInfoStrong = document.createElement('strong');
-              enrollInfoStrong.id = 'enroll-info';
-              enrollInfoStrong.innerText = course.enrollment;
+                const whatYouWillLearn = document.createElement('p');
+                whatYouWillLearn.setAttribute('id', 'what-you-will-learn')
+                whatYouWillLearn.id = 'what-you-will-learn';
+                whatYouWillLearn.innerText = course.youWillLearn;
 
-              enrollmentInfo.appendChild(document.createTextNode("Sign up now! Classes start on "));
-              enrollmentInfo.appendChild(enrollInfoStrong);
+                contentDiv.appendChild(whatYouWillLearnTitle);
+                contentDiv.appendChild(whatYouWillLearn);
 
-              contentDiv.appendChild(enrollmentInfoTitle);
-              contentDiv.appendChild(enrollmentInfo);
-          } else {
-              console.error('Content element not found.');
-          }
+                // Enrollment information
+                const enrollmentInfoTitle = document.createElement('h3');
+                enrollmentInfoTitle.innerText = "Enrollment Information:";
+                enrollmentInfoTitle.style.padding = '10px';
 
-          // Handle the comment section
-          const commentSection = document.querySelector('.comments-section');
-          if (commentSection && Array.isArray(course.comments)) {
-              course.comments.forEach(comment => {
-                  const commentDiv = document.createElement('div');
-                  commentDiv.className = 'comment';
+                const enrollmentInfo = document.createElement('p');
+                const enrollInfoStrong = document.createElement('strong');
+                enrollInfoStrong.id = 'enroll-info';
+                enrollInfoStrong.innerText = course.enrollment;
 
-                  const commentContentDiv = document.createElement('div');
-                  commentContentDiv.className = 'comment-content';
+                enrollmentInfo.appendChild(document.createTextNode("Sign up now! Classes start on "));
+                enrollmentInfo.appendChild(enrollInfoStrong);
 
-                  const usernameSpan = document.createElement('span');
-                  usernameSpan.className = 'username';
-                  usernameSpan.innerText = comment.user;
+                contentDiv.appendChild(enrollmentInfoTitle);
+                contentDiv.appendChild(enrollmentInfo);
+            } else {
+                console.error('Content element not found.');
+            }
 
-                  const commentP = document.createElement('p');
-                  commentP.innerText = comment.comment;
+            // Handle the comment section
+            const commentSection = document.querySelector('.comments-section');
+            if (commentSection && Array.isArray(course.comments)) {
+                course.comments.forEach(comment => {
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment';
 
-                  const commentMetaDiv = document.createElement('div');
-                  commentMetaDiv.className = 'comment-meta';
-                  const timestampSpan = document.createElement('span');
-                  timestampSpan.className = 'timestamp';
-                  timestampSpan.innerText = comment.date;
+                    const commentContentDiv = document.createElement('div');
+                    commentContentDiv.className = 'comment-content';
 
-                  const replyLink = document.createElement('a');
-                  replyLink.href = '#';
-                  replyLink.className = 'reply-link';
-                  replyLink.innerText = 'Reply';
+                    const usernameSpan = document.createElement('span');
+                    usernameSpan.className = 'username';
+                    usernameSpan.innerText = comment.user;
 
-                  replyLink.addEventListener('click', function(event) {
-                      event.preventDefault();
-                      createReplyForm(commentDiv);
-                  });
+                    const commentP = document.createElement('p');
+                    commentP.innerText = comment.comment;
 
-                  commentMetaDiv.appendChild(timestampSpan);
-                  commentContentDiv.appendChild(usernameSpan);
-                  commentContentDiv.appendChild(commentP);
-                  commentContentDiv.appendChild(commentMetaDiv);
+                    const commentMetaDiv = document.createElement('div');
+                    commentMetaDiv.className = 'comment-meta';
+                    const timestampSpan = document.createElement('span');
+                    timestampSpan.className = 'timestamp';
+                    timestampSpan.innerText = comment.date;
 
-                  commentDiv.appendChild(commentContentDiv);
-                  commentSection.appendChild(commentDiv);
-              });
-          } else {
-              console.error('Comment section element not found or comments are not an array.');
-          }
+                    const replyLink = document.createElement('a');
+                    replyLink.href = '#';
+                    replyLink.className = 'reply-link';
+                    replyLink.innerText = 'Reply';
 
-        
-          // Add new comments
-          const submitBtn = document.getElementById('submit-btn');
-          if (submitBtn) {
-              submitBtn.addEventListener('click', function(event) {
-                  event.preventDefault();
+                    replyLink.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        createReplyForm(commentDiv);
+                    });
 
-                  const username = document.getElementById('username').value;
-                  const messageContent = document.getElementById('message-content').value;
-                  
-                  if (!username || !messageContent) {
-                      alert('Please fill out all fields.');
-                      return;
-                  }
+                    commentMetaDiv.appendChild(timestampSpan);
+                    commentContentDiv.appendChild(usernameSpan);
+                    commentContentDiv.appendChild(commentP);
+                    commentContentDiv.appendChild(commentMetaDiv);
 
-                  const newCommentDiv = document.createElement('div');
-                  newCommentDiv.className = 'comment d-flex mb-4';
+                    commentDiv.appendChild(commentContentDiv);
+                    commentSection.appendChild(commentDiv);
+                });
+            } else {
+                console.error('Comment section element not found or comments are not an array.');
+            }
 
-                  const commentContentDiv = document.createElement('div');
-                  commentContentDiv.className = 'comment-content d-flex flex-column';
 
-                  const usernameSpan = document.createElement('span');
-                  usernameSpan.className = 'username font-weight-bold';
-                  usernameSpan.innerText = username;
+            // Add new comments
+            const submitBtn = document.getElementById('submit-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function (event) {
+                    event.preventDefault();
 
-                  const messageP = document.createElement('p');
-                  messageP.className = 'mb-2';
-                  messageP.innerText = messageContent;
+                    const username = document.getElementById('username').value;
+                    const messageContent = document.getElementById('message-content').value;
 
-                  const commentMetaDiv = document.createElement('div');
-                  commentMetaDiv.className = 'comment-meta';
-                  const timestampSpan = document.createElement('span');
-                  timestampSpan.className = 'timestamp text-muted';
-                  const timestamp = new Date().toLocaleString();
-                  timestampSpan.innerText = timestamp;
+                    if (!username || !messageContent) {
+                        alert('Please fill out all fields.');
+                        return;
+                    }
 
-                  commentContentDiv.appendChild(usernameSpan);
-                  commentContentDiv.appendChild(messageP);
-                  commentContentDiv.appendChild(commentMetaDiv);
-                  commentMetaDiv.appendChild(timestampSpan);
-                  newCommentDiv.appendChild(commentContentDiv);
-                  commentSection.appendChild(newCommentDiv);
+                    const newCommentDiv = document.createElement('div');
+                    newCommentDiv.className = 'comment d-flex mb-4';
 
-                  // Clear input fields
-                  document.getElementById('username').value = '';
-                  document.getElementById('message-content').value = '';
-                  
-              });
-          } else {
-              console.error('Submit button not found.');
-          }
-      })
-      .catch(error => console.error('Error:', error));
+                    const commentContentDiv = document.createElement('div');
+                    commentContentDiv.className = 'comment-content d-flex flex-column';
+
+                    const usernameSpan = document.createElement('span');
+                    usernameSpan.className = 'username font-weight-bold';
+                    usernameSpan.innerText = username;
+
+                    const messageP = document.createElement('p');
+                    messageP.className = 'mb-2';
+                    messageP.innerText = messageContent;
+
+                    const commentMetaDiv = document.createElement('div');
+                    commentMetaDiv.className = 'comment-meta';
+                    const timestampSpan = document.createElement('span');
+                    timestampSpan.className = 'timestamp text-muted';
+                    const timestamp = new Date().toLocaleString();
+                    timestampSpan.innerText = timestamp;
+
+                    commentContentDiv.appendChild(usernameSpan);
+                    commentContentDiv.appendChild(messageP);
+                    commentContentDiv.appendChild(commentMetaDiv);
+                    commentMetaDiv.appendChild(timestampSpan);
+                    newCommentDiv.appendChild(commentContentDiv);
+                    commentSection.appendChild(newCommentDiv);
+
+                    // Clear input fields
+                    document.getElementById('username').value = '';
+                    document.getElementById('message-content').value = '';
+
+                });
+            } else {
+                console.error('Submit button not found.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Fetch data from courses.json
     fetch('data.json')
         .then(response => response.json())
@@ -408,7 +416,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 card.classList.add(`${course.type}-card`);
 
                 // Populate the card content dynamically with a clickable link
-                  const email = getQueryParam('email');
+                const email = getQueryParam('email');
                 card.innerHTML = ` 
                     <a href="../pages/courses.html?id=${course.id}&email=${email}" class="card-link" style="text-decoration: none; color: inherit;">
                         <div class="card">
@@ -447,54 +455,54 @@ document.addEventListener("DOMContentLoaded", function() {
                 displayedCards++;
             });
 
-              // Filter functionality
-              const filterBtns = document.querySelectorAll('.filter-btn');
-              filterBtns.forEach(button => {
-                  button.addEventListener('click', () => {
-                      const filter = button.getAttribute('data-filter');
-  
-                      // Show/hide cards based on the selected filter
-                      allCards.forEach(card => {
-                          if (filter === 'all') {
-                              card.style.display = 'block'; // Show all cards
-                          } else if (card.classList.contains(`${filter}-card`)) {
-                              card.style.display = 'block'; // Show filtered cards
-                          } else {
-                              card.style.display = 'none'; // Hide others
-                          }
-                      });
-  
-                      // Hide the 'Show More' button after filtering
-                      showMoreBtn.style.display = 'none'; // Hide 'Show More' button
-                      showLessBtn.style.display = 'none'; // Hide 'Show Less' button
-                      displayedCards = 0; // Reset displayed card count
-                  });
-              });
-  
-              // Show more functionality
-              const showMoreBtn = document.getElementById('showMoreBtn');
-              const showLessBtn = document.getElementById('showLessBtn');
-  
-              showMoreBtn.addEventListener('click', function() {
-                  // Show all hidden cards
-                  allCards.forEach(card => card.style.display = 'block'); // Show hidden cards
-                  showMoreBtn.style.display = 'none'; // Hide the 'Show More' button
-                  showLessBtn.style.display = 'inline-block'; // Show the 'Show Less' button
-              });
-  
-              // Show less functionality
-              showLessBtn.addEventListener('click', function() {
-                  // Hide all cards beyond the first 6
-                  allCards.forEach((card, index) => {
-                      if (index >= 6) {
-                          card.style.display = 'none'; // Hide cards beyond the first 6
-                      }
-                  });
-                  showLessBtn.style.display = 'none'; // Hide the 'Show Less' button
-                  showMoreBtn.style.display = 'inline-block'; // Show the 'Show More' button
-              });
-          })
-          .catch(error => console.error('Error fetching the JSON data:', error));
-  });
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Show/hide cards based on the selected filter
+                    allCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block'; // Show all cards
+                        } else if (card.classList.contains(`${filter}-card`)) {
+                            card.style.display = 'block'; // Show filtered cards
+                        } else {
+                            card.style.display = 'none'; // Hide others
+                        }
+                    });
+
+                    // Hide the 'Show More' button after filtering
+                    showMoreBtn.style.display = 'none'; // Hide 'Show More' button
+                    showLessBtn.style.display = 'none'; // Hide 'Show Less' button
+                    displayedCards = 0; // Reset displayed card count
+                });
+            });
+
+            // Show more functionality
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const showLessBtn = document.getElementById('showLessBtn');
+
+            showMoreBtn.addEventListener('click', function () {
+                // Show all hidden cards
+                allCards.forEach(card => card.style.display = 'block'); // Show hidden cards
+                showMoreBtn.style.display = 'none'; // Hide the 'Show More' button
+                showLessBtn.style.display = 'inline-block'; // Show the 'Show Less' button
+            });
+
+            // Show less functionality
+            showLessBtn.addEventListener('click', function () {
+                // Hide all cards beyond the first 6
+                allCards.forEach((card, index) => {
+                    if (index >= 6) {
+                        card.style.display = 'none'; // Hide cards beyond the first 6
+                    }
+                });
+                showLessBtn.style.display = 'none'; // Hide the 'Show Less' button
+                showMoreBtn.style.display = 'inline-block'; // Show the 'Show More' button
+            });
+        })
+        .catch(error => console.error('Error fetching the JSON data:', error));
+});
 
 

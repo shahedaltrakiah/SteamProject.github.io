@@ -3823,3 +3823,7 @@ button:hover {
     right: 0;
     left: auto;
 }
+
+html {
+    scroll-behavior: smooth;
+  }
