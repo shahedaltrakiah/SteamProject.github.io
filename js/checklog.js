@@ -25,7 +25,7 @@ function checkUserLogin() {
         }
 
         if (icon) {
-            icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}">
+            icon.innerHTML = `<a href="../pages/profile.html?email=${encodeURIComponent(email)}">
                                 <i class="fa-solid fa-user" style="color:white"></i>
                               </a>`;
         }
