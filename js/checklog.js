@@ -1,50 +1,69 @@
 
 
+// Function to get query parameters from the URL
+function getQueryParam(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Function to check if the user is logged in
 function checkUserLogin() {
     const email = getQueryParam('email'); 
     let userData;
 
     if (email) {
-        userData = JSON.parse(localStorage.getItem(email));
+        userData = JSON.parse(localStorage.getItem(email)); 
     }
 
+    // Select necessary elements
+    const loginButton = document.querySelector('.btn-custom-1');
+    const icon = document.querySelector('.for-logging');
+
     if (userData && userData.logged === "Yes") {
-        var logoutButton = document.querySelector('.btn-custom-1'); 
-        if (logoutButton) {
-            logoutButton.innerText = "Logout";
-            logoutButton.onclick = logout;
+        // User is logged in
+        if (loginButton) {
+            loginButton.innerText = "Logout";
+            loginButton.onclick = () => logout(email); 
         }
 
-        var icon = document.querySelector('.for-logging');
         if (icon) {
-            icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}"><i class="fa-solid fa-user"></i></a>`;
+            icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}">
+                                <i class="fa-solid fa-user"></i>
+                              </a>`;
         }
     } else {
-        var loginButton = document.querySelector('.btn-custom-1'); 
+      
         if (loginButton) {
             loginButton.innerText = "Login";
-            // loginButton.onclick = login; // Make sure this function exists
+            loginButton.onclick = () => {
+              
+                window.location.href = "pages/login.html";
+            };
+        }
+
+        if (icon) {
+            // Remove profile icon if not logged in
+            icon.innerHTML = '';
         }
     }
 }
 
-function logout() {
-    const email = getQueryParam('email'); 
+// Logout function
+function logout(email) {
     if (email) {
         const userData = JSON.parse(localStorage.getItem(email));
         if (userData) {
-            userData.logged = "no"; 
-            localStorage.setItem(email, JSON.stringify(userData)); 
+         
+            userData.logged = "no";
+            localStorage.setItem(email, JSON.stringify(userData));
             console.log("User logged out.");
-            window.location.href = "../index.html"; // Redirect after logging out
+
+            window.location.href = "../index.html";
         }
     }
 }
 
+
 window.onload = checkUserLogin;
 
-function getQueryParam(name) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name); 
-}
 
