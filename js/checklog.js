@@ -32,7 +32,7 @@ function checkUserLogin() {
         if (icon) {
             icon.style.display = "inline-block";
             icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}">
-                                <i class="fa-solid fa-user  py-3 px-4 ml-auto mt-3" style="color:#FD5B4E ; font-size:40px"></i>
+                                <i class="fa-solid fa-user py-3 px-4 ml-auto mt-3" style="color:#FD5B4E ; font-size:40px"></i>
                               </a> 
                               <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3 " onclick="logout('${email}')">Logout</button>`;
         }
@@ -50,7 +50,7 @@ function checkUserLogin() {
         if (signupButton) {
             signupButton.style.display = "inline-block";
            // signupButton.innerText = "SIGN UP ";
-            signupButton.innerHTML = `<a href="pages/register.html">SIGN UP</a>`;
+            signupButton.innerHTML = `<a href="pages/register.html" class="btn btn-primary btn-custom-1 py-3 px-4 ml-auto mt-3 for-logging" >SIGN UP</a>`;
         }
 
         // Hide profile icon and logout button
