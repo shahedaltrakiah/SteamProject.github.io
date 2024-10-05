@@ -3947,7 +3947,8 @@ html {
 
 
 .profile-icon{
-    margin:20px 40px;
+    margin-right:20px;
+    margin-top:40px
 }
 
 .for-logging{  border-radius: 30px;
