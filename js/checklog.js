@@ -1,5 +1,3 @@
-
-
 // Function to get query parameters from the URL
 function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -23,7 +21,7 @@ function checkUserLogin() {
         // User is logged in
         if (loginButton) {
             loginButton.innerText = "Logout";
-            loginButton.onclick = () => logout(email); 
+            loginButton.onclick = () => logout(email); // Set the logout function on click
         }
 
         if (icon) {
@@ -32,12 +30,12 @@ function checkUserLogin() {
                               </a>`;
         }
     } else {
-      
+        // User is not logged in
         if (loginButton) {
             loginButton.innerText = "Login";
             loginButton.onclick = () => {
-              
-                window.location.href = "index.html";
+                // Redirect to login page
+                window.location.href = "pages/login.html"; // Redirect to login page instead of index.html
             };
         }
 
@@ -53,17 +51,16 @@ function logout(email) {
     if (email) {
         const userData = JSON.parse(localStorage.getItem(email));
         if (userData) {
-         
+            // Set the user's logged status to "no"
             userData.logged = "no";
             localStorage.setItem(email, JSON.stringify(userData));
             console.log("User logged out.");
 
+            // Redirect to homepage after logout
             window.location.href = "../index.html";
         }
     }
 }
 
-
+// Call checkUserLogin when the window loads
 window.onload = checkUserLogin;
-
-
