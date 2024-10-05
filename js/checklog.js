@@ -32,7 +32,7 @@ function checkUserLogin() {
         if (icon) {
             icon.style.display = "inline-block";
             icon.innerHTML = `<a href="pages/profile.html?email=${encodeURIComponent(email)}">
-                                <i class="fa-solid fa-user btn  py-3 px-4 ml-auto mt-3" style="color:#FD5B4E ; font-size:40px"></i>
+                                <i class="fa-solid fa-user  py-3 px-4 ml-auto mt-3" style="color:#FD5B4E ; font-size:40px"></i>
                               </a> 
                               <button class="btn btn-blue btn-custom-1 py-3 px-4 ml-auto mt-3 " onclick="logout('${email}')">Logout</button>`;
         }
