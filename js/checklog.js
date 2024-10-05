@@ -37,7 +37,7 @@ function checkUserLogin() {
             loginButton.innerText = "Login";
             loginButton.onclick = () => {
               
-                window.location.href = "pages/login.html";
+                window.location.href = "index.html";
             };
         }
 
