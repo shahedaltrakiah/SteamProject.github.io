@@ -428,7 +428,7 @@ h5,
 
 .site-footer {
     padding: 4em 0;
-    background: #343a40;
+    background: #B2B2B2;
     font-family: "Indie Flower", cursive !important;
     font-size: 18px;
 }
@@ -440,7 +440,7 @@ h5,
 }
 
 .site-footer .border-top {
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: 1px solid #B2B2B2(255, 255, 255, 0.1) !important;
 }
 
 .site-footer p {
@@ -2586,14 +2586,14 @@ h5,
 
 /* Enhanced Footer Styling */
 .site-footer {
-    background: linear-gradient(135deg, #565454, #3b3939);
-    color: #ccc;
+    background: linear-gradient(140deg, #7a7878, #8b8989);
+    color: #fff;
     padding: 60px 0;
     font-family: 'Poppins', sans-serif;
 }
 
 .site-footer a {
-    color: #ccc;
+    color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -2603,8 +2603,7 @@ h5,
 }
 
 .footer-heading {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
     color: #fff;
     margin-bottom: 20px;
 }
@@ -2719,6 +2718,7 @@ h5,
     border-top-left-radius: 80px;
     border-top-right-radius: 80px;
     overflow: hidden;
+    background-color: #3DB5D8;
 }
 
 .partners-section {
@@ -2742,9 +2742,6 @@ h5,
 }
 
 /* Events Section Styling */
-.events span {
-    color: #16C3B0;
-}
 
 .events .item {
     background-color: #16c3af36;
@@ -2807,11 +2804,13 @@ h5,
     margin-top: 20px;
     padding: 10px 30px;
     font-size: 16px;
-    background-color: #F88C6D;
+    background-color: #FD5B4E;
+    color: white;
 }
 
 #showLessBtn {
-    background-color: #F88C6D;
+    background-color: #FD5B4E;
+    color: white;
 }
 
 /* Event Link Button */
@@ -3074,6 +3073,7 @@ Courses Style
     justify-content: center;
     align-items: center;
     margin: auto;
+    color: white !important;
 }
 
 /* Common card styling */
@@ -3102,25 +3102,34 @@ Courses Style
     text-align: center;
 }
 
+#courses-container {
+    color: white !important;
+}
+
 /* Specific color for each type */
 .science-card .card {
-    background-color: #fd5a4e8e !important;
+    background-color: #FD5B4E !important;
+    color: white;
 }
 
 .technology-card .card {
-    background-color: #f0c32e91 !important;
+    background-color: #FDB62F !important;
+    color: white;
 }
 
 .engineering-card .card {
-    background-color: #16c3af8f !important;
+    background-color: #16C3B0 !important;
+    color: white;
 }
 
 .art-card .card {
-    background-color: #f88b6d7e !important;
+    background-color: #F88C6D !important;
+    color: white;
 }
 
 .math-card .card {
-    background-color: #3db4d896 !important;
+    background-color: #3DB5D8 !important;
+    color: white;
 }
 
 .show-all-btn {
@@ -3463,6 +3472,10 @@ button:hover {
 /* Hide cards beyond the first 6 */
 .event_box .event_outer:nth-child(n+7) {
     display: none;
+}
+
+.event_box h4 {
+    color: white;
 }
 
 
@@ -3827,3 +3840,7 @@ button:hover {
 html {
     scroll-behavior: smooth;
   }
+
+.text-white {
+    color: white;
+}
